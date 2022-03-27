@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next"
 import { getSession } from "next-auth/react"
 import Link from "next/link"
 import Layout from "../components/layout"
+import { getAbsoluteURL } from "../utils/absoluteUrl"
 
 var formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -44,9 +45,8 @@ export default function IndexPage({ balance }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const protocol = req.headers["x-forwarded-proto"] || "http"
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : ""
-  const balance = await fetch(baseUrl + "/api/payment/balance").then((rsp) =>
+  const base = getAbsoluteURL(req)
+  const balance = await fetch(base + "/api/payment/balance").then((rsp) =>
     rsp.json()
   )
   return {

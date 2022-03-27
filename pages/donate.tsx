@@ -20,7 +20,8 @@ const Donate = ({ session, setClientSecret, clientSecret }: any) => {
   useEffect(() => {
     if (step === PAYMENT_STEPS.PAYMENT && !clientSecret)
       router.replace(`/donate?step=${PAYMENT_STEPS.INFO}`)
-  })
+  }, [clientSecret, router, step])
+
   if (!step || step === PAYMENT_STEPS.INFO) {
     return <Info session={session} setClientSecret={setClientSecret} />
   }
@@ -38,13 +39,12 @@ const Donate = ({ session, setClientSecret, clientSecret }: any) => {
 
 const DonatePage = (props: any) => {
   const [clientSecret, setClientSecret] = useState<string>("")
-  const { query } = useRouter()
-  const { payment_intent_client_secret: urlSecret } = query as {
-    payment_intent_client_secret: string
-  }
+  const {
+    query: { payment_intent_client_secret: urlSecret },
+  } = useRouter()
 
   useEffect(() => {
-    if (urlSecret) setClientSecret(urlSecret)
+    if (urlSecret) setClientSecret(urlSecret as string)
   }, [urlSecret])
 
   const Wrapper = clientSecret ? Elements : Fragment

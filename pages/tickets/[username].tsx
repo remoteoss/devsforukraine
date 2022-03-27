@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next"
 import { getSession } from "next-auth/react"
 import Layout from "../../components/layout"
+import { getAbsoluteURL } from "../../utils/absoluteUrl"
 import { Session } from "../../utils/types"
 
 const UserTicket = ({ user }: { user: Session["user"] }) => {
@@ -18,9 +19,8 @@ export const getServerSideProps: GetServerSideProps = async ({
   req,
 }) => {
   const { username } = query
-  const protocol = req.headers["x-forwarded-proto"] || "http"
-  const baseUrl = req ? `${protocol}://${req.headers.host}` : ""
-  const { user } = await fetch(baseUrl + `/api/user?username=${username}`).then(
+  const base = getAbsoluteURL(req)
+  const { user } = await fetch(`${base}/api/user?username=${username}`).then(
     (rsp) => rsp.json()
   )
   return {
