@@ -17,7 +17,7 @@ const getBalance = (): Promise<Stripe.Balance> =>
 
 const GOAL = 15000 // 15k EUR
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const balance = async (req: NextApiRequest, res: NextApiResponse) => {
     const balance = await getBalance()
     const bothCombined =
         balance.available[0].amount + balance.pending[0].amount / 100
@@ -28,3 +28,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         percentage: bothCombined / GOAL,
     })
 }
+
+export default balance

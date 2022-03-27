@@ -6,7 +6,6 @@ export const Final = ({ clientSecret }: { clientSecret: string }) => {
   const [info, setInfo] = useState<any>({})
 
   useEffect(() => {
-    console.log(stripe, clientSecret)
     if (!stripe || !clientSecret) {
       return
     }

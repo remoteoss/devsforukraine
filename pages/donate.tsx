@@ -38,12 +38,14 @@ const Donate = ({ session, setClientSecret, clientSecret }: any) => {
 
 const DonatePage = (props: any) => {
   const [clientSecret, setClientSecret] = useState<string>("")
-  const router = useRouter()
+  const { query } = useRouter()
+  const { payment_intent_client_secret: urlSecret } = query as {
+    payment_intent_client_secret: string
+  }
 
   useEffect(() => {
-    if (router.query.payment_intent_client_secret)
-      setClientSecret(router.query.payment_intent_client_secret as string)
-  }, [])
+    if (urlSecret) setClientSecret(urlSecret)
+  }, [urlSecret])
 
   const Wrapper = clientSecret ? Elements : Fragment
   const wrapperProps = clientSecret

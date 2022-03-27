@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next"
+import { getSession } from "next-auth/react"
 import Link from "next/link"
 import Layout from "../components/layout"
 
@@ -45,11 +46,9 @@ export default function IndexPage({ balance }: Props) {
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const protocol = req.headers["x-forwarded-proto"] || "http"
   const baseUrl = req ? `${protocol}://${req.headers.host}` : ""
-
   const balance = await fetch(baseUrl + "/api/payment/balance").then((rsp) =>
     rsp.json()
   )
-
   return {
     props: { balance },
   }
