@@ -9,7 +9,7 @@ export default function Layout({ children }: Props) {
   return (
     <>
       <Header />
-      <main className="w-7xl max-[80%] mx-auto sm:px-6 lg:px-8 mt-8">
+      <main className="w-[80rem] max-w-[80%] mx-auto sm:px-6 lg:px-8 mt-8 h-full">
         {children}
       </main>
     </>

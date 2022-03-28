@@ -4,6 +4,15 @@ import { GitHub } from "./Icons"
 
 const TICKET_WIDTH = 654
 const TICKET_HEIGHT = 351
+const PERSPECTIVE = "900px"
+
+const mouseUp = (el: HTMLElement) =>
+  (el.style.transform = `perspective(${PERSPECTIVE}) rotateX(0) rotateY(0)`)
+
+const mousedown = (el: HTMLElement) =>
+  (el.style.transform = `perspective(${PERSPECTIVE})  rotateX(0) rotateY(0)`)
+const mouseout = (el: HTMLElement) =>
+  (el.style.transform = `perspective(${PERSPECTIVE})  rotateX(0) rotateY(0)`)
 
 const TicketBG = ({ bg }: { bg: string }) => {
   return (
@@ -13,6 +22,10 @@ const TicketBG = ({ bg }: { bg: string }) => {
       viewBox={`0 0 ${TICKET_WIDTH} ${TICKET_HEIGHT}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="relative -z-[1]"
+      style={{
+        filter: `drop-shadow(0px 3.11178px 50.5665px ${bg}4d)`,
+      }}
     >
       <mask id="path-1-inside-1_2_6304" fill="white">
         <path
@@ -54,20 +67,9 @@ const getNumber = (number: number) => {
   }
 }
 
-const PERSPECTIVE = "900px"
-const SCALE = 1.01
-
 export const Ticket = (user: UserType) => {
   const bg = user.name.split("")[0].toLowerCase() > "M" ? "#FFDD00" : "#0057B7"
   const wrapper = useRef()
-
-  const mouseUp = (el: HTMLElement) =>
-    (el.style.transform = `perspective(${PERSPECTIVE}) scale(${SCALE}) rotateX(0) rotateY(0)`)
-
-  const mousedown = (el: HTMLElement) =>
-    (el.style.transform = `perspective(${PERSPECTIVE}) scale(0.99px) rotateX(0) rotateY(0)`)
-  const mouseout = (el: HTMLElement) =>
-    (el.style.transform = `perspective(${PERSPECTIVE}) scale(1) rotateX(0) rotateY(0)`)
 
   useEffect(() => {
     const el = wrapper.current as unknown as HTMLElement
@@ -89,21 +91,24 @@ export const Ticket = (user: UserType) => {
   function handleMove(e: MouseEvent & { layerX?: number; layerY?: number }) {
     const el = wrapper.current as unknown as HTMLElement
 
-    /* Store the x position */
     const xVal = e.layerX || 0
-    /* Store the y position */
     const yVal = e.layerY || 0
     const yRotation = 20 * ((xVal - TICKET_WIDTH / 2) / TICKET_WIDTH)
     const xRotation = -20 * ((yVal - TICKET_HEIGHT / 2) / TICKET_HEIGHT)
 
-    const string = `perspective(${PERSPECTIVE}) scale(${SCALE}) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`
-    el.style.transform = string
+    el.style.transform = `perspective(${PERSPECTIVE}) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`
   }
 
   return (
     <div
-      className={`relative h-[${TICKET_HEIGHT}px] w-[${TICKET_WIDTH}px] cursor-pointer m-auto`}
+      className={`relative cursor-pointer m-auto flex justify-center lg:block`}
+      style={{
+        height: TICKET_HEIGHT,
+        width: TICKET_WIDTH,
+        minWidth: TICKET_WIDTH,
+      }}
       // @ts-ignore
+
       ref={wrapper}
     >
       <div className="absolute">
