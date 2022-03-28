@@ -13,3 +13,14 @@ export type Session = {
     };
     expires: ISODateString;
 }
+
+export type UserType = {
+    "name": string,
+    "image": string,
+    "donationAmount": number,
+    "registrationNumber": number,
+    "registeredFor": string | null,
+    "username": string,
+    "location": string,
+    "createdAt": string
+}
