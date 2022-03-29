@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { signOut, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
 import { Session } from "../utils/types"
-import { Menu, Popover, Transition } from "@headlessui/react"
+import { Menu, Transition } from "@headlessui/react"
 import { Fragment } from "react"
 import classNames from "classnames"
 import { Logo } from "./Logo"
@@ -30,12 +30,13 @@ export default function Header() {
           </Link>
           <p className={`nojs-show`}>
             {!session && (
-              <Link href="/register">
-                <a className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
-                  <GitHub width="20" />
-                  Sign in with Github
-                </a>
-              </Link>
+              <button
+                onClick={() => signIn("github")}
+                className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center"
+              >
+                <GitHub width="20" />
+                Sign in with Github
+              </button>
             )}
             {session?.user && <UserNavigation session={session} />}
           </p>

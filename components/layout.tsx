@@ -10,7 +10,7 @@ export default function Layout({ children }: Props) {
     <>
       <Header />
       <main
-        className="w-[80rem] max-w-[80%] mx-auto sm:px-6 lg:px-8 mt-8 h-full"
+        className="w-[80rem] max-w-[80%] mx-auto sm:px-6 lg:px-8 mt-8 pb-40"
         style={{
           // header height
           marginTop: -96,

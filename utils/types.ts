@@ -24,3 +24,10 @@ export type UserType = {
     "location": string,
     "createdAt": string
 }
+
+export type balance = {
+    balance: number
+    goal: number
+    percentage: number
+    donations: number
+}

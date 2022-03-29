@@ -3,78 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-devs-black text-gray-50;
-  height: 500vh;
-}
-
-.button {
-  @apply inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
-}
-
-input,
-textarea {
-  @apply text-slate-800;
-}
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #fff;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #fff transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.progress .progress-bar {
-  display: block;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    #ffd33d,
-    #ea4aaa 17%,
-    #b34bff 34%,
-    #01feff 51%,
-    #ffd33d 68%,
-    #ea4aaa 85%,
-    #b34bff
-  );
-  background-size: 300% 100%;
-  animation: progress-animation 2s linear infinite;
-}
-
-@keyframes progress-animation {
-  0% {
-    background-position: 100%;
-  }
-  100% {
-    background-position: 0;
-  }
+  @apply bg-devs-black text-gray-50 overflow-x-hidden;
 }
 
 html,
