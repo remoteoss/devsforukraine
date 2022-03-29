@@ -1,4 +1,5 @@
 import { GetServerSideProps } from "next"
+import Head from "next/head"
 import Link from "next/link"
 import { ShareOnTwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
@@ -11,6 +12,16 @@ const UserTicket = ({ user }: { user: UserType }) => {
   const firstName = user.name.split(" ")[0]
   return (
     <Layout>
+      <Head>
+        <title>
+          {firstName}
+          {"'"}s ticket
+        </title>
+        <meta
+          property="og:image"
+          content={`http://localhost:3000/ticket.png?name=${user.name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
+        />
+      </Head>
       <div className="lg:flex justify-center gap-8 items-center h-full">
         <div className="mb-12 lg:m-0">
           <h1 className="text-[43px] font-bold mb-6">
