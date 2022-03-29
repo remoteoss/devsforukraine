@@ -40,7 +40,7 @@ export default function Header() {
                     <span className="sr-only">Open user menu</span>
                     <img
                       className="h-8 w-8 rounded-full"
-                      src={session.user.image}
+                      src={session.user.image || ""}
                       alt={session.user.username || session.user.name || ""}
                     />
                   </Menu.Button>
@@ -71,6 +71,7 @@ export default function Header() {
                           ) : (
                             item.onClick && (
                               <button
+                                // @ts-ignore
                                 onClick={item.onClick}
                                 className={classNames(
                                   active ? "bg-gray-100" : "",

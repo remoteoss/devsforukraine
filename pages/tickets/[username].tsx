@@ -5,7 +5,7 @@ import { ShareOnTwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
-import { Session, UserType } from "../../utils/types"
+import { UserType } from "../../utils/types"
 
 const UserTicket = ({ user }: { user: UserType }) => {
   if (!user || !user.createdAt) return null
