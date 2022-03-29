@@ -1,8 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react"
-import { loadStripe } from "@stripe/stripe-js"
-import { Elements } from "@stripe/react-stripe-js"
+import React from "react"
 
-import CheckoutForm from "../components/Payment/CheckoutForm"
 import { getSession } from "next-auth/react"
 import Layout from "../components/layout"
 import { useRouter } from "next/router"
@@ -11,64 +8,14 @@ import { Final } from "../components/Payment/Final"
 import { Info } from "../components/Payment/Info"
 import { PAYMENT_STEPS } from "../utils/constants"
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_KEY as string)
-
-const Donate = ({ session, setClientSecret, clientSecret }: any) => {
+const DonatePage = () => {
   const router = useRouter()
   const { step } = router.query
 
-  useEffect(() => {
-    if (step === PAYMENT_STEPS.PAYMENT && !clientSecret)
-      router.replace(`/donate?step=${PAYMENT_STEPS.INFO}`)
-  }, [clientSecret, router, step])
-
-  if (!step || step === PAYMENT_STEPS.INFO) {
-    return <Info session={session} setClientSecret={setClientSecret} />
-  }
-
-  if (step === PAYMENT_STEPS.PAYMENT && clientSecret) {
-    return <CheckoutForm />
-  }
-
-  if (step === PAYMENT_STEPS.FINAL && clientSecret) {
-    return <Final clientSecret={clientSecret} />
-  }
-
-  return null
-}
-
-const DonatePage = (props: any) => {
-  const [clientSecret, setClientSecret] = useState<string>("")
-  const {
-    query: { payment_intent_client_secret: urlSecret },
-  } = useRouter()
-
-  useEffect(() => {
-    if (urlSecret) setClientSecret(urlSecret as string)
-  }, [urlSecret])
-
-  const Wrapper = clientSecret ? Elements : Fragment
-  const wrapperProps = clientSecret
-    ? {
-        options: {
-          clientSecret,
-          appearance: {
-            theme: "stripe",
-          },
-        },
-        stripe: stripePromise,
-      }
-    : {}
   return (
     <Layout>
-      {/* @ts-ignore */}
-      <Wrapper {...wrapperProps}>
-        <Donate
-          {...props}
-          clientSecret={clientSecret}
-          setClientSecret={setClientSecret}
-        />
-      </Wrapper>
+      {!step || (step === PAYMENT_STEPS.INFO && <Info />)}
+      {step === PAYMENT_STEPS.FINAL && <Final />}
     </Layout>
   )
 }

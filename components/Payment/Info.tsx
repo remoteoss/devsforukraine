@@ -1,25 +1,23 @@
 import { useRouter } from "next/router"
 import { useState } from "react"
-import { PAYMENT_STEPS } from "../../utils/constants"
 
-export const Info = ({ session, setClientSecret }: any) => {
-  const router = useRouter()
+export const Info = () => {
   const [amount, setAmount] = useState<string>("")
-  const [email, setEmail] = useState<string>(session?.user?.email || "")
 
-  const createPaymentIntent = async (e: any) => {
+  const getPaymentLink = async (e: any) => {
     e.preventDefault()
-    const data = await fetch("api/payment/paymentIntent", {
+    const { paymentLink } = await fetch("api/payment/create-payment-link", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ amount, email }),
+      body: JSON.stringify({
+        amount,
+      }),
     }).then((res) => res.json())
-    setClientSecret(data.clientSecret)
-    router.replace(`/donate?step=${PAYMENT_STEPS.PAYMENT}`)
+    window.location.href = paymentLink.url
   }
 
   return (
-    <form onSubmit={createPaymentIntent} className="flex items-center gap-4">
+    <form onSubmit={getPaymentLink} className="flex items-center gap-4">
       <div>
         <label htmlFor="amount" className="sr-only">
           Amount
@@ -45,17 +43,6 @@ export const Info = ({ session, setClientSecret }: any) => {
           </div>
         </div>
       </div>
-
-      {!session?.user?.email && (
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </label>
-      )}
       <button type="submit">Donate</button>
     </form>
   )

@@ -1,19 +1,7 @@
-import { useEffect, useState } from "react"
-import { useStripe } from "@stripe/react-stripe-js"
+import { useRouter } from "next/router"
 
-export const Final = ({ clientSecret }: { clientSecret: string }) => {
-  const stripe = useStripe()
-  const [info, setInfo] = useState<any>({})
-
-  useEffect(() => {
-    if (!stripe || !clientSecret) {
-      return
-    }
-
-    stripe
-      .retrievePaymentIntent(clientSecret)
-      .then(({ paymentIntent }) => setInfo(paymentIntent))
-  }, [clientSecret, stripe])
-
-  return <pre>{JSON.stringify(info, null, 2)}</pre>
+export const Final = () => {
+  const router = useRouter()
+  console.log(router)
+  return <pre>{JSON.stringify(router.query, null, 2)}</pre>
 }
