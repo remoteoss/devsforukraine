@@ -17,28 +17,15 @@ type Props = {
 export default function IndexPage({ balance }: Props) {
   return (
     <Layout>
-      <div className="flex items-center gap-4 mt-12">
-        0
-        <div className="w-full relative">
-          <div className="progress bg-slate-600 overflow-hidden rounded-lg h-[60px] w-full">
-            <span
-              className="progress-bar"
-              style={{ width: balance.percentage * 100 + "%" }}
-            ></span>
-          </div>
-          <span
-            className="absolute -ml-4"
-            style={{ left: balance.percentage * 100 + "%" }}
-          >
-            {formatter.format(balance.balance)}
-          </span>
-        </div>
-        {formatter.format(balance.goal)}
-      </div>
-      <div className="flex justify-center mt-6">
-        <Link href="/donate">
-          <a className="button">Donate</a>
-        </Link>
+      <div className="flex items-center gap-4 h-screen justify-center flex-col">
+        <h1 className="text-3xl text-center">
+          Devs For{" "}
+          <span className="block text-[88px] mt-6 font-extrabold">Ukraine</span>
+        </h1>
+        <h2 className="mt-8 font-mono text-devs-gray100">
+          Free Engineering Conference on{" "}
+          <span className="text-devs-blue">April 25, 26</span> 2022
+        </h2>
       </div>
     </Layout>
   )

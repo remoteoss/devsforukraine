@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 body {
-  @apply bg-slate-900 text-gray-50;
+  @apply bg-devs-black text-gray-50;
+  height: 500vh;
 }
 
 .button {
