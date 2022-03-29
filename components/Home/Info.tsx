@@ -24,14 +24,14 @@ const info = [
 
 export const Info = ({ balance }: Props) => (
   <div className="flex items-center gap-4 min-h-screen flex-col pt-16">
-    <div className="flex items-center">
+    <div className="sm:flex items-center">
       {info.map((item, index) => (
         <>
           <div
             className={classNames(
-              "flex flex-col text-center",
-              index !== info.length - 1 && "pr-16",
-              index !== 0 && " ml-16"
+              "flex flex-col text-center mb-6 sm:mb-0",
+              index !== info.length - 1 && "sm:pr-16",
+              index !== 0 && "sm:ml-16"
             )}
           >
             <span className="font-bold text-[64px]">{item.top}</span>
@@ -46,7 +46,7 @@ export const Info = ({ balance }: Props) => (
           </div>
           {index !== info.length - 1 && (
             <div
-              className="w-[1px] h-[40px]"
+              className="hidden sm:block w-[1px] h-[40px]"
               style={{
                 background: "rgba(255, 255, 255, 0.24)",
               }}

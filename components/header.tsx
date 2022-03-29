@@ -15,13 +15,13 @@ export default function Header() {
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <div className="w-[80rem] max-w-[80%] mx-auto flex items-center justify-between">
+      <div className="w-[80rem] max-w-[80%] mx-auto flex flex-col sm:flex-row items-center sm:justify-between justify-center">
         <Link href="/">
           <a>
             <Logo />
           </a>
         </Link>
-        <div className="flex gap-3">
+        <div className="flex gap-3 sm:mt-0 mt-4">
           <Link href="/donate">
             <a className="bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
               <Heart width="20" />

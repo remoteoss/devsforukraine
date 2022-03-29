@@ -27,14 +27,14 @@ export const DonationProgress = ({
       }}
     ></div>
     <div className="flex justify-between w-full mb-8 items-center">
-      <span className="font-mono text-devs-gray100">
+      <span className="font-mono text-devs-gray100  hidden sm:block">
         <span className="block text-white font-sans text-2xl font-bold">
           {donations}
         </span>{" "}
         Donations
       </span>
       <span className="font-mono text-devs-gray100">
-        <span className="block text-white font-sans text-4xl font-bold text-right">
+        <span className="block text-white font-sans text-4xl font-bold sm:text-right">
           {formatter.format(balance)}
         </span>{" "}
         raised of {formatter.format(goal)} goal

@@ -10,7 +10,7 @@ export const Hero = () => (
       Devs For{" "}
       <span className="block text-[88px] mt-6 font-extrabold">Ukraine</span>
     </h1>
-    <h2 className="mt-8 font-mono text-devs-gray100">
+    <h2 className="mt-8 font-mono text-devs-gray100 text-center sm:text-left">
       Free Engineering Conference on{" "}
       <span className="text-devs-blue">April 25, 26</span> 2022
     </h2>
