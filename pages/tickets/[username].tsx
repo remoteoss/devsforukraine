@@ -19,7 +19,7 @@ const UserTicket = ({ user }: { user: UserType }) => {
         </title>
         <meta
           property="og:image"
-          content={`http://localhost:3000/ticket.png?name=${user.name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
+          content={`https://og-image-remotecom.vercel.app/ticket.png?name=${user.name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
         />
       </Head>
       <div className="lg:flex justify-center gap-8 items-center h-full">
