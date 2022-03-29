@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe'
 import { prisma } from "../../../utils/prisma"
-var getRawBody = require('raw-body')
-const endpointSecret = "whsec_26155e8595cf6d13a180858cc63256afe653fd1c4a43a50cd9f73bc38eac4736";
+import getRawBody from 'raw-body'
+const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
