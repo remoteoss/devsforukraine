@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe'
+import { prisma } from "../../../utils/prisma"
 var getRawBody = require('raw-body')
 const endpointSecret = "whsec_26155e8595cf6d13a180858cc63256afe653fd1c4a43a50cd9f73bc38eac4736";
 
@@ -17,8 +18,34 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     // Handle the event
     switch (event.type) {
         case 'payment_intent.succeeded':
-            const paymentIntent = event.data.object;
-            console.log(JSON.stringify(paymentIntent))
+            const paymentIntent: any = event.data.object;
+            if (paymentIntent.status === "succeeded") {
+                const charge = paymentIntent.charges.data[0]
+                const email = charge.billing_details.email
+
+                const user = await prisma.user.findFirst({
+                    where: {
+                        email,
+                    }
+                })
+
+                if (user) {
+                    await prisma.donation.create({
+                        data: {
+                            amount: charge.amount / 100,
+                            userId: user.id,
+                        }
+                    })
+                } else {
+                    await prisma.donation.create({
+                        data: {
+                            amount: charge.amount / 100,
+                            email,
+                        }
+                    })
+                }
+            }
+
             break;
         // ... handle other event types
         default:

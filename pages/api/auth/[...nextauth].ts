@@ -4,7 +4,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { prisma } from "../../../utils/prisma"
 import { Session } from "../../../utils/types"
 import { JWT } from "next-auth/jwt"
-import { signIn } from "next-auth/react"
+
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   providers: [

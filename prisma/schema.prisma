@@ -49,11 +49,20 @@ model User {
     username           String            @unique
     location           String?
     createdAt          DateTime          @default(now())
+    Donations          Donation[]
 }
 
 enum RegistrationType {
     FRONTEND
     BACKEND
+}
+
+model Donation {
+    id     String  @id @default(cuid())
+    amount Int
+    userId String?
+    User   User?   @relation(fields: [userId], references: [id])
+    email  String?
 }
 
 model VerificationToken {
