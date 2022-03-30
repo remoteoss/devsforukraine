@@ -14,7 +14,7 @@ export default function Header() {
   }
   const isLoading = status === "loading"
   return (
-    <header className="p-8 px-6 sticky top-0 z-20">
+    <header className="py-8 sticky top-0 z-20">
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>

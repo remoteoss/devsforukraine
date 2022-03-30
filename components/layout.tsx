@@ -1,3 +1,4 @@
+import Link from "next/link"
 import type { ReactChildren } from "react"
 import { HEADER_HEIGHT } from "../utils/constants"
 import Header from "./header"
@@ -11,7 +12,7 @@ export default function Layout({ children }: Props) {
     <>
       <Header />
       <main
-        className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-40"
+        className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20"
         style={{
           // header height
           marginTop: -HEADER_HEIGHT,
@@ -20,6 +21,14 @@ export default function Layout({ children }: Props) {
       >
         {children}
       </main>
+      <footer className=" py-5 border-t-[1px] border-devs-gray100">
+        <div className="w-[80rem] max-w-[90%] mx-auto flex justify-between">
+          <p>#DevsForUkraine</p>
+          <Link href="code-of-conduct">
+            <a className="underline text-devs-gray100">Code of Conduct</a>
+          </Link>
+        </div>
+      </footer>
     </>
   )
 }
