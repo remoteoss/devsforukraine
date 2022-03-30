@@ -24,7 +24,7 @@ export const Info = () => {
         </label>
         <div className="mt-1 relative rounded-md shadow-sm">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <span className="text-gray-500 sm:text-sm">€</span>
+            <span className="text-gray-500 sm:text-sm">$</span>
           </div>
           <input
             type="text"
@@ -38,7 +38,7 @@ export const Info = () => {
           />
           <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
             <span className="text-gray-500 sm:text-sm" id="amount-currency">
-              EUR
+              USD
             </span>
           </div>
         </div>

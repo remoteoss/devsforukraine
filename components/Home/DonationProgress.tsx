@@ -4,7 +4,7 @@ import { Heart } from "../Icons"
 
 var formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
-  currency: "EUR",
+  currency: "USD",
   minimumFractionDigits: 0,
 })
 
