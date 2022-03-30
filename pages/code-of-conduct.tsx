@@ -2,23 +2,32 @@ import Layout from "../components/layout"
 
 const CodeOfConduct = () => (
   <Layout>
-    <section className="text-sm leading-6 mt-6">
-      <h1 className="font-bold text-4xl mb-8">Code of Conduct</h1>
-      All attendees, speakers, sponsors and volunteers at DevsForUkraine
-      conference are required to agree with the following code of conduct.
+    <section className="text-sm leading-6 mt-6 text-devs-gray100">
+      <h1 className="text-white font-bold text-4xl mb-8">Code of Conduct</h1>
+      <p className="m-0 p-0 text-xl font-extralight italic">
+        All <span className="text-white">attendees</span>,{" "}
+        <span className="text-white">speakers</span>,{" "}
+        <span className="text-white">sponsors</span> and{" "}
+        <span className="text-white">volunteers</span> at DevsForUkraine
+        conference{" "}
+        <span className="text-white underline">
+          are required to agree with the following code of conduct.
+        </span>
+        <br />
+        <br />
+        Organizers enforce this code throughout the event. We expect cooperation
+        from all participants to help ensure a safe environment for everybody.
+        <br />
+        <br />
+        <a
+          className="text-devs-yellow block underline"
+          href="mailto:coc@devsforukraine.io"
+        >
+          Report an Issue.
+        </a>
+      </p>
       <br />
-      <br />
-      Organizers enforce this code throughout the event. We expect cooperation
-      from all participants to help ensure a safe environment for everybody.
-      <br />
-      <a
-        className="text-devs-yellow block underline"
-        href="mailto:coc@devsforukraine.io"
-      >
-        Report an Issue.
-      </a>
-      <br />
-      <h2 className="font-bold text-2xl my-6">The Quick Version</h2>
+      <h2 className="text-white font-bold text-2xl my-6">The Quick Version</h2>
       Here at DevsForUkraine conference, we are dedicated to providing a
       harassment-free conference experience for everyone, regardless of gender,
       sexual orientation, disability, physical appearance, body size, race, or
@@ -32,7 +41,9 @@ const CodeOfConduct = () => (
       <br />
       Conference attendees violating these rules will be expelled from the
       conference.
-      <h2 className="font-bold text-2xl my-6">The Less Quick Version</h2>
+      <h2 className="text-white font-bold text-2xl my-6">
+        The Less Quick Version
+      </h2>
       Harassment includes, but is not limited to, offensive verbal comments
       related to gender, age, sexual orientation, disability, physical
       appearance, body size, race, religion, sexual images in public spaces,
@@ -72,8 +83,7 @@ const CodeOfConduct = () => (
       <br />
       We expect all community participants (contributors, paid or otherwise;
       sponsors; and other guests) to abide by this Code of Conduct in all
-      community venues—online and in-person—as well as in all one-on-one
-      communications pertaining to community business.
+      community venues.
     </section>
   </Layout>
 )

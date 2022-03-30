@@ -22,7 +22,7 @@ export default function Layout({ children }: Props) {
       >
         {children}
       </main>
-      <footer className=" py-5 border-t-[1px] border-devs-gray100">
+      <footer className=" py-5 border-t-[1px] text-sm border-devs-gray100">
         <div className="w-[80rem] max-w-[90%] mx-auto flex justify-between">
           <p>#DevsForUkraine</p>
           <Link href="code-of-conduct">
