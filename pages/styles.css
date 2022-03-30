@@ -39,3 +39,15 @@ body,
 
   z-index: -1;
 }
+
+@media screen and (min-width: 550px) {
+  body .ticket {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body .ticket {
+    transform: scale(0.6);
+  }
+}

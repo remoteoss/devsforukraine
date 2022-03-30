@@ -106,13 +106,13 @@ export const Ticket = (user: UserType) => {
       style={{
         height: TICKET_HEIGHT,
         width: TICKET_WIDTH,
-        minWidth: TICKET_WIDTH,
+        maxWidth: "100%",
       }}
       // @ts-ignore
 
       ref={wrapper}
     >
-      <div className="absolute">
+      <div className="absolute scale-50 ticket">
         <div className="top-7 absolute left-12 w-[420px] flex flex-col justify-center align-center pb-[60px]">
           <div className="flex align-center">
             <img

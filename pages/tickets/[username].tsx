@@ -22,7 +22,7 @@ const UserTicket = ({ user }: { user: UserType }) => {
           content={`https://og-image-remotecom.vercel.app/ticket.png?name=${user.name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
         />
       </Head>
-      <div className="lg:flex justify-center gap-8 items-center h-full">
+      <div className="xl:flex justify-center gap-8 items-center h-full">
         <div className="mb-12 lg:m-0">
           <h1 className="text-[43px] font-bold mb-6">
             <span className="capitalize">{firstName}</span>
@@ -45,7 +45,7 @@ const UserTicket = ({ user }: { user: UserType }) => {
           <p className="text-slate-500">
             Want to be a part of the conference too?{" "}
             <Link href="/register">
-              <a className="text-red-500"> Register now</a>
+              <a className="text-devs-yellow"> Register now</a>
             </Link>
           </p>
         </div>
