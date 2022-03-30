@@ -24,6 +24,11 @@ export const frontendSpeakers = [
     pic: "cassidy.jpeg",
     twitter: "cassidoo",
   },
+  {
+    name: "Dan Abramov",
+    pic: "dan.jpeg",
+    twitter: "dan_abramov",
+  },
 ]
 
 export const backendSpeakers = [
