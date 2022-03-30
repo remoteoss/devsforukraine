@@ -11,3 +11,31 @@ body,
 #__next {
   height: 100%;
 }
+
+.gh-button:hover::before {
+  opacity: 0.8;
+}
+
+.gh-button {
+  @apply bg-transparent;
+  transition: all 200ms ease;
+}
+
+.gh-button:hover {
+  @apply bg-devs-black;
+}
+
+.gh-button::before {
+  @apply opacity-0 absolute top-0 left-0 w-full h-full blur-lg;
+
+  transition: all 200ms ease;
+  content: "";
+  background: rgb(39, 151, 250);
+  background: linear-gradient(
+    90deg,
+    rgba(39, 151, 250, 1) 50%,
+    rgba(231, 205, 84, 1) 50%
+  );
+
+  z-index: -1;
+}

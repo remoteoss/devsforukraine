@@ -5,17 +5,15 @@ import { Menu, Transition } from "@headlessui/react"
 import { Fragment } from "react"
 import classNames from "classnames"
 import { Logo } from "./Logo"
-import { GitHub, Heart } from "./Icons"
+import { Heart } from "./Icons"
 
 export default function Header() {
-  const { data: session } = useSession() as { data: Session }
-
   return (
     <header className="p-8 px-6 sticky top-0 z-20">
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <div className="w-[80rem] max-w-[80%] mx-auto flex flex-col sm:flex-row items-center sm:justify-between justify-center">
+      <div className="w-[80rem] max-w-[80%] mx-auto flex flex-row items-center justify-between">
         <Link href="/">
           <a>
             <Logo />
@@ -28,18 +26,6 @@ export default function Header() {
               Donate
             </a>
           </Link>
-          <p className={`nojs-show`}>
-            {!session && (
-              <button
-                onClick={() => signIn("github")}
-                className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center"
-              >
-                <GitHub width="20" />
-                Sign in with Github
-              </button>
-            )}
-            {session?.user && <UserNavigation session={session} />}
-          </p>
         </div>
       </div>
     </header>
