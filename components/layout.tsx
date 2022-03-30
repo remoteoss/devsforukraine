@@ -17,6 +17,7 @@ export default function Layout({ children }: Props) {
           // header height
           marginTop: -HEADER_HEIGHT,
           paddingTop: HEADER_HEIGHT,
+          minHeight: "calc(100vh - " + HEADER_HEIGHT + "px)",
         }}
       >
         {children}
