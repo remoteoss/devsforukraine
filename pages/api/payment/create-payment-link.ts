@@ -2,11 +2,12 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import Stripe from 'stripe';
 import { PAYMENT_STEPS } from "../../../utils/constants";
+
 const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
     apiVersion: "2020-08-27",
 })
 
-const PRICE_ID = "price_1Kiea7HBAwZqYr8ov0rUMbNl";
+const PRICE_ID = process.env.STRIPE_PRICE_ID as string;
 
 const paymentLink = async (req: NextApiRequest, res: NextApiResponse) => {
     const { amount }: { amount: string } = req.body;

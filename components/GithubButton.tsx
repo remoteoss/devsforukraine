@@ -1,4 +1,5 @@
-import { signIn, useSession } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { useEffect } from "react"
 import { Session } from "../utils/types"
 import { GitHub } from "./Icons"
 const classes =
@@ -8,6 +9,13 @@ export const RegisterWithGhButton = () => {
     data: Session
     status: string
   }
+
+  useEffect(() => {
+    // I need this for being able to sign out locally
+    // @ts-ignore
+    window.signOut = signOut
+  }, [])
+
   const isLoading = status === "loading"
   if (isLoading) return null
 
