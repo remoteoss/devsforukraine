@@ -33,7 +33,6 @@ export const RegisterWithGhButton = () => {
       <span className="font-mono text-devs-yellow">
         {session.user?.username}
       </span>
-      !
     </p>
   )
 }
