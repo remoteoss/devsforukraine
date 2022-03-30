@@ -55,7 +55,7 @@ export const backendSpeakers = [
   {
     name: "Andreas Klinger",
     pic: "andreas.jpeg",
-    twitter: "tenderlove",
+    twitter: "andreasklinger",
   },
   {
     name: "Tetiana",
