@@ -1,4 +1,5 @@
 import type { ReactChildren } from "react"
+import { HEADER_HEIGHT } from "../utils/constants"
 import Header from "./header"
 
 interface Props {
@@ -10,10 +11,11 @@ export default function Layout({ children }: Props) {
     <>
       <Header />
       <main
-        className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 mt-8 pb-40 pt-32"
+        className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-40"
         style={{
           // header height
-          marginTop: -96,
+          marginTop: -HEADER_HEIGHT,
+          paddingTop: HEADER_HEIGHT,
         }}
       >
         {children}

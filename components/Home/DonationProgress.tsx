@@ -26,8 +26,8 @@ export const DonationProgress = ({
       <span className={"text-devs-blue mb-4 block"}>Donations</span>
       <h6 className="font-semibold text-4xl">Help Ukraine</h6>
       <span className="text-devs-gray100 block mt-4">
-        Any donation towards Ukraine can have a consequent impact. Please
-        consider helping those in need.
+        Any donation towards NGO{"'"}s helping in Ukraine can have a consequent
+        impact. Please consider helping those in need.
       </span>
       <Link href="/donate">
         <a className="mt-8 bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs inline-flex gap-2 items-center">
