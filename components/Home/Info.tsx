@@ -1,4 +1,5 @@
 import classNames from "classnames"
+import { Fragment } from "react"
 import { balance } from "../../utils/types"
 import { DonationProgress } from "./DonationProgress"
 
@@ -26,7 +27,7 @@ export const Info = ({ balance }: Props) => (
   <div className="flex items-center gap-4 min-h-screen flex-col pt-16">
     <div className="sm:flex items-center">
       {info.map((item, index) => (
-        <>
+        <Fragment key={index}>
           <div
             className={classNames(
               "flex flex-col text-center mb-6 sm:mb-0",
@@ -52,7 +53,7 @@ export const Info = ({ balance }: Props) => (
               }}
             ></div>
           )}
-        </>
+        </Fragment>
       ))}
     </div>
     <p className="text-center text-devs-gray100 text-2xl font-extralight mt-40">

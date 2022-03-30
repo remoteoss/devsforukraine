@@ -19,7 +19,7 @@ export const Hero = () => {
         Free Engineering Conference on{" "}
         <span className="text-white">April 25, 26 2022</span>
       </h2>
-      {!session && <RegisterWithGhButton />}
+      <RegisterWithGhButton />
     </div>
   )
 }

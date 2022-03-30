@@ -1,9 +1,17 @@
-import { signIn } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
+import { Session } from "../utils/types"
 import { GitHub } from "./Icons"
 const classes =
   "px-4 h-[40px] rounded-md font-normal text-xs flex gap-2 items-center relative gh-button"
 export const RegisterWithGhButton = () => {
-  return (
+  const { data: session, status } = useSession() as {
+    data: Session
+    status: string
+  }
+  const isLoading = status === "loading"
+  if (isLoading) return null
+
+  return !session ? (
     <button onClick={() => signIn("github")} className={classes}>
       <div className="absolute left-0 top-0">
         <SVGStroke />
@@ -11,6 +19,14 @@ export const RegisterWithGhButton = () => {
       <GitHub width="20" />
       Register now with Github
     </button>
+  ) : (
+    <p className="text-sm text-devs-gray100">
+      Welcome back{" "}
+      <span className="font-mono text-devs-yellow">
+        {session.user?.username}
+      </span>
+      !
+    </p>
   )
 }
 
