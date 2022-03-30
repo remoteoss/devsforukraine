@@ -21,7 +21,7 @@ export const DonationProgress = ({
   goal,
   percentage,
 }: Props) => (
-  <div className="mt-40 w-full flex flex-col items-center bg-devs-gray400 py-40 px-12">
+  <div className="mt-40 w-full flex flex-col items-center bg-devs-gray400 py-40 px-12 rounded-xl">
     <div className="mb-16 text-center">
       <span className={"text-devs-blue mb-4 block"}>Donations</span>
       <h6 className="font-semibold text-4xl">Help Ukraine</h6>

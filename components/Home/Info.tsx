@@ -12,7 +12,7 @@ const info = [
     bottom: "Front End",
   },
   {
-    top: "15K €",
+    top: "15K $",
     middle: "Donation goal",
     bottom: "in support of Ukraine",
   },

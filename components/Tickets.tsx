@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 import { UserType } from "../utils/types"
 import { GitHub } from "./Icons"
+import { Logo } from "./Logo"
 
 const TICKET_WIDTH = 654
 const TICKET_HEIGHT = 351
@@ -134,14 +135,16 @@ export const Ticket = (user: UserType) => {
             </div>
           </div>
           <div className="flex justify-between items-center mt-12 uppercase text-slate-500 font-semibold text-lg">
-            <h2>CONF NAME</h2>
+            <h2>
+              <Logo />
+            </h2>
             <p className="">25 & 26 APRIL 2022</p>
           </div>
           <a
-            href="https://devsforukraine.com"
+            href="https://devsforukraine.io"
             className="text-slate-600 text-sm mt-2 font-semibold underline"
           >
-            devsforukraine.com
+            devsforukraine.io
           </a>
         </div>
         <div className="top-20 absolute right-10 w-[90px] transform rotate-90 text-6xl font-bold">

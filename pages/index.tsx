@@ -1,6 +1,7 @@
 import { GetServerSideProps } from "next"
 import { Hero } from "../components/Home/Hero"
 import { Info } from "../components/Home/Info"
+import { Speakers } from "../components/Home/Speakers"
 import Layout from "../components/layout"
 import { getAbsoluteURL } from "../utils/absoluteUrl"
 import { balance } from "../utils/types"
@@ -12,6 +13,7 @@ export default function IndexPage({ balance }: Props) {
     <Layout>
       <Hero />
       <Info balance={balance} />
+      <Speakers />
     </Layout>
   )
 }
