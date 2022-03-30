@@ -25,7 +25,7 @@ export default function Header() {
           </a>
         </Link>
         {!isLoading && (
-          <div className="flex gap-3 sm:mt-0 mt-4">
+          <div className="flex gap-3">
             <Link href="/donate">
               <a className="bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
                 <Heart width="20" />
@@ -34,7 +34,7 @@ export default function Header() {
             </Link>
             {session && (
               <Link href={`/tickets/${session?.user?.username}`}>
-                <a className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
+                <a className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex">
                   <TicketIcon fill="white" width="20" />
                   Your ticket
                 </a>

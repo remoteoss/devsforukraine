@@ -11,7 +11,7 @@ export const Speakers = () => (
     <h6 className="block mt-20 text-devs-gray100 text-2xl font-light mb-11">
       Front End
     </h6>
-    <ul className="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-28">
+    <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-28 grid-cols-1">
       {frontendSpeakers.map((speaker) => (
         <li key={speaker.name} className="flex items-center">
           <img
@@ -34,7 +34,7 @@ export const Speakers = () => (
     <h6 className="block mt-20 text-devs-gray100 text-2xl font-light mb-11">
       Back End
     </h6>
-    <ul className="sm:grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-28">
+    <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-28 grid-cols-1">
       {backendSpeakers.map((speaker) => (
         <li key={speaker.name} className="flex items-center">
           <img
