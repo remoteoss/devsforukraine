@@ -24,6 +24,9 @@ const TicketBG = () => {
       fill="none"
       className="relative inset-0 -z-[1]"
       xmlns="http://www.w3.org/2000/svg"
+      style={{
+        boxShadow: "0 45px 100px rgba(0, 0, 0, 0.4)",
+      }}
     >
       <path
         fillRule="evenodd"
@@ -49,7 +52,6 @@ const getNumber = (number: number) => {
 }
 
 export const Ticket = (user: UserType) => {
-  const bg = user.name.split("")[0].toLowerCase() > "M" ? "#FFDD00" : "#0057B7"
   const wrapper = useRef()
 
   useEffect(() => {
@@ -119,9 +121,7 @@ export const Ticket = (user: UserType) => {
             />
             <AvatarBG />
           </div>
-          <h2 className="font-bossa text-lg text-center pt-4 block w-full">
-            {user.name}
-          </h2>
+          <h2 className="font-bossa text-lg pt-4 block w-full">{user.name}</h2>
           <div className="flex items-center gap-2 text-xs justify-center">
             <GitHub TICKET_WIDTH={14} height={14} className="text-slate-500" />
             <a href={`https://github.com/${user.username}`}>

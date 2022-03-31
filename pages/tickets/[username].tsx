@@ -21,8 +21,10 @@ const UserTicket = ({
   const isTicketHolder =
     session && session.user?.username === router.query.username
   if (!user || !user.createdAt) return null
-  const firstName = user.name.split(" ")[0]
-
+  const names = user.name.split(" ")
+  const firstName = names[0]
+  const name =
+    names.length > 2 ? `${names[0]} ${names[names.length - 1]}` : user.name
   return (
     <Layout>
       <Head>
@@ -32,7 +34,7 @@ const UserTicket = ({
         </title>
         <meta
           property="og:image"
-          content={`https://og-image-remotecom.vercel.app/ticket.png?name=${user.name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
+          content={`https://og-image-remotecom.vercel.app/ticket.png?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
         />
       </Head>
       <div className="flex flex-col items-center gap-8 h-full">
@@ -82,7 +84,7 @@ const UserTicket = ({
             Copy link
           </button>
         </div>
-        <Ticket {...user} />
+        <Ticket {...{ ...user, name }} />
       </div>
     </Layout>
   )
