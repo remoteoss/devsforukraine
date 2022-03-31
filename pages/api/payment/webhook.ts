@@ -10,19 +10,19 @@ const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
 })
 
 const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
+
     try {
-        const sig = req.headers['stripe-signature'] as string;
-        const rawBody = await getRawBody(req)
-        const event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
+        const body = req.body;
 
         // Handle the event
-        switch (event.type) {
+        switch (body.type) {
             case 'checkout.session.completed':
-                const session: any = event.data.object;
+                console.log("HERE")
+                const session: any = body.data.object;
+                console.log(session)
                 if (session.status === "complete" && session.metadata.id === process.env.STRIPE_PRICE_ID) {
                     const charge = session.amount_total
-
-                    const email = charge.customer_details.email
+                    const email = session.customer_details.email
 
                     const user = await prisma.user.findFirst({
                         where: {
@@ -33,14 +33,14 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
                     if (user) {
                         await prisma.donation.create({
                             data: {
-                                amount: charge.amount / 100,
+                                amount: charge / 100,
                                 userId: user.id,
                             }
                         })
                     } else {
                         await prisma.donation.create({
                             data: {
-                                amount: charge.amount / 100,
+                                amount: charge / 100,
                                 email,
                             }
                         })
@@ -49,20 +49,16 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
 
                 break;
             default:
-                console.log(`Unhandled event type ${event.type}`);
+                console.log(`Unhandled body type ${body.type}`);
         }
 
-        // Return a 200 res to acknowledge receipt of the event
+        // Return a 200 res to acknowledge receipt of the body
         res.send({ received: true });
-    } catch (e) {
-        console.log("ERROR", e)
+    } catch (e: any) {
+        console.log(e)
+        res.send({ error: e?.message });
     }
 }
 
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-}
 
 export default webhook;

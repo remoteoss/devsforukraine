@@ -18,14 +18,15 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <SEO />
-      <URLModal
-        adapter="nextjs"
-        modals={{
-          donate: DonateModal,
-        }}
-      />
       <SessionProvider session={pageProps.session} refetchInterval={0}>
+        <SEO />
+        <URLModal
+          adapter="nextjs"
+          modals={{
+            donate: DonateModal,
+          }}
+        />
+
         <Component {...pageProps} />
       </SessionProvider>
     </>

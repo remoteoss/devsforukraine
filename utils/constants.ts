@@ -1,6 +1,5 @@
 export const PAYMENT_STEPS = {
-    INFO: "INFO",
-    PAYMENT: "PAYMENT",
+    CANCEL: "CANCEL",
     FINAL: "FINAL",
 }
 

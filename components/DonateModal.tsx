@@ -4,11 +4,13 @@ import { Dialog, Transition } from "@headlessui/react"
 import { ArrowRightIcon, ByRemoteIcon, LoadingIcon } from "./Icons"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useSession } from "next-auth/react"
 
 export default function DonateModal({ onClose }: { onClose: () => void }) {
   const [amount, setAmount] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const { data: session } = useSession()
   const router = useRouter()
 
   const getPaymentLink = async (e: any) => {
@@ -24,12 +26,13 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         amount,
+        email: session?.user?.email,
       }),
     })
       .then(async (res) => {
-        const { paymentLink } = await res.json()
+        const { session } = await res.json()
 
-        router.push(paymentLink.url)
+        router.push(session.url)
       })
       .catch(() => setError("Oops, can't generate donation link"))
       .finally(() => setLoading(false))
