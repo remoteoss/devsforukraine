@@ -1,10 +1,10 @@
 import classNames from "classnames"
 import { GetServerSideProps } from "next"
-import { getSession } from "next-auth/react"
+import { getSession, signIn } from "next-auth/react"
 import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { LinkIcon, TwitterIcon } from "../../components/Icons"
+import { GitHub, LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
@@ -50,40 +50,53 @@ const UserTicket = ({
               : `${user.username} is attending the DevsForUkraine conference`}
           </h1>
           {isTicketHolder ? (
-            <p className="text-devs-gray100 text-center font-light">
+            <p className="text-devs-gray100 text-xl text-center font-light">
               We are delighted that you will be joining us for the
               DevsForUkraine event.
             </p>
           ) : (
-            <p className="text-devs-gray100 text-center text-sm pt-4">
-              Want to be part of the conference?
-              <Link href="/register">
-                <a className="text-devs-yellow block"> Register now</a>
-              </Link>
+            <p className="text-devs-gray100 text-center text-xl pt-4 font-light">
+              DevsForUkraine is a free, online conference with the goal to raise
+              funds and provide support to Ukraine.
             </p>
           )}
         </div>
-        <div className="flex gap-6 mb-12">
-          <a
-            href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
-            target="_blank"
-            rel="noreferrer"
-            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex"
-          >
-            <TwitterIcon />
-            Share on Twitter
-          </a>
-          <button
-            onClick={async () =>
-              // @ts-ignore
-              await navigator.clipboard.writeText(window.location)
-            }
-            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex"
-          >
-            <LinkIcon />
-            Copy link
-          </button>
-        </div>
+        {isTicketHolder ? (
+          <div className="flex gap-6 mb-12">
+            <a
+              href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex"
+            >
+              <TwitterIcon />
+              Share on Twitter
+            </a>
+            <button
+              onClick={async () =>
+                // @ts-ignore
+                await navigator.clipboard.writeText(window.location)
+              }
+              className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex"
+            >
+              <LinkIcon />
+              Copy link
+            </button>
+          </div>
+        ) : (
+          <div className="flex gap-6 mb-12 items-center">
+            <button
+              onClick={() => signIn("github")}
+              className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex"
+            >
+              <GitHub width="14" />
+              Register with Github
+            </button>
+            <Link href="/">
+              <a className="text-devs-yellow block"> Read more</a>
+            </Link>
+          </div>
+        )}
         <Ticket {...{ ...user, name }} />
       </div>
     </Layout>

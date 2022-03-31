@@ -9,7 +9,7 @@ export default function Header() {
     data: Session
     status: string
   }
-  const isLoading = status === "loading"
+
   return (
     <header className="py-8 sticky top-0 z-20">
       <noscript>
