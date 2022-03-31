@@ -47,7 +47,7 @@ const UserTicket = ({
           <h1 className="text-[40px] font-bold mb-6 text-center font-bossa">
             {isTicketHolder
               ? "Congratulations, you are registered!"
-              : `${user.username} is attending the DevsForUkraine conference`}
+              : `${user.username} is attending DevsForUkraine!`}
           </h1>
           {isTicketHolder ? (
             <p className="text-devs-gray100 text-xl text-center font-light">
