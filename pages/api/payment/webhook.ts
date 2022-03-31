@@ -10,50 +10,53 @@ const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
 })
 
 const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
-    const sig = req.headers['stripe-signature'] as string;
-    const rawBody = await getRawBody(req)
+    try {
+        const sig = req.headers['stripe-signature'] as string;
+        const rawBody = await getRawBody(req)
+        const event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
 
-    const event = stripe.webhooks.constructEvent(rawBody, sig, endpointSecret);
+        // Handle the event
+        switch (event.type) {
+            case 'checkout.session.completed':
+                const session: any = event.data.object;
+                if (session.status === "complete" && session.metadata.id === process.env.STRIPE_PRICE_ID) {
+                    const charge = session.amount_total
 
-    // Handle the event
-    switch (event.type) {
-        case 'payment_intent.succeeded':
-            const paymentIntent: any = event.data.object;
-            if (paymentIntent.status === "succeeded") {
-                const charge = paymentIntent.charges.data[0]
-                const email = charge.billing_details.email
+                    const email = charge.customer_details.email
 
-                const user = await prisma.user.findFirst({
-                    where: {
-                        email,
-                    }
-                })
-
-                if (user) {
-                    await prisma.donation.create({
-                        data: {
-                            amount: charge.amount / 100,
-                            userId: user.id,
-                        }
-                    })
-                } else {
-                    await prisma.donation.create({
-                        data: {
-                            amount: charge.amount / 100,
+                    const user = await prisma.user.findFirst({
+                        where: {
                             email,
                         }
                     })
+
+                    if (user) {
+                        await prisma.donation.create({
+                            data: {
+                                amount: charge.amount / 100,
+                                userId: user.id,
+                            }
+                        })
+                    } else {
+                        await prisma.donation.create({
+                            data: {
+                                amount: charge.amount / 100,
+                                email,
+                            }
+                        })
+                    }
                 }
-            }
 
-            break;
-        // ... handle other event types
-        default:
-            console.log(`Unhandled event type ${event.type}`);
+                break;
+            default:
+                console.log(`Unhandled event type ${event.type}`);
+        }
+
+        // Return a 200 res to acknowledge receipt of the event
+        res.send({ received: true });
+    } catch (e) {
+        console.log("ERROR", e)
     }
-
-    // Return a 200 res to acknowledge receipt of the event
-    res.send({ received: true });
 }
 
 export const config = {
