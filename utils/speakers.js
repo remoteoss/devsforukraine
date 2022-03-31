@@ -44,13 +44,13 @@ export const frontendSpeakers = [
   {
     name: "Vladimir Agafonkin",
     twitter: "mourner",
-    pic: "vladimir",
+    pic: "vladimir.jpeg",
     bio: "Engineer at @Mapbox",
   },
   {
     name: "Addy Osmani",
     twitter: "addyosmani",
-    pic: "addy",
+    pic: "addy.jpeg",
     bio: "Engineering manager working on @GoogleChrome",
   },
 ]
