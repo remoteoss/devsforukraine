@@ -34,6 +34,7 @@ export const frontendSpeakers = [
     pic: "dan.jpeg",
     twitter: "dan_abramov",
     bio: "React team at @facebook",
+    talk: "Q&A",
   },
   {
     name: "Tomasz Łakomy",
@@ -79,6 +80,7 @@ export const backendSpeakers = [
     pic: "sasa.jpeg",
     twitter: "sasajuric",
     bio: "Elixir mentor, author of Elixir in Action",
+    talk: "Fireside chat 🔥",
   },
   {
     name: "José Valim",
@@ -91,6 +93,7 @@ export const backendSpeakers = [
     pic: "andreas.jpeg",
     twitter: "andreasklinger",
     bio: "CTO @beondeck",
+    talk: "Fireside chat 🔥",
   },
   {
     name: "Tetiana",
@@ -103,5 +106,12 @@ export const backendSpeakers = [
     pic: "vittoria.jpeg",
     twitter: "vittoria_bitton",
     bio: "Senior Backend Engineer at @remote",
+  },
+  {
+    name: "Anjana Vakil",
+    pic: "anjana.jpeg",
+    twitter: "AnjanaVakil",
+    bio: " Senior Developer Advocate @HasuraHQ",
+    talk: "Opening Doors with Open Source",
   },
 ]
