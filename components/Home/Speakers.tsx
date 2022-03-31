@@ -46,7 +46,7 @@ export const Speakers = () => (
             <span>{speaker.name}</span>
             <a
               className="text-devs-blue pt-1"
-              href={`https://twiter.com/${speaker.twitter}`}
+              href={`https://twitter.com/${speaker.twitter}`}
             >
               @{speaker.twitter}
             </a>
