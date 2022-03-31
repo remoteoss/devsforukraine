@@ -1,19 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import Stripe from 'stripe'
 import { prisma } from "../../../utils/prisma"
-import getRawBody from 'raw-body'
-const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
 
-
-const stripe = new Stripe(process.env.STRIPE_SECRET as string, {
-    apiVersion: "2020-08-27",
-})
 
 const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
-
     try {
         const body = req.body;
-
         // Handle the event
         switch (body.type) {
             case 'checkout.session.completed':
