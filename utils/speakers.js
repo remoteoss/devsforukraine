@@ -41,6 +41,18 @@ export const frontendSpeakers = [
     twitter: "tlakomy",
     bio: "Frontend Engineer at @Stedi",
   },
+  {
+    name: "Vladimir Agafonkin",
+    twitter: "mourner",
+    pic: "vladimir",
+    bio: "Engineer at @Mapbox",
+  },
+  {
+    name: "Addy Osmani",
+    twitter: "addyosmani",
+    pic: "addy",
+    bio: "Engineering manager working on @GoogleChrome",
+  },
 ]
 
 export const backendSpeakers = [
