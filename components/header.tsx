@@ -23,7 +23,7 @@ export default function Header() {
         </Link>
 
         <div className="flex gap-3">
-          <Link href="/donate">
+          <Link href={{ query: { modal: "donate" } }}>
             <a className="bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
               <Heart width="20" />
               Donate

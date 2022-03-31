@@ -29,7 +29,7 @@ export const DonationProgress = ({
         Any donation towards NGO{"'"}s helping in Ukraine can have a consequent
         impact. Please consider helping those in need.
       </span>
-      <Link href="/donate">
+      <Link href={{ query: { modal: "donate" } }}>
         <a className="mt-8 bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs inline-flex gap-2 items-center">
           <Heart width="20" />
           Donate
