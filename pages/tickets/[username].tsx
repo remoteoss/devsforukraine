@@ -46,7 +46,7 @@ const UserTicket = ({
         >
           <h1 className="text-[40px] font-bold mb-6 text-center font-bossa">
             {isTicketHolder
-              ? "Congratulation, you are registered!"
+              ? "Congratulations, you are registered!"
               : `${user.username} is attending the DevsForUkraine conference`}
           </h1>
           {isTicketHolder ? (
@@ -68,7 +68,7 @@ const UserTicket = ({
             href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
             target="_blank"
             rel="noreferrer"
-            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex"
+            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex"
           >
             <TwitterIcon />
             Share on Twitter
@@ -78,7 +78,7 @@ const UserTicket = ({
               // @ts-ignore
               await navigator.clipboard.writeText(window.location)
             }
-            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex"
+            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex"
           >
             <LinkIcon />
             Copy link

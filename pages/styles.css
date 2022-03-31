@@ -55,13 +55,7 @@ body,
   }
 }
 
-@media screen and (min-width: 1000px) {
-  body .ticket {
-    transform: scale(0.6);
-  }
-}
-
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 560px) {
   body .ticket {
     transform: scale(1);
   }

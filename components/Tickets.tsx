@@ -94,7 +94,7 @@ export const Ticket = (user: UserType) => {
 
       ref={wrapper}
     >
-      <div className="absolute scale-50 ticket">
+      <div className="absolute scale-[0.6] ticket">
         <div className="top-8 left-8 absolute w-[52%]">
           <div className="flex justify-between w-full items-center">
             <Logo width="99" />
