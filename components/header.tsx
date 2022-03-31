@@ -1,9 +1,6 @@
 import Link from "next/link"
-import { signIn, signOut, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { Session } from "../utils/types"
-import { Menu, Transition } from "@headlessui/react"
-import { Fragment } from "react"
-import classNames from "classnames"
 import { Logo } from "./Logo"
 import { Heart, TicketIcon } from "./Icons"
 
@@ -24,24 +21,24 @@ export default function Header() {
             <Logo />
           </a>
         </Link>
-        {!isLoading && (
-          <div className="flex gap-3">
-            <Link href="/donate">
-              <a className="bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
-                <Heart width="20" />
-                Donate
+
+        <div className="flex gap-3">
+          {session?.user?.username && (
+            <Link href={`/tickets/${session?.user?.username}`}>
+              <a className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex">
+                <TicketIcon fill="white" width="20" />
+                Your ticket
               </a>
             </Link>
-            {session && (
-              <Link href={`/tickets/${session?.user?.username}`}>
-                <a className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex">
-                  <TicketIcon fill="white" width="20" />
-                  Your ticket
-                </a>
-              </Link>
-            )}
-          </div>
-        )}
+          )}
+
+          <Link href="/donate">
+            <a className="bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
+              <Heart width="20" />
+              Donate
+            </a>
+          </Link>
+        </div>
       </div>
     </header>
   )
