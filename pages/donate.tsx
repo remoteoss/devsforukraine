@@ -8,12 +8,7 @@ const DonatePage = () => {
   const router = useRouter()
   const { step } = router.query
 
-  return (
-    <Layout>
-      {!step || step === PAYMENT_STEPS.INFO ? <Info /> : null}
-      {step === PAYMENT_STEPS.FINAL && <Final />}
-    </Layout>
-  )
+  return <Layout>{step === PAYMENT_STEPS.FINAL && <Final />}</Layout>
 }
 
 export default DonatePage
