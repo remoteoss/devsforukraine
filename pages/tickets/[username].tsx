@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import { GetServerSideProps } from "next"
 import { getSession } from "next-auth/react"
 import Head from "next/head"
@@ -35,7 +36,12 @@ const UserTicket = ({
         />
       </Head>
       <div className="flex flex-col items-center gap-8 h-full">
-        <div className=" max-w-full w-[450px]">
+        <div
+          className={classNames(
+            " max-w-full",
+            isTicketHolder ? "w-[450px]" : "w-[610px]"
+          )}
+        >
           <h1 className="text-[40px] font-bold mb-6 text-center font-bossa">
             {isTicketHolder
               ? "Congratulation, you are registered!"
