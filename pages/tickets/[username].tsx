@@ -1,15 +1,27 @@
 import { GetServerSideProps } from "next"
+import { getSession } from "next-auth/react"
 import Head from "next/head"
 import Link from "next/link"
-import { ShareOnTwitterIcon } from "../../components/Icons"
+import { useRouter } from "next/router"
+import { LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
-import { UserType } from "../../utils/types"
+import { Session, UserType } from "../../utils/types"
 
-const UserTicket = ({ user }: { user: UserType }) => {
+const UserTicket = ({
+  user,
+  session,
+}: {
+  user: UserType
+  session: Session
+}) => {
+  const router = useRouter()
+  const isTicketHolder =
+    session && session.user?.username === router.query.username
   if (!user || !user.createdAt) return null
   const firstName = user.name.split(" ")[0]
+
   return (
     <Layout>
       <Head>
@@ -22,32 +34,47 @@ const UserTicket = ({ user }: { user: UserType }) => {
           content={`https://og-image-remotecom.vercel.app/ticket.png?name=${user.name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
         />
       </Head>
-      <div className="xl:flex justify-center gap-8 items-center h-full mt-12">
-        <div className="mb-12 lg:m-0 max-w-[400px]">
-          <h1 className="text-[43px] font-bold mb-6">
-            <span className="capitalize">{firstName}</span>
-            {"'"}s ticket
+      <div className="flex flex-col items-center gap-8 h-full">
+        <div className=" max-w-full w-[450px]">
+          <h1 className="text-[40px] font-bold mb-6 text-center font-bossa">
+            {isTicketHolder
+              ? "Congratulation, you are registered!"
+              : `${user.username} is attending the DevsForUkraine conference`}
           </h1>
-          <p className="text-slate-500">
-            Congratulations, you got an epic card! Share your unique ticket now
-            and discover what other tickets hold!
-          </p>
-          <>
-            <a
-              href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
-              target="_blank"
-              rel="noreferrer"
-              className="my-6 block"
-            >
-              <ShareOnTwitterIcon />
-            </a>
-          </>
-          <p className="text-slate-500">
-            Want to be a part of the conference too?{" "}
-            <Link href="/register">
-              <a className="text-devs-yellow block"> Register now</a>
-            </Link>
-          </p>
+          {isTicketHolder ? (
+            <p className="text-devs-gray100 text-center font-light">
+              We are delighted that you will be joining us for the
+              DevsForUkraine event.
+            </p>
+          ) : (
+            <p className="text-devs-gray100 text-center text-sm pt-4">
+              Want to be part of the conference?
+              <Link href="/register">
+                <a className="text-devs-yellow block"> Register now</a>
+              </Link>
+            </p>
+          )}
+        </div>
+        <div className="flex gap-6 mb-12">
+          <a
+            href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex"
+          >
+            <TwitterIcon />
+            Share on Twitter
+          </a>
+          <button
+            onClick={async () =>
+              // @ts-ignore
+              await navigator.clipboard.writeText(window.location)
+            }
+            className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex"
+          >
+            <LinkIcon />
+            Copy link
+          </button>
         </div>
         <Ticket {...user} />
       </div>
@@ -61,11 +88,12 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const { username } = query
   const base = getAbsoluteURL(req)
+  const session = await getSession({ req })
   const { user } = await fetch(`${base}/api/user?username=${username}`).then(
     (rsp) => rsp.json()
   )
   return {
-    props: { user },
+    props: { user, session },
   }
 }
 

@@ -12,6 +12,15 @@ body,
   min-height: 100%;
 }
 
+@font-face {
+  font-family: "Bossa";
+  src: url("/fonts/Bossa-Medium.woff") format("woff"),
+    url("/fonts/Bossa-Medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
 .gh-button:hover::before {
   opacity: 0.8;
 }
