@@ -23,21 +23,20 @@ export default function Header() {
         </Link>
 
         <div className="flex gap-3">
-          {session?.user?.username && (
-            <Link href={`/tickets/${session?.user?.username}`}>
-              <a className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex">
-                <TicketIcon fill="white" width="20" />
-                Your ticket
-              </a>
-            </Link>
-          )}
-
           <Link href="/donate">
             <a className="bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs flex gap-2 items-center">
               <Heart width="20" />
               Donate
             </a>
           </Link>
+          {session?.user?.username && (
+            <Link href={`/tickets/${session?.user?.username}`}>
+              <a className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex">
+                <TicketIcon />
+                My ticket
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </header>
