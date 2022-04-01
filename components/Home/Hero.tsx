@@ -26,12 +26,11 @@ export const Hero = () => {
       </div>
 
       <section className="flex flex-col justify-center h-full">
-        {" "}
         <h1 className="text-3xl text-center mt-4 font-bossa ">
-          Devs For{" "}
+          Devs For
           <span className="block text-[88px] mt-6 font-extrabold relative">
-            Ukraine{" "}
-            <div className="absolute right-0 translate-x-full -translate-y-full top-0">
+            Ukraine
+            <div className="absolute right-0 translate-x-4 -translate-y-8 top-0">
               <HeartLogo />
             </div>
           </span>
