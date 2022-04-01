@@ -78,7 +78,7 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
                       Remote during the DevForUkraine event will be{" "}
                       <span className="text-white">evenly divided</span> between{" "}
                       {""}
-                      <Link href="/#ngo">
+                      <Link href="/#ngos">
                         <a className="text-devs-yellow underline">
                           7 Non-Governmental Organizations
                         </a>
