@@ -9,7 +9,22 @@ function randomInRange(min: number, max: number) {
 }
 var count = 200
 var defaults = {
+  colors: ["#E7CD54", "#2797FA"],
+
+  shapes: ["square"],
   origin: { y: 0.7 },
+}
+
+function applyCursorRippleEffect(e: any) {
+  const ripple = document.createElement("div")
+
+  ripple.className = "ripple"
+  document.body.appendChild(ripple)
+
+  ripple.style.left = `${e.clientX}px`
+  ripple.style.top = `${e.clientY}px`
+  ripple.style.animation = `ripple-effect .4s  linear`
+  ripple.onanimationend = () => document.body.removeChild(ripple)
 }
 function fire(particleRatio: number, opts: any) {
   confetti(
@@ -44,12 +59,11 @@ const realistic = () => {
 }
 
 function printMousePos(event: any) {
-  console.log({
-    y: event.clientY / window.innerWidth,
-    x: event.clientX / window.innerHeight,
-  })
+  applyCursorRippleEffect(event)
   confetti({
+    colors: ["#E7CD54", "#2797FA"],
     particleCount: Math.floor(count * 0.25),
+    shapes: ["square"],
     angle: randomInRange(55, 125),
     spread: randomInRange(50, 70),
     origin: {
@@ -60,8 +74,6 @@ function printMousePos(event: any) {
 }
 
 export const Final = () => {
-  const router = useRouter()
-
   useEffect(() => {
     realistic()
     realistic()
@@ -74,7 +86,7 @@ export const Final = () => {
   }, [])
 
   return (
-    <div className="h-screen w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-pointer">
+    <div className="h-screen w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-custom">
       <Logo width="166" />
       <H1>Thank you</H1>
       <MutedP>

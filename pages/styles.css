@@ -30,34 +30,6 @@ body,
   text-rendering: optimizeLegibility;
 }
 
-.gh-button:hover::before {
-  opacity: 0.8;
-}
-
-.gh-button {
-  @apply bg-transparent;
-  transition: all 200ms ease;
-}
-
-.gh-button:hover {
-  @apply bg-devs-black;
-}
-
-.gh-button::before {
-  @apply opacity-0 absolute top-0 left-0 w-full h-full blur-lg;
-
-  transition: all 200ms ease;
-  content: "";
-  background: rgb(39, 151, 250);
-  background: linear-gradient(
-    90deg,
-    rgba(39, 151, 250, 1) 50%,
-    rgba(231, 205, 84, 1) 50%
-  );
-
-  z-index: -1;
-}
-
 @media screen and (min-width: 550px) {
   body .ticket {
     transform: scale(0.8);
@@ -72,11 +44,26 @@ body,
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0;
 }
 
 input[type="number"] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
+}
+
+.ripple {
+  width: 10px;
+  height: 10px;
+  background-color: transparent;
+  position: fixed;
+  border-radius: 50%;
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: scale(10);
+    opacity: 0.3;
+  }
 }
