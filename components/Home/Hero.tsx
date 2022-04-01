@@ -40,7 +40,7 @@ export const Hero = () => {
           and 26, 2022
         </h2>
       </section>
-      <h3 className="font-bossa text-devs-gray100 text-center max-w-[550px] font-light text-2xl">
+      <h3 className=" text-devs-gray100 text-center max-w-[550px] font-extralight text-2xl">
         DevsForUkraine is a <span className="text-white underline">free</span>,
         <span className="text-white underline">online</span> engineering
         conference with the goal to{" "}

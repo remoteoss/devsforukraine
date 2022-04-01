@@ -24,7 +24,7 @@ export const DonationProgress = ({
 }: Props) => (
   <>
     <div className="mb-16 text-center">
-      <span className="text-devs-gray100 block mt-4 font-light max-w-[500px]">
+      <span className="text-devs-gray100 block mt-4 font-light max-w-[500px] text-xl">
         The <span className="text-white">funds raised</span> during the two days
         of the event will be evenly divided between{" "}
         <span className="text-white">7 Non-Governmental Organizations</span>{" "}
