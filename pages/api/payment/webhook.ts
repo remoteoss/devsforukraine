@@ -8,10 +8,9 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
         // Handle the event
         switch (body.type) {
             case 'checkout.session.completed':
-                console.log("HERE")
                 const session: any = body.data.object;
-                console.log(session)
                 if (session.status === "complete" && session.metadata.id === process.env.STRIPE_PRICE_ID) {
+
                     const charge = session.amount_total
                     const email = session.customer_details.email
 
@@ -40,7 +39,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
 
                 break;
             default:
-                console.log(`Unhandled body type ${body.type}`);
+                break;
         }
 
         // Return a 200 res to acknowledge receipt of the body
