@@ -80,7 +80,7 @@ export const DonationProgress = ({
     </ul>
     <ul className="flex items-center justify-center gap-14  mb-40">
       <li>
-        <img src="/orgs/insight.png" alt="insight" width="161" />
+        <img src="/orgs/insight-org.png" alt="insight" width="161" />
       </li>
       <li>
         <img src="/orgs/children.png" alt="Voices of Children" width="61" />
