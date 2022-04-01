@@ -5,9 +5,10 @@ import Header from "./header"
 
 interface Props {
   children: React.ReactNode
+  noFooter?: boolean
 }
 
-export default function Layout({ children }: Props) {
+export default function Layout({ children, noFooter }: Props) {
   return (
     <>
       <Header />
@@ -22,7 +23,7 @@ export default function Layout({ children }: Props) {
       >
         {children}
       </main>
-      <Footer />
+      {!noFooter && <Footer />}
     </>
   )
 }

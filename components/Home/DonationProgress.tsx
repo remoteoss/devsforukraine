@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { balance } from "../../utils/types"
+import { DonateButton } from "../Buttons/Donate"
 import { Heart } from "../Icons"
 
 var formatter = new Intl.NumberFormat("en-US", {
@@ -32,12 +33,9 @@ export const DonationProgress = ({
     </div>
 
     <section className="w-[650px] my-[140px] bg-white bg-opacity-[0.05] p-12 rounded-xl relative">
-      <Link href={{ query: { modal: "donate" } }}>
-        <a className="bg-devs-yellow text-devs-black px-4 py-2 rounded-md font-normal text-xs inline-flex gap-2 items-center absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2">
-          <Heart width="20" />
-          Donate
-        </a>
-      </Link>
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2">
+        <DonateButton />
+      </div>
       <div className="flex justify-between w-full mb-8 items-center">
         <span className=" text-devs-gray100  hidden sm:block">
           <span className="block text-white text-4xl font-bossa pb-1">
