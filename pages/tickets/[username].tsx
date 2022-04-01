@@ -25,6 +25,7 @@ const UserTicket = ({
   const firstName = names[0]
   const name =
     names.length > 2 ? `${names[0]} ${names[names.length - 1]}` : user.name
+  const imageUrl = `/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
   return (
     <Layout>
       <Head>
@@ -32,10 +33,10 @@ const UserTicket = ({
           {firstName}
           {"'"}s ticket
         </title>
-        <meta
-          property="og:image"
-          content={`https://og-image-remotecom.vercel.app/ticket.png?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`}
-        />
+        <meta property="og:image" content={imageUrl} />
+        <meta name="twitter:image:src" content={imageUrl}></meta>
+        <meta name="image" content={imageUrl}></meta>
+        <meta itemProp="image" content={imageUrl}></meta>
       </Head>
       <div className="flex flex-col items-center gap-8 h-full">
         <div

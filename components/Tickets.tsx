@@ -18,8 +18,8 @@ const mouseout = (el: HTMLElement) =>
 const TicketBG = () => {
   return (
     <svg
-      width="554"
-      height="219"
+      width={TICKET_WIDTH}
+      height={TICKET_HEIGHT}
       viewBox="0 0 554 219"
       fill="none"
       className="relative inset-0 -z-[1]"
@@ -123,7 +123,7 @@ export const Ticket = (user: UserType) => {
           </div>
           <h2 className="font-bossa text-lg pt-4 block w-full">{user.name}</h2>
           <div className="flex items-center gap-2 text-xs justify-center">
-            <GitHub TICKET_WIDTH={14} height={14} className="text-slate-500" />
+            <GitHub width={14} height={14} className="text-slate-500" />
             <a href={`https://github.com/${user.username}`}>
               <h6 className="text-slate-500">{user.username}</h6>
             </a>
