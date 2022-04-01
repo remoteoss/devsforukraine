@@ -4,6 +4,7 @@ export const frontendSpeakers = [
     pic: "ben.jpeg",
     twitter: "bencodezen",
     bio: "@vuejs core team & senior staff dx engineer @netlify",
+    talk: "Third Time's the Charm: Taking Another Look at Vue 3",
   },
   {
     name: "Charlie Gerard",

@@ -50,6 +50,7 @@ model User {
     location           String?
     createdAt          DateTime          @default(now())
     Donations          Donation[]
+    Questions          Question[]
 }
 
 enum RegistrationType {
@@ -58,11 +59,20 @@ enum RegistrationType {
 }
 
 model Donation {
-    id     String  @id @default(cuid())
-    amount Int
-    userId String?
-    User   User?   @relation(fields: [userId], references: [id])
-    email  String?
+    id        String   @id @default(cuid())
+    amount    Int
+    userId    String?
+    User      User?    @relation(fields: [userId], references: [id])
+    email     String?
+    createdAt DateTime @default(now())
+}
+
+model Question {
+    id        String   @id @default(cuid())
+    question  String
+    userId    String
+    User      User     @relation(fields: [userId], references: [id])
+    createdAt DateTime @default(now())
 }
 
 model VerificationToken {
