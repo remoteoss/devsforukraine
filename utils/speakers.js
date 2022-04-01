@@ -28,6 +28,7 @@ export const frontendSpeakers = [
     pic: "cassidy.jpeg",
     twitter: "cassidoo",
     bio: "Head of DX and Education at @remote",
+    talk: "MC",
   },
   {
     name: "Dan Abramov",

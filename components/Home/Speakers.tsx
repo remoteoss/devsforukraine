@@ -1,58 +1,69 @@
 import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
+import { TwitterSmall } from "../Icons"
 
 export const Speakers = () => (
-  <div className="flex items-center gap-4 min-h-screen flex-col pt-16">
-    <h6 className="text-devs-yellow text-sm pb-4 m-0">The line up</h6>
-    <h5 className="font-semibold text-4xl">Meet the speakers</h5>
-    <p className="w-[400px] text-center text-devs-gray100">
-      Our panel of speakers include professionals from all industries around the
-      world.
+  <div className="flex  gap-4 min-h-screen flex-col pt-16">
+    <div className="mt-28 text-center">
+      <h3 className="font-bossa font-bold text-4xl">Speaker Panel</h3>
+    </div>
+    <p className="w-[550px] text-center text-devs-gray100 mt-5 m-auto block">
+      Spend 2 days learning from engineering leaders around the globe. Topics
+      will include career growth, team leadership, tech’s ability to create a
+      more equitable world, and more.
     </p>
-    <h6 className="block mt-20 text-devs-gray100 text-2xl font-light mb-11">
-      Front End
-    </h6>
-    <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-28 grid-cols-1">
+    <div className="mt-20 mb-11 flex  items-end">
+      <h6 className="block text-devs-gray100 text-2xl font-bossa font-light min-w-[250px]">
+        <span className="bold text-white font-medium block">Day 1</span>{" "}
+        Speakers & Talks
+      </h6>
+      <div className="h-[1px] w-full bg-white mb-2" />
+    </div>
+    <ul className="mb-28">
       {frontendSpeakers.map((speaker) => (
-        <li key={speaker.name} className="flex items-center">
-          <img
-            src={`/speakers/${speaker.pic}`}
-            alt={speaker.name}
-            className="w-16 h-16 rounded-full mr-6"
-          />
-          <div className="flex flex-col">
-            <span>{speaker.name}</span>
-            <a
-              className="text-devs-blue pt-1"
-              href={`https://twitter.com/${speaker.twitter}`}
-            >
-              @{speaker.twitter}
-            </a>
-          </div>
-        </li>
+        <Speaker key={speaker.name} speaker={speaker} />
       ))}
     </ul>
-    <h6 className="block mt-20 text-devs-gray100 text-2xl font-light mb-11">
-      Back End
-    </h6>
-    <ul className="grid sm:grid-cols-2 md:grid-cols-3 gap-10 mb-28 grid-cols-1">
+    <div className="mt-20 mb-11 flex items-end">
+      <h6 className="block text-devs-gray100 text-2xl font-bossa font-light min-w-[250px]">
+        <span className="bold text-white font-medium block">Day 2</span>{" "}
+        Speakers & Talks
+      </h6>
+      <div className="h-[1px] w-full bg-white mb-2" />
+    </div>
+    <ul className="mb-28">
       {backendSpeakers.map((speaker) => (
-        <li key={speaker.name} className="flex items-center">
-          <img
-            src={`/speakers/${speaker.pic}`}
-            alt={speaker.name}
-            className="w-16 h-16 rounded-full mr-6"
-          />
-          <div className="flex flex-col">
-            <span>{speaker.name}</span>
-            <a
-              className="text-devs-blue pt-1"
-              href={`https://twitter.com/${speaker.twitter}`}
-            >
-              @{speaker.twitter}
-            </a>
-          </div>
-        </li>
+        <Speaker key={speaker.name} speaker={speaker} />
       ))}
     </ul>
   </div>
+)
+
+const Speaker = ({ speaker }: { speaker: any }) => (
+  <li className="flex  justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white">
+    <div className="flex items-center">
+      <img
+        src={`/speakers/${speaker.pic}`}
+        alt={speaker.name}
+        className="w-16 h-16 rounded-full mr-6"
+      />
+
+      <div>
+        <div className="flex gap-3">
+          <span className="font-bossa">{speaker.name}</span>
+
+          <a
+            className="text-devs-blue pt-1"
+            href={`https://twitter.com/${speaker.twitter}`}
+          >
+            <TwitterSmall />
+          </a>
+        </div>
+        <p className="block text-devs-gray100 text-sm mt-1"> {speaker.bio}</p>
+      </div>
+    </div>
+    <p className="font-bossa hidden sm:inline">
+      <span className="pr-1">🎤 </span>
+      {speaker.talk || "TBD"}
+    </p>
+  </li>
 )
