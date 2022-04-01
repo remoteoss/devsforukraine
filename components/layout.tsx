@@ -1,5 +1,4 @@
 import Link from "next/link"
-import type { ReactChildren } from "react"
 import { HEADER_HEIGHT } from "../utils/constants"
 import Header from "./header"
 

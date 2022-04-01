@@ -3,4 +3,4 @@ export const PAYMENT_STEPS = {
     FINAL: "FINAL",
 }
 
-export const HEADER_HEIGHT = 96
+export const HEADER_HEIGHT = 112

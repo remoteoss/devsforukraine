@@ -1,11 +1,10 @@
 import { HEADER_HEIGHT } from "../../utils/constants"
-import { RegisterWithGhButton } from "../GithubButton"
 import { HeartLogo } from "../Logo"
 
 export const Hero = () => {
   return (
     <div
-      className="flex items-center gap-4 justify-center flex-col"
+      className="flex items-center gap-4 justify-between flex-col"
       style={{
         height: `calc(100vh - ${HEADER_HEIGHT}px)`,
       }}
@@ -16,16 +15,30 @@ export const Hero = () => {
         }}
         className="absolute w-screen h-screen inset-0 bg-cover bg-center bg-no-repeat -z-[1]"
       ></div>
-      <HeartLogo />
-      <h1 className="text-3xl text-center mt-4">
-        Devs For{" "}
-        <span className="block text-[88px] mt-6 font-extrabold">Ukraine</span>
-      </h1>
-      <h2 className="mt-8 font-mono text-devs-gray100 text-center max-w-[450px] mb-8">
-        Supporting Ukraine through a free engineering Conference on{" "}
-        <span className="text-white">April 25 and 26, 2022</span>
-      </h2>
-      <RegisterWithGhButton />
+
+      <section className="flex flex-col justify-center h-full">
+        {" "}
+        <h1 className="text-3xl text-center mt-4 font-bossa ">
+          Devs For{" "}
+          <span className="block text-[88px] mt-6 font-extrabold relative">
+            Ukraine{" "}
+            <div className="absolute right-0 translate-x-full -translate-y-full top-0">
+              <HeartLogo />
+            </div>
+          </span>
+        </h1>
+        <h2 className="mt-8 text-devs-gray100 text-center max-w-[450px] mb-8 text-xl leading-8">
+          Supporting Ukraine through a free engineering Conference on April 25
+          and 26, 2022
+        </h2>
+      </section>
+      <h3 className="font-bossa text-devs-gray100 text-center max-w-[550px] font-light text-2xl">
+        DevsForUkraine is a <span className="text-white underline">free</span>,
+        <span className="text-white underline">online</span> engineering
+        conference with the goal to{" "}
+        <span className="text-white underline">raise funds</span> and provide
+        support to Ukraine. 🇺🇦
+      </h3>
     </div>
   )
 }
