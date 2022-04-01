@@ -16,7 +16,7 @@ module.exports = {
           gray400: "#1B1A1A",
           gray300: "#232121",
           gray200: "#2E2D2D",
-          gray100: "#76787E",
+          gray100: "#7F7F7F",
           gray50: "#454343",
         },
       },
