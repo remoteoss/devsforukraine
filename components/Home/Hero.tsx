@@ -15,6 +15,15 @@ export const Hero = () => {
         }}
         className="absolute w-screen h-screen inset-0 bg-cover bg-center bg-no-repeat -z-[1]"
       ></div>
+      <div
+        className="font-bossa text-white opacity-30 absolute bottom-0 -left-2 hidden  rotate-[270deg] sm:flex items-center -translate-y-[160px] -translate-x-1/3"
+        style={{
+          letterSpacing: "0.1em",
+        }}
+      >
+        <div className="w-[100px] h-[1px] bg-white mr-6" />
+        <span className="block">APRIL 25 - 26, 2022</span>
+      </div>
 
       <section className="flex flex-col justify-center h-full">
         {" "}

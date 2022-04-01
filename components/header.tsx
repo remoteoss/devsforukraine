@@ -11,7 +11,7 @@ export default function Header() {
   }
 
   return (
-    <header className="pt-8 sticky top-0 z-20 bg-devs-black">
+    <header className="pt-8 sticky top-0 z-20 ">
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
