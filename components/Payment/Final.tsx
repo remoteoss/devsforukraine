@@ -86,7 +86,7 @@ export const Final = () => {
   }, [])
 
   return (
-    <div className="h-screen w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-custom">
+    <div className="h-screen w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-pointer">
       <Logo width="166" />
       <H1>Thank you</H1>
       <MutedP>
