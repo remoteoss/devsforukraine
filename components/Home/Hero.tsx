@@ -1,5 +1,6 @@
 import { HEADER_HEIGHT } from "../../utils/constants"
 import { HeartLogo } from "../Logo"
+import { H1 } from "../Typography"
 
 export const Hero = () => {
   return (
@@ -28,16 +29,16 @@ export const Hero = () => {
       <section className="flex flex-col justify-center h-full">
         <h1 className="text-3xl text-center mt-4 font-bossa ">
           Devs For
-          <span className="block text-[88px] mt-6 font-extrabold relative">
+          <H1 className="mt-6 relative">
             Ukraine
             <div className="absolute right-0 translate-x-4 -translate-y-8 top-0">
               <HeartLogo />
             </div>
-          </span>
+          </H1>
         </h1>
-        <h2 className="mt-8 text-devs-gray100 text-center max-w-[450px] mb-8 text-xl leading-8">
-          Supporting Ukraine through a free engineering Conference on April 25
-          and 26, 2022
+        <h2 className="mt-8 text-devs-gray100 text-center max-w-[450px] mb-8 text-xl leading-8 font-light">
+          Supporting Ukraine through a free engineering Conference on{" "}
+          <span className="text-devs-yellow">April 25 and 26, 2022</span>
         </h2>
       </section>
       <h3 className=" text-devs-gray100 text-center max-w-[550px] font-extralight text-2xl">

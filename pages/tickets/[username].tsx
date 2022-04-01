@@ -8,6 +8,7 @@ import { RegisterWithGithub } from "../../components/Buttons/RegisterGitHub"
 import { GitHub, LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
+import { H2, H4 } from "../../components/Typography"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
 import { Session, UserType } from "../../utils/types"
 
@@ -71,35 +72,32 @@ const UserTicket = ({
         <meta name="image" content={imageUrl}></meta>
         <meta itemProp="image" content={imageUrl}></meta>
       </Head>
-      <div className="absolute left-0 bottom-0">
+      <div className="absolute left-0 bottom-0 -z-1">
         <LeftSVG />
       </div>
-      <div className="absolute right-0 top-0  max-h-[90vh]">
+      <div className="absolute right-0 top-0 -z-1 max-h-[90vh]">
         <RightSVG />
       </div>
-      <div className="flex flex-col items-center gap-8 mt-20 h-full">
+      <div className="flex flex-col items-center gap-8 mt-20 h-full relative z-1">
         <div
           className={classNames(
             " max-w-full",
             isTicketHolder ? "w-[450px]" : "w-[610px]"
           )}
         >
-          <h1 className="text-[40px] font-bold mb-6 text-center font-bossa">
+          <H2 className="text-center">
             {isTicketHolder
               ? "Congratulations, you are registered!"
               : `${user.username} is attending DevsForUkraine!`}
-          </h1>
-          {isTicketHolder ? (
-            <p className="text-devs-gray100 text-xl text-center font-light">
-              We are delighted that you will be joining us for the
-              DevsForUkraine event.
-            </p>
-          ) : (
-            <p className="text-devs-gray100 text-center text-xl pt-4 font-light">
-              DevsForUkraine is a free, online conference with the goal to raise
-              funds and provide support to Ukraine.
-            </p>
-          )}
+          </H2>
+
+          <H4 className="pt-4">
+            {isTicketHolder
+              ? ` We are delighted that you will be joining us for the
+              DevsForUkraine event.`
+              : `DevsForUkraine is a free, online conference with the goal to raise
+              funds and provide support to Ukraine. `}
+          </H4>
         </div>
         {isTicketHolder ? (
           <div className="flex gap-6 mb-12">

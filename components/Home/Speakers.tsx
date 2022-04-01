@@ -1,16 +1,21 @@
 import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
 import { TwitterSmall } from "../Icons"
+import { H2, H4 } from "../Typography"
 
 export const Speakers = () => (
   <div className="flex  gap-4 min-h-screen flex-col pt-16">
     <div className="mt-28 text-center">
-      <h3 className="font-bossa font-bold text-4xl">Speaker Panel</h3>
+      <H2>Speaker Panel</H2>
     </div>
-    <p className="w-[550px] text-center text-devs-gray100 mt-5 m-auto block">
-      Spend 2 days learning from engineering leaders around the globe. Topics
-      will include career growth, team leadership, tech’s ability to create a
-      more equitable world, and more.
-    </p>
+    <H4 className="mt-5 m-auto block">
+      Spend <span className="text-white">2 days</span> learning from{" "}
+      <span className="text-white">engineering leaders</span> around the globe.
+      Topics will include{" "}
+      <span className="text-white">
+        career growth, team leadership, tech’s ability
+      </span>{" "}
+      to create a more equitable world, and more.
+    </H4>
     <div className="mt-20 mb-11 flex  items-end">
       <h6 className="block text-devs-gray100 text-2xl font-bossa font-light min-w-[250px]">
         <span className="bold text-white font-medium block">Day 1</span>{" "}

@@ -10,6 +10,7 @@ export const frontendSpeakers = [
     pic: "charlie.jpeg",
     twitter: "devdevcharlie",
     bio: "Senior developer advocate  @Stripe",
+    talk: "Simple JStures can go a long way",
   },
   {
     name: "Natalia Tepluhina",

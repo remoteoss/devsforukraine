@@ -1,6 +1,7 @@
 import classNames from "classnames"
 import { Fragment } from "react"
 import { balance } from "../../utils/types"
+import { H2 } from "../Typography"
 import { DonationProgress } from "./DonationProgress"
 
 type Props = { balance: balance }
@@ -53,7 +54,7 @@ export const Info = ({ balance }: Props) => (
       ))}
     </div>
     <div className="mt-28">
-      <h3 className="font-bossa font-bold text-4xl">Charity Event</h3>
+      <H2>Charity Event</H2>
     </div>
     <DonationProgress {...balance} />
   </div>
