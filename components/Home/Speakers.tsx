@@ -1,4 +1,5 @@
 import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
+import { SecondaryButton } from "../Buttons/Secondary"
 import { TwitterSmall } from "../Icons"
 import { H2, H4 } from "../Typography"
 
@@ -44,7 +45,7 @@ export const Speakers = () => (
 )
 
 const Speaker = ({ speaker }: { speaker: any }) => (
-  <li className="flex  justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white">
+  <li className="sm:flex flex-col justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white">
     <div className="flex items-center">
       <img
         src={`/speakers/${speaker.pic}`}
@@ -66,7 +67,10 @@ const Speaker = ({ speaker }: { speaker: any }) => (
         <p className="block text-devs-gray100 text-sm mt-1"> {speaker.bio}</p>
       </div>
     </div>
-    <p className="font-bossa hidden sm:inline">
+    <p className="font-bossa flex sm:max-w-[40%] mt-4 sm:mt-0 gap-4 items-center">
+      {speaker.qa && (
+        <SecondaryButton href="/ask-question">As a Question</SecondaryButton>
+      )}
       <span className="pr-1">🎤 </span>
       {speaker.talk || "TBD"}
     </p>

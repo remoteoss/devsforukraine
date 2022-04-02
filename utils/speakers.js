@@ -38,6 +38,7 @@ export const frontendSpeakers = [
     twitter: "dan_abramov",
     bio: "React team at @facebook",
     talk: "Q&A",
+    qa: true,
   },
   {
     name: "Tomasz Łakomy",
