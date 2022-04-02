@@ -36,26 +36,27 @@ model Session {
 }
 
 model User {
-    id                 String            @id @default(cuid())
+    id                 String     @id @default(cuid())
     name               String?
-    email              String?           @unique
+    email              String?    @unique
     emailVerified      DateTime?
     image              String?
     accounts           Account[]
     sessions           Session[]
     donationAmount     Int?
-    registrationNumber Int               @default(autoincrement())
-    registeredFor      RegistrationType?
-    username           String            @unique
+    registrationNumber Int        @default(autoincrement())
+    role               Role       @default(ATENDEE)
+    username           String     @unique
     location           String?
-    createdAt          DateTime          @default(now())
+    createdAt          DateTime   @default(now())
     Donations          Donation[]
     Questions          Question[]
+
 }
 
-enum RegistrationType {
-    FRONTEND
-    BACKEND
+enum Role {
+    ATENDEE
+    ADMIN
 }
 
 model Donation {
@@ -71,6 +72,8 @@ model Question {
     id        String   @id @default(cuid())
     question  String
     userId    String
+    accepted  Boolean  @default(false)
+    rejected  Boolean  @default(false)
     User      User     @relation(fields: [userId], references: [id])
     createdAt DateTime @default(now())
 }

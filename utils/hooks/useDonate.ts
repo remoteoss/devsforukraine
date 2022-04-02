@@ -1,6 +1,7 @@
 import { useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { api } from "../fetch"
 
 export const useDonate = () => {
     const [amount, setAmount] = useState("")
@@ -16,22 +17,18 @@ export const useDonate = () => {
 
         setLoading(true)
         setError("")
-
-        fetch("api/payment/create-payment-link", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                amount,
-                email: session?.user?.email,
-            }),
-        })
-            .then(async (res) => {
-                const { session } = await res.json()
-
-                router.push(session.url)
+        try {
+            const data = await api.post({
+                url: "payment/create-payment-link", body: {
+                    amount,
+                    email: session?.user?.email,
+                }
             })
-            .catch(() => setError("Oops, can't generate donation link"))
-            .finally(() => setLoading(false))
+            router.push(data.session.url)
+        } catch { setError("Oops, can't generate donation link") } finally {
+            setLoading(false)
+        }
+
     }
 
     return {

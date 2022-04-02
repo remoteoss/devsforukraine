@@ -45,7 +45,6 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
         // Return a 200 res to acknowledge receipt of the body
         res.send({ received: true });
     } catch (e: any) {
-        console.log(e)
         res.send({ error: e?.message });
     }
 }
