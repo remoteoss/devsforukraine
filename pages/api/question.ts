@@ -10,13 +10,13 @@ const question = async (req: NextApiRequest, res: NextApiResponse) => {
     const session = await getSession({ req }) as Session
 
 
-    const { id } = await prisma.user.findUnique({ where: { username: session?.user?.username } })
+    const user = await prisma.user.findUnique({ where: { username: session?.user?.username || "" } })
 
-    if (id) {
+    if (user?.id) {
         await prisma.question.create({
             data: {
                 question: question,
-                userId: id
+                userId: user.id
             }
         })
 

@@ -55,11 +55,13 @@ const AskAQuestionPage = ({ session }: { session: Session }) => {
               )}
               <div className="flex justify-between items-center w-full">
                 <div className="flex">
-                  <img
-                    className="rounded-full w-6 h-6 m-auto mr-3"
-                    src={session?.user?.image}
-                    alt={session?.user?.name}
-                  />
+                  {session?.user?.image && (
+                    <img
+                      className="rounded-full w-6 h-6 m-auto mr-3"
+                      src={session?.user?.image}
+                      alt={session?.user?.name || "user"}
+                    />
+                  )}
                   <div>
                     <p className="text-xs text-left">{session?.user?.name}</p>
                     <p className="text-[11px] text-left text-devs-gray100">
