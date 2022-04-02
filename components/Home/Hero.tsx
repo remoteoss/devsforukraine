@@ -31,7 +31,7 @@ export const Hero = () => {
           Devs For
           <H1 className="mt-6 relative">
             Ukraine
-            <div className="absolute right-0 translate-x-4 -translate-y-8 top-0">
+            <div className="absolute right-0 hidden sm:block translate-x-4 -translate-y-8 top-0">
               <HeartLogo />
             </div>
           </H1>

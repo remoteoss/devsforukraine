@@ -34,7 +34,7 @@ export const DonationProgress = ({
       </H4>
     </div>
     <NGOS />
-    <section className="w-[650px] my-[140px] bg-white bg-opacity-[0.05] p-12 rounded-xl relative">
+    <section className="w-[650px] max-w-full my-[140px] bg-white bg-opacity-[0.05] p-12 rounded-xl relative">
       <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2">
         <DonateButton />
       </div>
