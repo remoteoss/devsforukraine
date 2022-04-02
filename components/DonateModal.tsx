@@ -1,42 +1,11 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from "react"
+import { Fragment } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { ArrowRightIcon, ByRemoteIcon, LoadingIcon } from "./Icons"
 import Link from "next/link"
-import { useRouter } from "next/router"
-import { useSession } from "next-auth/react"
+import { useDonate } from "../utils/hooks/useDonate"
 
 export default function DonateModal({ onClose }: { onClose: () => void }) {
-  const [amount, setAmount] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
-  const { data: session } = useSession()
-  const router = useRouter()
-
-  const getPaymentLink = async (e: any) => {
-    e.preventDefault()
-
-    if (loading) return
-
-    setLoading(true)
-    setError("")
-
-    fetch("api/payment/create-payment-link", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        amount,
-        email: session?.user?.email,
-      }),
-    })
-      .then(async (res) => {
-        const { session } = await res.json()
-
-        router.push(session.url)
-      })
-      .catch(() => setError("Oops, can't generate donation link"))
-      .finally(() => setLoading(false))
-  }
+  const { setAmount, error, getPaymentLink, amount, loading } = useDonate()
   return (
     <Transition.Root show={true} as={Fragment}>
       <Dialog

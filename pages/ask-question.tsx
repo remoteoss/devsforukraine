@@ -1,34 +1,17 @@
 import { GetServerSideProps } from "next"
 import { getSession } from "next-auth/react"
 import Link from "next/link"
-import { useState } from "react"
-import { LeftSVG, RightSVG } from "../components/BGSvg"
+
 import { RegisterWithGithub } from "../components/Buttons/RegisterGitHub"
 import { ArrowRightIcon, LoadingIcon } from "../components/Icons"
 import Layout from "../components/layout"
 import { H2 } from "../components/Typography"
+import { useAskQuestion } from "../utils/hooks/useAskQuestion"
 import { Session } from "../utils/types"
 
 const AskAQuestionPage = ({ session }: { session: Session }) => {
-  const [question, setQuestion] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
-
-  const sendQuestion = async (e: any) => {
-    e.preventDefault()
-    setLoading(true)
-    setError("")
-    fetch("api/question", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        question,
-      }),
-    })
-      .then((res) => res.json())
-      .catch(() => setError("Oops, there was a problem asking your question"))
-      .finally(() => setLoading(false))
-  }
+  const { question, loading, error, sendQuestion, setQuestion } =
+    useAskQuestion()
 
   return (
     <Layout noFooter withBG>
