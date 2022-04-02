@@ -23,10 +23,10 @@ export default function Header() {
             <Logo />
           </a>
         </Link>
-        <h2 className="font-bold text-center hidden sm:block">
+        {/* <h2 className="font-bold text-center hidden sm:block">
           25 - 26 <br />
           <span className="font-semibold"> APRIL 2022</span>
-        </h2>
+        </h2> */}
         <div className="flex gap-3">
           <DonateButton />
           {session?.user?.username ? <TicketButton /> : <RegisterWithGithub />}
