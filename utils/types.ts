@@ -1,4 +1,5 @@
 
+import { Role } from "@prisma/client";
 import { ISODateString } from "next-auth";
 
 export type Session = {
@@ -18,7 +19,7 @@ export type UserType = {
     "image": string,
     "donationAmount": number,
     "registrationNumber": number,
-    "registeredFor": string | null,
+    "role": Role,
     "username": string,
     "location": string,
     "createdAt": string
