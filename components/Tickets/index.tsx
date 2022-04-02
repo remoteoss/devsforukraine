@@ -43,7 +43,7 @@ export const Ticket = (user: UserType) => {
           </span>
         </div>
 
-        <div className="right-[34px] absolute top-12 hidden sm:block">
+        <div className="right-[20px] absolute top-12 hidden sm:block">
           <User user={user} />
         </div>
 
