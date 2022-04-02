@@ -25,7 +25,13 @@ type Question = {
   }
 }
 
-const Admin = ({ questions }: { questions: Question[] }) => {
+const Admin = ({
+  questions,
+  attendees,
+}: {
+  attendees: number
+  questions: Question[]
+}) => {
   const queryClient = useQueryClient()
   const { data } = useQuery("questions", () => api.get({ url: "questions" }), {
     initialData: questions,
@@ -44,17 +50,22 @@ const Admin = ({ questions }: { questions: Question[] }) => {
 
   return (
     <Layout noFooter>
+      <H2 className="text-center my-16">Attendees: {attendees}</H2>
       <H2 className="text-center my-16">Q&A</H2>
-      <H4 className="mb-6 text-center m-auto">Accepted</H4>
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mt-6 mb-6">
-        {data.questions.accepted.map((question: Question) => (
-          <Question
-            question={question}
-            key={question.id}
-            updateQuestionState={updateQuestionState}
-          />
-        ))}
-      </div>
+      {data.questions.accepted.length > 0 && (
+        <>
+          <H4 className="mb-6 text-center m-auto">Accepted</H4>
+          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mt-6 mb-6">
+            {data.questions.accepted.map((question: Question) => (
+              <Question
+                question={question}
+                key={question.id}
+                updateQuestionState={updateQuestionState}
+              />
+            ))}
+          </div>
+        </>
+      )}
       <H4 className="mb-6 text-center m-auto">To Review</H4>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {data.questions.notViewed.map((question: Question) => (
@@ -131,6 +142,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     where: { username: session?.user.username },
   })
 
+  const attendees = await prisma?.user.count()
+
   if (user?.role !== Role.ADMIN) {
     return redirect
   }
@@ -143,6 +156,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       questions,
+      attendees,
     },
   }
 }

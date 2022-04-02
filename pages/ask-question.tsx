@@ -5,9 +5,11 @@ import { RegisterWithGithub } from "../components/Buttons/RegisterGitHub"
 import Layout from "../components/layout"
 import { QuestionForm } from "../components/Question/Form"
 import { H2 } from "../components/Typography"
+import { useAskQuestion } from "../utils/hooks/useAskQuestion"
 import { Session } from "../utils/types"
 
 const AskAQuestionPage = ({ session }: { session: Session }) => {
+  const { done } = useAskQuestion()
   return (
     <Layout noFooter withBG>
       <div className="h-screen flex-col justify-center relative z-1 mt-[150px] text-center  w-[500px] max-w-[80%] m-auto">
