@@ -22,7 +22,7 @@ const TicketBG = () => {
       height={TICKET_HEIGHT}
       viewBox="0 0 554 219"
       fill="none"
-      className="relative inset-0 -z-[1]"
+      className="relative inset-0 -z-[1] hidden sm:block"
       xmlns="http://www.w3.org/2000/svg"
       style={{
         boxShadow: "0 45px 100px rgba(0, 0, 0, 0.4)",
@@ -38,6 +38,28 @@ const TicketBG = () => {
     </svg>
   )
 }
+
+export const MobileTicketSVG = () => (
+  <svg
+    width="327"
+    height="570"
+    viewBox="0 0 327 570"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="relative inset-0 -z-[1] block sm:hidden"
+    style={{
+      boxShadow: "0 45px 100px rgba(0, 0, 0, 0.4)",
+    }}
+  >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M12 0C5.37258 0 0 5.37258 0 12V309C0 312.856 3.11834 315.97 5.95847 318.807C6.37287 319.221 6.78135 319.629 7.17335 320.033C8.92279 321.834 10 324.291 10 327C10 329.709 8.92279 332.166 7.17335 333.967C6.78135 334.371 6.37287 334.779 5.95847 335.193C3.11834 338.03 0 341.144 0 345V558C0 564.627 5.37259 570 12 570H315C321.627 570 327 564.627 327 558V345C327 341.144 323.882 338.03 321.042 335.193C320.627 334.779 320.219 334.371 319.827 333.967C318.077 332.166 317 329.709 317 327C317 324.291 318.077 321.834 319.827 320.033C320.219 319.629 320.627 319.221 321.042 318.807C323.882 315.97 327 312.856 327 309V12C327 5.37258 321.627 0 315 0H12ZM11.1708 327L11.1708 325H17.2639V327H11.1708ZM25.3882 327L25.3882 325H31.4813V327H25.3882ZM39.6056 325H45.6988L45.6987 327H39.6056L39.6056 325ZM309.736 325H315.829L315.829 327H309.736L309.736 325ZM295.519 325H301.612L301.612 327H295.519L295.519 325ZM281.301 325H287.394L287.394 327H281.301L281.301 325ZM267.084 325H273.177V327H267.084V325ZM252.866 325H258.96V327H252.866L252.866 325ZM238.649 325H244.742L244.742 327H238.649L238.649 325ZM224.432 325H230.525L230.525 327H224.432L224.432 325ZM210.214 325H216.307L216.307 327H210.214L210.214 325ZM195.997 325H202.09V327H195.997L195.997 325ZM181.78 325H187.873L187.873 327H181.779L181.78 325ZM167.562 325H173.655L173.655 327H167.562L167.562 325ZM153.345 325H159.438L159.438 327H153.345L153.345 325ZM139.127 325H145.221L145.22 327H139.127L139.127 325ZM124.91 325H131.003L131.003 327H124.91L124.91 325ZM110.693 325H116.786L116.786 327H110.693L110.693 325ZM96.4752 325H102.568L102.568 327H96.4751L96.4752 325ZM82.2578 325H88.3509L88.3509 327H82.2578L82.2578 325ZM68.0404 325H74.1335L74.1335 327H68.0404L68.0404 325ZM53.823 325H59.9161L59.9161 327H53.823L53.823 325Z"
+      fill="white"
+      fillOpacity="0.05"
+    />
+  </svg>
+)
 
 const getNumber = (number: number) => {
   if (number < 10) {
@@ -84,21 +106,19 @@ export const Ticket = (user: UserType) => {
 
   return (
     <div
-      className={`relative cursor-pointer m-auto flex justify-center lg:block`}
+      className={`relative cursor-pointer m-auto flex justify-center lg:block sm:h-[219px] h-[570px]`}
       style={{
-        height: TICKET_HEIGHT,
-        width: TICKET_WIDTH,
         maxWidth: "100%",
       }}
       // @ts-ignore
 
       ref={wrapper}
     >
-      <div className="absolute scale-[0.6] ticket">
-        <div className="top-8 left-8 absolute w-[52%]">
+      <div className="absolute sm:scale-[0.6] ticket">
+        <div className="top-8 left-8 absolute w-full sm:w-[52%]">
           <div className="flex justify-between w-full items-center">
             <Logo width="99" />
-            <span className="text-devs-gray100 underline">
+            <span className="text-devs-gray100 underline hidden sm:block">
               {" "}
               Nº{getNumber(user.registrationNumber)}
             </span>
@@ -111,30 +131,47 @@ export const Ticket = (user: UserType) => {
               Online Front-end &<br /> Back-end Conference
             </span>
           </div>
+          <span className="text-devs-gray100 underline block sm:hidden mt-24">
+            {" "}
+            Nº{getNumber(user.registrationNumber)}
+          </span>
         </div>
-        <div className="right-[34px] absolute top-12">
-          <div className="relative h-[64px] w-full right-[30px]">
-            <img
-              className="w-[64px] h-[64px] rounded-full absolute right-0"
-              src={user.image}
-              alt={user.username}
-            />
-            <AvatarBG />
-          </div>
-          <h2 className="font-bossa text-lg pt-4 block w-full">{user.name}</h2>
-          <div className="flex items-center gap-2 text-xs justify-center">
-            <GitHub width={14} height={14} className="text-slate-500" />
-            <a href={`https://github.com/${user.username}`}>
-              <h6 className="text-slate-500">{user.username}</h6>
-            </a>
-          </div>
+
+        <div className="right-[34px] absolute top-12 hidden sm:block">
+          <User user={user} />
         </div>
 
         <TicketBG />
+        <MobileTicketSVG />
+        <div className="bottom-12 left-1/2 -translate-x-1/2 absolute sm:hidden block w-full flex-col items-center justify-center">
+          <User user={user} />
+        </div>
       </div>
     </div>
   )
 }
+
+export const User = ({ user }: { user: any }) => (
+  <>
+    <div className="relative h-[74px] sm:h-[64px] w-[74px] sm:w-[64px] m-auto">
+      <img
+        className="sm:w-[64px] sm:h-[64px] w-[74px] h-[74px] rounded-full"
+        src={user.image}
+        alt={user.username}
+      />
+      <AvatarBG />
+    </div>
+    <h2 className="font-bossa text-lg pt-4 block w-full text-center">
+      {user.name}
+    </h2>
+    <div className="flex items-center gap-2 text-xs justify-center">
+      <GitHub width={14} height={14} className="text-slate-500" />
+      <a href={`https://github.com/${user.username}`}>
+        <h6 className="text-slate-500">{user.username}</h6>
+      </a>
+    </div>
+  </>
+)
 
 const AvatarBG = () => (
   <svg

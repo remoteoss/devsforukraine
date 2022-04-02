@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useAskQuestion } from "../../utils/hooks/useAskQuestion"
 import { Session } from "../../utils/types"
+import { SecondaryButton } from "../Buttons/Secondary"
 import { ArrowRightIcon, LoadingIcon } from "../Icons"
 
 export const QuestionForm = (session: Session) => {
@@ -42,11 +43,7 @@ export const QuestionForm = (session: Session) => {
         </div>
       </div>
       <div className="flex justify-between mt-10">
-        <Link href={`/`}>
-          <a className="bg-devs-gray200 px-6 py-3 rounded-md hover:bg-devs-gray50 font-normal text-xs gap-2 items-center hidden sm:flex transition-colors">
-            Cancel
-          </a>
-        </Link>
+        <SecondaryButton href="/">Cancel</SecondaryButton>
         {question && (
           <button
             className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex"

@@ -6,6 +6,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 
 import { RegisterWithGithub } from "../../components/Buttons/RegisterGitHub"
+import { SecondaryButton } from "../../components/Buttons/Secondary"
 import { LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
@@ -29,6 +30,7 @@ const UserTicket = ({
   const name =
     names.length > 2 ? `${names[0]} ${names[names.length - 1]}` : user.name
   const imageUrl = `/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
+
   return (
     <Layout noFooter withBG>
       <Head>
@@ -42,7 +44,7 @@ const UserTicket = ({
         <meta itemProp="image" content={imageUrl}></meta>
       </Head>
 
-      <div className="flex flex-col items-center gap-8 mt-20 h-full relative z-1">
+      <div className="flex flex-col items-center gap-8 mt-20 h-full relative z-1 min-h-screen sm:min-h-0">
         <div
           className={classNames(
             " max-w-full",
@@ -65,27 +67,24 @@ const UserTicket = ({
         </div>
         {isTicketHolder ? (
           <div className="flex gap-6 mb-12">
-            <a
+            <SecondaryButton
               href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
+              outsideWebsite
               target="_blank"
               rel="noreferrer"
-              className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center  flex hover:bg-devs-gray50
-              transition-colors"
             >
               <TwitterIcon />
               Share on Twitter
-            </a>
-            <button
+            </SecondaryButton>
+            <SecondaryButton
               onClick={async () =>
                 // @ts-ignore
                 await navigator.clipboard.writeText(window.location)
               }
-              className="bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hover:bg-devs-gray50
-              transition-colors flex"
             >
               <LinkIcon />
               Copy link
-            </button>
+            </SecondaryButton>
           </div>
         ) : (
           <div className="flex gap-6 mb-12 items-center">

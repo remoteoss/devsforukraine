@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react"
 import { ArrowRightIcon, ByRemoteIcon, LoadingIcon } from "./Icons"
 import Link from "next/link"
 import { useDonate } from "../utils/hooks/useDonate"
+import { SecondaryButton } from "./Buttons/Secondary"
 
 export default function DonateModal({ onClose }: { onClose: () => void }) {
   const { setAmount, error, getPaymentLink, amount, loading } = useDonate()
@@ -76,12 +77,12 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
                       </div>
 
                       <div className="mt-5 sm:mt-6 flex justify-between">
-                        <button
-                          className="bg-devs-gray200 text-white px-6 py-3 rounded-md font-normal text-xs gap-2 items-center inline-flex"
+                        <SecondaryButton
+                          hideOnMobile={!!amount}
                           onClick={onClose}
                         >
                           Cancel
-                        </button>
+                        </SecondaryButton>
                         {amount && (
                           <button
                             className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex"
