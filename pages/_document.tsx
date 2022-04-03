@@ -12,7 +12,11 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
-      <script defer data-domain="devsforukraine.io" src="https://analytics.iamsaravieira.com/js/plausible.js"></script>
+      <script
+        defer
+        data-domain="devsforukraine.io"
+        src="https://analytics.iamsaravieira.com/js/plausible.js"
+      ></script>
     </Html>
   )
 }

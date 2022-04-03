@@ -50,8 +50,25 @@ const Admin = ({
 
   return (
     <Layout noFooter>
-      <H2 className="text-center my-16">Attendees: {attendees}</H2>
-      <H2 className="text-center my-16">Q&A</H2>
+      <div className="flex items-center justify-center gap-6">
+        <H4 className="text-center my-16">
+          Analytics:{" "}
+          <a
+            className="underline text-devs-yellow"
+            href="https://analytics.iamsaravieira.com/devsforukraine.io"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Plausible
+          </a>
+        </H4>
+        <H4 className="text-center ">
+          Attendees:{" "}
+          <span className="text-devs-yellow underline">{attendees}</span>
+        </H4>
+      </div>
+      <H2 className="text-center my-12">Q&A</H2>
+
       {data.questions.accepted.length > 0 && (
         <>
           <H4 className="mb-6 text-center m-auto">Accepted</H4>
