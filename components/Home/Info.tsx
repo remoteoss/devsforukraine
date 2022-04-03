@@ -3,7 +3,8 @@ import { Fragment } from "react"
 import { balance } from "../../utils/types"
 import { H2 } from "../Typography"
 import { DonationProgress } from "./DonationProgress"
-
+import { motion } from "framer-motion"
+import { DEFAULT_MOTION } from "../../utils/constants"
 type Props = { balance: balance }
 
 const info = [
@@ -23,9 +24,13 @@ const info = [
 
 export const Info = ({ balance }: Props) => (
   <div className="flex items-center gap-4 min-h-screen flex-col mt-[160px]  ">
-    <div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20">
+    <motion.div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20">
       {info.map((item, index) => (
-        <Fragment key={index}>
+        <motion.div
+          key={index}
+          {...DEFAULT_MOTION}
+          transition={{ delay: index * 0.1 }}
+        >
           <div
             className={classNames(
               "flex flex-col text-center mb-6 sm:mb-0",
@@ -42,17 +47,9 @@ export const Info = ({ balance }: Props) => (
               {item.bottom}
             </span>
           </div>
-          {index !== info.length - 1 && (
-            <div
-              className="hidden sm:block w-[1px] h-[40px]"
-              style={{
-                background: "rgba(255, 255, 255, 0.24)",
-              }}
-            ></div>
-          )}
-        </Fragment>
+        </motion.div>
       ))}
-    </div>
+    </motion.div>
     <div className="mt-28">
       <H2>Charity Event</H2>
     </div>
