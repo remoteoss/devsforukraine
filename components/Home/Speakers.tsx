@@ -45,7 +45,7 @@ export const Speakers = () => (
 )
 
 const Speaker = ({ speaker }: { speaker: any }) => (
-  <li className="sm:flex flex-col justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white">
+  <li className="sm:flex flex-col sm:flex-row justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white">
     <div className="flex items-center">
       <img
         src={`/speakers/${speaker.pic}`}
