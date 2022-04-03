@@ -1,6 +1,8 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "@next/next/no-img-element": 0
+    "@next/next/no-img-element": 0,
+    "no-console": 2,
+    "no-unused-vars": 1
   }
 }
