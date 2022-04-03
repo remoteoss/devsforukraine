@@ -25,6 +25,9 @@ module.exports = {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         bossa: "Bossa",
       },
+      boxShadow: {
+        yellow: "0 0 32px rgb(255, 213, 0, 0.3)",
+      },
     },
   },
 }

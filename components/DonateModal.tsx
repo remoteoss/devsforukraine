@@ -5,7 +5,6 @@ import Link from "next/link"
 import { useDonate } from "../utils/hooks/useDonate"
 import { SecondaryButton } from "./Buttons/Secondary"
 
-const ENTER = 300
 const LEAVE = 200
 
 export default function DonateModal({ onClose }: { onClose: () => void }) {
@@ -13,13 +12,14 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
   const { setAmount, error, getPaymentLink, amount, loading } = useDonate()
 
   useEffect(() => {
-    window.setTimeout(() => setShow(true), ENTER)
+    window.setTimeout(() => setShow(true))
   }, [])
 
   const closeModal = () => {
     setShow(false)
     window.setTimeout(() => onClose(), LEAVE)
   }
+
   return (
     <Transition.Root show={show} as={Fragment}>
       <Dialog
@@ -71,7 +71,7 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
                       .
                     </p>
                     <form onSubmit={getPaymentLink}>
-                      <div className="hw-full min-h-[170px] bg-devs-gray400 mt-14 mb-10 rounded-xl border border-opacity-10 border-white flex items-center text-center justify-center flex-col focus-within:border-devs-yellow transition">
+                      <div className="hw-full min-h-[170px] bg-devs-gray400 mt-14 mb-10 rounded-xl border border-opacity-10 border-white flex items-center text-center justify-center flex-col focus-within:border-devs-yellow transition focus-within:shadow-yellow">
                         <input
                           type="number"
                           step="1"
