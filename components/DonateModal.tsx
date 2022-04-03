@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react"
+import { Fragment, useEffect, useMemo, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { ArrowRightIcon, ByRemoteIcon, LoadingIcon } from "./Icons"
 import Link from "next/link"
@@ -19,6 +19,11 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
     setShow(false)
     window.setTimeout(() => onClose(), LEAVE)
   }
+
+  const isNotInt = useMemo(
+    () => !!amount && parseFloat(amount) % 1 != 0,
+    [amount]
+  )
 
   return (
     <Transition.Root show={show} as={Fragment}>
@@ -71,7 +76,7 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
                       .
                     </p>
                     <form onSubmit={getPaymentLink}>
-                      <div className="hw-full min-h-[170px] bg-devs-gray400 mt-14 mb-10 rounded-xl border border-opacity-10 border-white flex items-center text-center justify-center flex-col focus-within:border-devs-yellow transition focus-within:shadow-yellow">
+                      <div className="hw-full min-h-[170px] bg-devs-gray400 mt-14 mb-10 rounded-xl border border-opacity-10 border-white flex items-center text-center justify-center flex-col focus-within:border-devs-yellow transition focus-within:shadow-yellow relative">
                         <input
                           type="number"
                           step="1"
@@ -84,7 +89,10 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
                           {" "}
                           $ USD
                         </span>
-                        <span className="text-red-600 text-xs block mt-2">
+                        <span className="text-red-600 text-xs block mt-2 absolute bottom-4">
+                          {isNotInt
+                            ? "You can only donate in increments of 1"
+                            : null}
                           {error}
                         </span>{" "}
                       </div>
@@ -98,8 +106,9 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
                         </SecondaryButton>
                         {amount && (
                           <button
-                            className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex"
+                            className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex disabled:opacity-50"
                             type="submit"
+                            disabled={isNotInt}
                           >
                             Pay with Stripe
                             {loading ? (
