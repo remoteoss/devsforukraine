@@ -1,9 +1,7 @@
 import { DEFAULT_MOTION, HEADER_HEIGHT } from "../../utils/constants"
 import { HeartLogo } from "../Logo"
-import { H1 } from "../Typography"
+import { MotionH1 } from "../Typography"
 import { motion } from "framer-motion"
-
-const MotionH1 = motion(H1)
 
 export const Hero = () => {
   return (
@@ -35,13 +33,11 @@ export const Hero = () => {
       <section className="flex flex-col justify-center h-full">
         <motion.h1
           className="text-3xl text-center mt-4 font-bossa"
-          {...DEFAULT_MOTION}
-          transition={{ delay: 0.2, duration: 0.3 }}
+          {...DEFAULT_MOTION({ delay: 0.2 })}
         >
           Devs For
           <MotionH1
-            {...DEFAULT_MOTION}
-            transition={{ delay: 0.25, duration: 0.3 }}
+            {...DEFAULT_MOTION({ delay: 0.25 })}
             className="mt-6 relative"
           >
             Ukraine
@@ -51,8 +47,7 @@ export const Hero = () => {
           </MotionH1>
         </motion.h1>
         <motion.h2
-          {...DEFAULT_MOTION}
-          transition={{ delay: 0.5 }}
+          {...DEFAULT_MOTION({ delay: 0.5 })}
           className="mt-8 text-devs-gray100 text-center max-w-[450px] mb-8 text-xl leading-8 font-light"
         >
           Supporting Ukraine through a free engineering Conference on{" "}
@@ -60,8 +55,7 @@ export const Hero = () => {
         </motion.h2>
       </section>
       <motion.h3
-        {...DEFAULT_MOTION}
-        transition={{ delay: 0.6 }}
+        {...DEFAULT_MOTION({ delay: 0.6 })}
         className=" text-devs-gray100 text-center max-w-[550px] font-extralight text-2xl"
       >
         DevsForUkraine is a <span className="text-white underline">free</span>,

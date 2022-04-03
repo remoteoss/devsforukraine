@@ -5,15 +5,21 @@ import { Logo } from "./Logo"
 import { DonateButton } from "./Buttons/Donate"
 import { TicketButton } from "./Buttons/TicketButton"
 import { RegisterWithGithub } from "./Buttons/RegisterGitHub"
+import { motion } from "framer-motion"
 
+const MOTION = {
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true },
+  transition: { delay: 0.5, duration: 0.5 },
+}
 export default function Header() {
-  const { data: session, status } = useSession() as {
+  const { data: session } = useSession() as {
     data: Session
-    status: string
   }
 
   return (
-    <header className="pt-8 sticky top-0 z-20 ">
+    <motion.header {...MOTION} className="pt-8 sticky top-0 z-20 ">
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
@@ -32,6 +38,6 @@ export default function Header() {
           {session?.user?.username ? <TicketButton /> : <RegisterWithGithub />}
         </div>
       </div>
-    </header>
+    </motion.header>
   )
 }

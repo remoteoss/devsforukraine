@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import classNames from "classnames"
 import React, { ForwardedRef } from "react"
+import { motion } from "framer-motion"
 
 type Props = {
   props: { className?: string; children: React.ReactNode }
@@ -63,3 +64,8 @@ export const H4 = React.forwardRef(
     </MutedP>
   )
 )
+
+export const MotionH1 = motion(H1)
+export const MotionH2 = motion(H2)
+export const MotionH4 = motion(H4)
+export const MotionMutedP = motion(MutedP)

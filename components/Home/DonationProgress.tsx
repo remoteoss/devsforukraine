@@ -1,9 +1,10 @@
-import Link from "next/link"
 import { balance } from "../../utils/types"
 import { DonateButton } from "../Buttons/Donate"
-import { Heart } from "../Icons"
-import { H4, MutedP } from "../Typography"
+
+import { H2, H4, MotionH2, MotionH4 } from "../Typography"
 import { NGOS } from "./NGO"
+import { motion } from "framer-motion"
+import { DEFAULT_MOTION } from "../../utils/constants"
 
 var formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -25,13 +26,16 @@ export const DonationProgress = ({
   percentage,
 }: Props) => (
   <>
+    <div className="mt-28">
+      <MotionH2 {...DEFAULT_MOTION({})}>Charity Event</MotionH2>
+    </div>
     <div className="mb-16 text-center">
-      <H4 className="mt-4">
+      <MotionH4 {...DEFAULT_MOTION({})} className="mt-4">
         The <span className="text-white">funds raised</span> during the two days
         of the event will be evenly divided between{" "}
         <span className="text-white">7 Non-Governmental Organizations</span>{" "}
         Remote is collaborating with:
-      </H4>
+      </MotionH4>
     </div>
     <NGOS />
     <section className="w-[650px] max-w-full my-[140px] bg-white bg-opacity-[0.05] p-12 rounded-xl relative">
@@ -53,11 +57,13 @@ export const DonationProgress = ({
         </span>
       </div>
       <div id="ngos" className="h-4 bg-devs-black w-full rounded-[100px]">
-        <div
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${percentage < 100 ? percentage : 100}%` }}
+          transition={{ delay: 0.2 }}
           className={`h-2 relative top-1 rounded-[100px]`}
           style={{
             background: "linear-gradient(270deg, #2696FA 0%, #E7CD54 100%)",
-            width: `${percentage}%`,
           }}
         />
       </div>

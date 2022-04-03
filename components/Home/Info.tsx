@@ -26,11 +26,7 @@ export const Info = ({ balance }: Props) => (
   <div className="flex items-center gap-4 min-h-screen flex-col mt-[160px]  ">
     <motion.div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20">
       {info.map((item, index) => (
-        <motion.div
-          key={index}
-          {...DEFAULT_MOTION}
-          transition={{ delay: index * 0.1 }}
-        >
+        <motion.div key={index} {...DEFAULT_MOTION({ delay: index * 0.1 })}>
           <div
             className={classNames(
               "flex flex-col text-center mb-6 sm:mb-0",
@@ -50,9 +46,6 @@ export const Info = ({ balance }: Props) => (
         </motion.div>
       ))}
     </motion.div>
-    <div className="mt-28">
-      <H2>Charity Event</H2>
-    </div>
     <DonationProgress {...balance} />
   </div>
 )

@@ -1,14 +1,19 @@
+import { motion } from "framer-motion"
+import { DEFAULT_MOTION } from "../../utils/constants"
 import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
 import { SecondaryButton } from "../Buttons/Secondary"
 import { TwitterSmall } from "../Icons"
-import { H2, H4 } from "../Typography"
+import { MotionH2, MotionH4 } from "../Typography"
 
 export const Speakers = () => (
   <div className="flex  gap-4 min-h-screen flex-col pt-16">
     <div className="mt-28 text-center">
-      <H2>Speaker Panel</H2>
+      <MotionH2 {...DEFAULT_MOTION({ delay: 0.1 })}>Speaker Panel</MotionH2>
     </div>
-    <H4 className="mt-5 m-auto block">
+    <MotionH4
+      {...DEFAULT_MOTION({ delay: 0.25 })}
+      className="mt-5 m-auto block"
+    >
       Spend <span className="text-white">2 days</span> learning from{" "}
       <span className="text-white">engineering leaders</span> around the globe.
       Topics will include{" "}
@@ -16,7 +21,7 @@ export const Speakers = () => (
         career growth, team leadership, tech’s ability
       </span>{" "}
       to create a more equitable world, and more.
-    </H4>
+    </MotionH4>
     <div className="mt-20 mb-11 flex  items-end">
       <h6 className="block text-devs-gray100 text-2xl font-bossa font-light min-w-[250px]">
         <span className="bold text-white font-medium block">Day 1</span>{" "}
@@ -25,8 +30,8 @@ export const Speakers = () => (
       <div className="h-[1px] w-full bg-white mb-2" />
     </div>
     <ul className="mb-28">
-      {frontendSpeakers.map((speaker) => (
-        <Speaker key={speaker.name} speaker={speaker} />
+      {frontendSpeakers.map((speaker, index) => (
+        <Speaker key={speaker.name} i={index} speaker={speaker} />
       ))}
     </ul>
     <div className="mt-20 mb-11 flex items-end">
@@ -37,15 +42,20 @@ export const Speakers = () => (
       <div className="h-[1px] w-full bg-white mb-2" />
     </div>
     <ul className="mb-28">
-      {backendSpeakers.map((speaker) => (
-        <Speaker key={speaker.name} speaker={speaker} />
+      {backendSpeakers.map((speaker, index) => (
+        <Speaker key={speaker.name} i={index} speaker={speaker} />
       ))}
     </ul>
   </div>
 )
-
-const Speaker = ({ speaker }: { speaker: any }) => (
-  <li className="sm:flex flex-col sm:flex-row justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white">
+const motionStagger = (index: number) => ({
+  ...DEFAULT_MOTION({ delay: index * 0.12 }),
+})
+const Speaker = ({ speaker, i }: { speaker: any; i: number }) => (
+  <motion.li
+    {...motionStagger(i)}
+    className="sm:flex flex-col sm:flex-row justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white"
+  >
     <div className="flex items-center">
       <img
         src={`/speakers/${speaker.pic}`}
@@ -74,5 +84,5 @@ const Speaker = ({ speaker }: { speaker: any }) => (
       <span className="pr-1">🎤 </span>
       {speaker.talk || "TBD"}
     </p>
-  </li>
+  </motion.li>
 )

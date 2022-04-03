@@ -1,7 +1,14 @@
+import { DEFAULT_MOTION } from "../../utils/constants"
+import { motion } from "framer-motion"
+
+const motionStagger = (index: number) => ({
+  ...DEFAULT_MOTION({ delay: index * 0.1 }),
+})
+
 export const NGOS = () => (
   <>
     <ul className="flex items-center justify-center gap-14 mb-10">
-      <li>
+      <motion.li {...motionStagger(0)}>
         <a
           href="https://www.comebackalive.in.ua/"
           target="_blank"
@@ -14,8 +21,8 @@ export const NGOS = () => (
             width="135"
           />
         </a>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li {...motionStagger(1)}>
         <a href="https://redcross.org.ua/" target="_blank" rel="noreferrer">
           <img
             className="opacity-40 transition hover:opacity-100"
@@ -24,9 +31,9 @@ export const NGOS = () => (
             width="60"
           />
         </a>
-      </li>
+      </motion.li>
 
-      <li>
+      <motion.li {...motionStagger(2)}>
         <a
           href="https://www.pah.org.pl/sos-ukraina/"
           target="_blank"
@@ -39,8 +46,8 @@ export const NGOS = () => (
             width="109"
           />
         </a>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li {...motionStagger(3)}>
         <a
           href="https://pck.pl/na-pomoc-ukrainie/"
           target="_blank"
@@ -53,10 +60,10 @@ export const NGOS = () => (
             width="60"
           />
         </a>
-      </li>
+      </motion.li>
     </ul>
     <ul className="flex items-center justify-center gap-14  mb-10">
-      <li>
+      <motion.li {...motionStagger(4)}>
         <a
           href="https://www.insight-ukraine.org/en/"
           target="_blank"
@@ -69,8 +76,8 @@ export const NGOS = () => (
             width="161"
           />
         </a>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li {...motionStagger(5)}>
         <a href="https://voices.org.ua/en/" target="_blank" rel="noreferrer">
           <img
             className="opacity-40 transition hover:opacity-100"
@@ -79,8 +86,8 @@ export const NGOS = () => (
             width="61"
           />
         </a>
-      </li>
-      <li>
+      </motion.li>
+      <motion.li {...motionStagger(6)}>
         <a href="https://razomforukraine.org/" target="_blank" rel="noreferrer">
           <img
             className="opacity-40 transition hover:opacity-100"
@@ -89,7 +96,7 @@ export const NGOS = () => (
             width="144"
           />
         </a>
-      </li>
+      </motion.li>
     </ul>
   </>
 )
