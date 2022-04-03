@@ -1,18 +1,31 @@
-import { Fragment } from "react"
+import { Fragment, useEffect, useState } from "react"
 import { Dialog, Transition } from "@headlessui/react"
 import { ArrowRightIcon, ByRemoteIcon, LoadingIcon } from "./Icons"
 import Link from "next/link"
 import { useDonate } from "../utils/hooks/useDonate"
 import { SecondaryButton } from "./Buttons/Secondary"
 
+const ENTER = 300
+const LEAVE = 200
+
 export default function DonateModal({ onClose }: { onClose: () => void }) {
+  const [show, setShow] = useState(false)
   const { setAmount, error, getPaymentLink, amount, loading } = useDonate()
+
+  useEffect(() => {
+    window.setTimeout(() => setShow(true), ENTER)
+  }, [])
+
+  const closeModal = () => {
+    setShow(false)
+    window.setTimeout(() => onClose(), LEAVE)
+  }
   return (
-    <Transition.Root show={true} as={Fragment}>
+    <Transition.Root show={show} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-[100] inset-0 overflow-y-auto"
-        onClose={onClose}
+        onClose={closeModal}
       >
         <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
           <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-80 transition-opacity backdrop-blur-sm" />

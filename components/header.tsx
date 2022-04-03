@@ -11,7 +11,7 @@ const MOTION = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
   viewport: { once: true },
-  transition: { delay: 0.5, duration: 0.5 },
+  transition: { delay: 0.2, duration: 0.5 },
 }
 export default function Header() {
   const { data: session } = useSession() as {
