@@ -37,7 +37,7 @@ export const frontendSpeakers = [
     name: "Dan Abramov",
     pic: "dan.jpeg",
     twitter: "dan_abramov",
-    bio: "React team at @facebook",
+    bio: "React team at @Meta",
     talk: "Q&A",
     qa: true,
   },
@@ -66,7 +66,7 @@ export const backendSpeakers = [
     name: "Lilly Chen",
     pic: "lilly.jpeg",
     twitter: "lillydoingecon",
-    bio: "Engineer at @contendaCo",
+    bio: "Founder at @ContendaCo",
   },
   {
     name: "Sandi Metz",
