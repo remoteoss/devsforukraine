@@ -13,7 +13,7 @@ export const Ticket = (user: UserType) => {
 
   return (
     <div
-      className={`relative cursor-pointer m-auto flex justify-center lg:block sm:h-[219px] h-[570px]`}
+      className={`relative cursor-pointer m-auto  lg:block sm:h-[219px] h-[570px]`}
       style={{
         maxWidth: "100%",
       }}
@@ -21,7 +21,7 @@ export const Ticket = (user: UserType) => {
 
       ref={wrapper}
     >
-      <div className="absolute sm:scale-[0.6] ticket">
+      <div className="transform absolute left-1/2  ticket">
         <div className="top-8 left-8 absolute w-full sm:w-[52%]">
           <div className="flex justify-between w-full items-center">
             <Logo width="99" />
