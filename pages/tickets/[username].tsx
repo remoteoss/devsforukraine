@@ -37,7 +37,7 @@ const UserTicket = ({
   const firstName = names[0]
   const name =
     names.length > 2 ? `${names[0]} ${names[names.length - 1]}` : user.name
-  const imageUrl = `/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
+  const imageUrl = `https://www.devsforukraine.io/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
 
   const copyToClipboard = async () => {
     // @ts-ignore
@@ -48,7 +48,8 @@ const UserTicket = ({
     }, 2000)
   }
 
-  const tweetCopy = 'I%27m%20going%20to%20Devs%20For%20Ukraine,%20a%20free%20conference%20to%20benefit%20Ukraine%20with%2016%20awesome%20speakers!%20Will%20I%20see%20you%20there?`
+  const tweetCopy =
+    "I%27m%20going%20to%20Devs%20For%20Ukraine,%20a%20free%20conference%20to%20benefit%20Ukraine%20with%2016%20awesome%20speakers!%20Will%20I%20see%20you%20there?"
 
   return (
     <Layout noFooter withBG>
