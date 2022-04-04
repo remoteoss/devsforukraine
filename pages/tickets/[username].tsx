@@ -4,13 +4,14 @@ import { getSession } from "next-auth/react"
 import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useState } from "react"
 
 import { RegisterWithGithub } from "../../components/Buttons/RegisterGitHub"
 import { SecondaryButton } from "../../components/Buttons/Secondary"
 import { LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
-import { H2, SubHeadlineLarge } from "../../components/Typography"
+import { H2, Label, SubHeadlineLarge } from "../../components/Typography"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
 import { Session, UserType } from "../../utils/types"
 
@@ -21,6 +22,7 @@ const UserTicket = ({
   user: UserType
   session: Session
 }) => {
+  const [copied, setCopied] = useState(false)
   const router = useRouter()
   const isTicketHolder =
     session && session.user?.username === router.query.username
@@ -30,6 +32,15 @@ const UserTicket = ({
   const name =
     names.length > 2 ? `${names[0]} ${names[names.length - 1]}` : user.name
   const imageUrl = `/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
+
+  const copyToClipboard = async () => {
+    // @ts-ignore
+    await navigator.clipboard.writeText(window.location)
+    setCopied(true)
+    window.setTimeout(() => {
+      setCopied(false)
+    }, 2000)
+  }
 
   return (
     <Layout noFooter withBG>
@@ -66,7 +77,7 @@ const UserTicket = ({
           </SubHeadlineLarge>
         </div>
         {isTicketHolder ? (
-          <div className="flex gap-6 mb-12">
+          <div className="flex gap-6 mb-12 items-start">
             <SecondaryButton
               href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
               outsideWebsite
@@ -76,15 +87,17 @@ const UserTicket = ({
               <TwitterIcon />
               Share on Twitter
             </SecondaryButton>
-            <SecondaryButton
-              onClick={async () =>
-                // @ts-ignore
-                await navigator.clipboard.writeText(window.location)
-              }
-            >
-              <LinkIcon />
-              Copy link
-            </SecondaryButton>
+            <div className="relative">
+              <SecondaryButton onClick={copyToClipboard}>
+                <LinkIcon />
+                Copy link
+              </SecondaryButton>
+              {copied && (
+                <Label className="text-center w-full !text-devs-gray100 pt-2 absolute">
+                  Link Copied!
+                </Label>
+              )}
+            </div>
           </div>
         ) : (
           <div className="flex gap-6 mb-12 items-center">
