@@ -9,7 +9,7 @@ export const SEO = () => {
     <Head>
       {/* COMMON TAGS */}
       <meta charSet="utf-8" />
-      <title>Devs for Ukraine</title>
+      <title>Devs For Ukraine</title>
       {/* Search Engine */}
       <meta
         name="description"
@@ -17,29 +17,28 @@ export const SEO = () => {
       />
       {!isTicketPage && <meta name="image" content={banner}></meta>}
       {/* Schema.org for Google */}
-      <meta itemProp="name" content="Devs for Ukraine" />
+      <meta itemProp="name" content="Devs For Ukraine" />
       <meta
         itemProp="description"
         content="Supporting Ukraine through a free engineering Conference on April 25 and 26, 2022"
       />
       {!isTicketPage && <meta itemProp="image" content={banner}></meta>}
       {/* Twitter */}
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:card" content="summary_large_image"></meta>
-      <meta name="twitter:title" content="Devs for Ukraine" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Devs For Ukraine" />
       <meta
         name="twitter:description"
-        content="Supporting Ukraine through a free engineering Conference on April 25 and 26, 2022"
+        content="Supporting Ukraine through a free engineering conference on April 25 and 26, 2022"
       />
       {!isTicketPage && <meta name="twitter:image:src" content={banner}></meta>}
       {/* Open Graph general (Facebook, Pinterest & Google+) */}
-      <meta name="og:title" content="Devs for Ukraine" />
+      <meta name="og:title" content="Devs For Ukraine" />
       <meta
         name="og:description"
         content="Supporting Ukraine through a free engineering Conference on April 25 and 26, 2022"
       />
       <meta name="og:url" content="https://www.devsforukraine.io/" />
-      <meta name="og:site_name" content="Devs for Ukraine" />
+      <meta name="og:site_name" content="Devs For Ukraine" />
       <meta name="og:type" content="website" />
       {!isTicketPage && <meta name="og:image" content={banner}></meta>}
       {/* Favicon */}
