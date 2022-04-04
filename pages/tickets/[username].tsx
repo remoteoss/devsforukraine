@@ -12,11 +12,9 @@ import { LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
 import {
-  H2,
   Label,
   MotionH2,
   MotionSubHeadlineLarge,
-  SubHeadlineLarge,
 } from "../../components/Typography"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
 import { Session, UserType } from "../../utils/types"

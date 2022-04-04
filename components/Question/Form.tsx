@@ -45,7 +45,7 @@ export const QuestionForm = (session: Session) => {
         <SecondaryButton href="/">Cancel</SecondaryButton>
         {question && (
           <button
-            className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex"
+            className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex h-10"
             type="submit"
           >
             Send my question
