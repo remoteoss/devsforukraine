@@ -49,10 +49,11 @@ export const frontendSpeakers = [
     turtle: true,
   },
   {
-    name: "Vladimir Agafonkin",
+    name: "Volodymyr Agafonkin",
     twitter: "mourner",
     pic: "vladimir.jpeg",
     bio: "Engineer at @Mapbox",
+    talk: "Solving everyday problems with data visualization",
   },
   {
     name: "Addy Osmani",
