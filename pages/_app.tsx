@@ -1,6 +1,6 @@
 import { SessionProvider, signOut } from "next-auth/react"
 import type { AppProps } from "next/app"
-
+import { MotionConfig } from "framer-motion"
 import { useEffect } from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { URLModal } from "react-url-modal"
@@ -24,17 +24,19 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <SessionProvider session={pageProps.session} refetchInterval={0}>
-        <SEO />
-        <URLModal
-          adapter="nextjs"
-          modals={{
-            donate: DonateModal,
-            signin: SignInModal,
-          }}
-          Wrapper={ModalWrapper}
-        />
+        <MotionConfig reducedMotion="user">
+          <SEO />
+          <URLModal
+            adapter="nextjs"
+            modals={{
+              donate: DonateModal,
+              signin: SignInModal,
+            }}
+            Wrapper={ModalWrapper}
+          />
 
-        <Component {...pageProps} />
+          <Component {...pageProps} />
+        </MotionConfig>
       </SessionProvider>
     </QueryClientProvider>
   )
