@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document"
 export default function Document() {
   return (
     <Html>
-      <Head>
+      <Head lang="en">
         <link rel="preconnect" href="https://rsms.me" crossOrigin="true" />
 
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />

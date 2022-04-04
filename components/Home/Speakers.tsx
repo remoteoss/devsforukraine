@@ -4,16 +4,24 @@ import { DEFAULT_MOTION } from "../../utils/constants"
 import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
 import { SecondaryButton } from "../Buttons/Secondary"
 import { TwitterSmall } from "../Icons"
-import { MotionH2, MotionH4 } from "../Typography"
+import {
+  H3,
+  Label,
+  MotionH2,
+  MotionH4,
+  MotionSubHeadlineLarge,
+  SubHeadlineXL,
+  TalkName,
+} from "../Typography"
 
 export const Speakers = () => (
   <div className="flex  gap-4 min-h-screen flex-col pt-16">
     <div className="mt-28 text-center">
       <MotionH2 {...DEFAULT_MOTION({ delay: 0.1 })}>Speaker Panel</MotionH2>
     </div>
-    <MotionH4
+    <MotionSubHeadlineLarge
       {...DEFAULT_MOTION({ delay: 0.25 })}
-      className="mt-5 m-auto block"
+      className="mt-5 m-auto block text-center !text-devs-gray100 max-w-[560px]"
     >
       Spend <span className="text-white">2 days</span> learning from{" "}
       <span className="text-white">engineering leaders</span> around the globe.
@@ -22,12 +30,11 @@ export const Speakers = () => (
         career growth, team leadership, tech’s ability
       </span>{" "}
       to create a more equitable world, and more.
-    </MotionH4>
+    </MotionSubHeadlineLarge>
     <div className="mt-20 mb-11 flex  items-end">
-      <h6 className="block text-devs-gray100 text-2xl font-bossa font-light min-w-[250px]">
-        <span className="bold text-white font-medium block">Day 1</span>{" "}
-        Speakers & Talks
-      </h6>
+      <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
+        <H3 className="text-white block">Day 1</H3> Speakers & Talks
+      </SubHeadlineXL>
       <div className="h-[1px] w-full bg-white mb-2" />
     </div>
     <ul className="mb-28">
@@ -36,10 +43,9 @@ export const Speakers = () => (
       ))}
     </ul>
     <div className="mt-20 mb-11 flex items-end">
-      <h6 className="block text-devs-gray100 text-2xl font-bossa font-light min-w-[250px]">
-        <span className="bold text-white font-medium block">Day 2</span>{" "}
-        Speakers & Talks
-      </h6>
+      <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
+        <H3 className="text-white block">Day 2</H3> Speakers & Talks
+      </SubHeadlineXL>
       <div className="h-[1px] w-full bg-white mb-2" />
     </div>
     <ul className="mb-28">
@@ -77,12 +83,15 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
               <TwitterSmall />
             </a>
           </div>
-          <p className="block text-devs-gray100 text-sm mt-1"> {speaker.bio}</p>
+          <Label className="!text-devs-gray100 pt-1">{speaker.bio}</Label>
         </div>
       </div>
-      <p className="font-bossa flex sm:max-w-[40%] mt-4 sm:mt-0 gap-4 items-center">
-        <span className="pr-1">🎤 </span>
-        {speaker.talk || "TBD"}
+      <div className="flex sm:max-w-[40%] mt-4 sm:mt-0 gap-4 items-center">
+        <TalkName className="text-right">
+          <span className="pr-1">🎤 </span>
+          {speaker.talk || "TBD"}
+        </TalkName>
+
         {speaker.qa && (
           <SecondaryButton
             href={
@@ -99,7 +108,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
             Ask a Question
           </SecondaryButton>
         )}
-      </p>
+      </div>
     </motion.li>
   )
 }

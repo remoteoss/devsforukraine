@@ -1,6 +1,6 @@
 import { DEFAULT_MOTION, HEADER_HEIGHT } from "../../utils/constants"
 import { HeartLogo } from "../Logo"
-import { MotionH1 } from "../Typography"
+import { MotionH1, MotionSubHeadlineLarge, SubHeadlineXL } from "../Typography"
 import { motion } from "framer-motion"
 
 export const Hero = () => {
@@ -55,23 +55,23 @@ export const Hero = () => {
             </div>
           </MotionH1>
         </motion.h1>
-        <motion.h2
+        <MotionSubHeadlineLarge
           {...DEFAULT_MOTION({ delay: 0.5 })}
-          className="mt-8 text-devs-gray100 text-center mb-8 text-xl leading-8 font-light"
+          className="my-10 !text-devs-gray100"
         >
           A free, online charity conference in support of Ukraine.
-        </motion.h2>
+        </MotionSubHeadlineLarge>
       </section>
-      <motion.h3
+      <SubHeadlineXL
         {...DEFAULT_MOTION({ delay: 0.6 })}
-        className=" text-devs-gray100 text-center max-w-[550px] font-extralight text-2xl"
+        className="text-center !text-devs-gray100 max-w-[550px]"
       >
         DevsForUkraine is a <span className="text-white underline">free</span>,
         <span className="text-white underline">online</span> engineering
         conference with the goal to{" "}
         <span className="text-white underline">raise funds</span> and provide
         support to Ukraine. 🇺🇦
-      </motion.h3>
+      </SubHeadlineXL>
     </div>
   )
 }

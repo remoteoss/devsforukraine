@@ -1,7 +1,7 @@
 import { balance } from "../../utils/types"
 import { DonateButton } from "../Buttons/Donate"
 
-import { H2, H4, MotionH2, MotionH4 } from "../Typography"
+import { H3, Label, MotionH2, MotionSubHeadlineLarge } from "../Typography"
 import { NGOS } from "./NGO"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION } from "../../utils/constants"
@@ -30,12 +30,15 @@ export const DonationProgress = ({
       <MotionH2 {...DEFAULT_MOTION({})}>Charity Event</MotionH2>
     </div>
     <div className="mb-16 text-center">
-      <MotionH4 {...DEFAULT_MOTION({})} className="mt-4">
+      <MotionSubHeadlineLarge
+        {...DEFAULT_MOTION({})}
+        className="mt-4 !text-devs-gray100 max-w-[560px]"
+      >
         The <span className="text-white">funds raised</span> during the two days
         of the event will be evenly divided between{" "}
         <span className="text-white">7 Non-Governmental Organizations</span>{" "}
         Remote is collaborating with:
-      </MotionH4>
+      </MotionSubHeadlineLarge>
     </div>
     <NGOS />
     <section className="w-[650px] max-w-full my-[140px] bg-white bg-opacity-[0.05] p-12 rounded-xl relative">
@@ -43,18 +46,15 @@ export const DonationProgress = ({
         <DonateButton />
       </div>
       <div className="flex justify-between w-full mb-8 items-center">
-        <span className=" text-devs-gray100  hidden sm:block">
-          <span className="block text-white text-4xl font-bossa pb-1">
-            {donations}
-          </span>{" "}
-          Donations
-        </span>
-        <span className=" text-devs-gray100">
-          <span className="block text-white text-4xl font-bossa sm:text-right pb-1">
+        <Label className=" !text-devs-gray100  hidden sm:block">
+          <H3 className="block pb-1">{donations}</H3> Donations
+        </Label>
+        <Label className=" !text-devs-gray100">
+          <H3 className="block text-white sm:text-right pb-1">
             {formatter.format(balance)}
-          </span>{" "}
+          </H3>{" "}
           raised of {formatter.format(goal)} goal
-        </span>
+        </Label>
       </div>
       <div id="ngos" className="h-4 bg-devs-black w-full rounded-[100px]">
         <motion.div
