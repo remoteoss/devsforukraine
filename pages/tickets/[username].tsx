@@ -48,6 +48,8 @@ const UserTicket = ({
     }, 2000)
   }
 
+  const tweetCopy = 'I%27m%20going%20to%20Devs%20For%20Ukraine,%20a%20free%20conference%20to%20benefit%20Ukraine%20with%2016%20awesome%20speakers!%20Will%20I%20see%20you%20there?`
+
   return (
     <Layout noFooter withBG>
       <Head>
@@ -71,7 +73,7 @@ const UserTicket = ({
           <MotionH2 {...DEFAULT_MOTION()} className="text-center">
             {isTicketHolder
               ? "Congratulations, you are registered!"
-              : `${user.username} is attending DevsForUkraine!`}
+              : `${user.username} is attending Devs For Ukraine!`}
           </MotionH2>
 
           <MotionSubHeadlineLarge
@@ -80,8 +82,8 @@ const UserTicket = ({
           >
             {isTicketHolder
               ? ` We are delighted that you will be joining us for the
-              DevsForUkraine event.`
-              : `DevsForUkraine is a free, online conference with the goal to raise
+              Devs For Ukraine event.`
+              : `Devs For Ukraine is a free, online conference with the goal to raise
               funds and provide support to Ukraine. `}
           </MotionSubHeadlineLarge>
         </div>
@@ -91,7 +93,7 @@ const UserTicket = ({
             className="flex gap-3 mb-12 items-start"
           >
             <SecondaryButton
-              href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
+              href={`https://twitter.com/intent/tweet?text=${tweetCopy}&url=https://devsforukraine.io/ticket/${user.username}`}
               outsideWebsite
               target="_blank"
               rel="noreferrer"

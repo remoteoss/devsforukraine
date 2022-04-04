@@ -61,7 +61,7 @@ export const Hero = () => {
         {...DEFAULT_MOTION({ delay: 1 })}
         className="text-center !text-devs-gray100 max-w-[550px]"
       >
-        DevsForUkraine is a <span className="text-white">free</span>,
+        Devs For Ukraine is a <span className="text-white">free</span>,
         <span className="text-white">online</span> engineering conference with
         the goal to <span className="text-white">raise funds</span> and provide
         support to Ukraine. 🇺🇦
