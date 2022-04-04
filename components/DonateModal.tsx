@@ -58,7 +58,7 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
               </SecondaryButton>
               {amount && (
                 <button
-                  className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex disabled:opacity-50"
+                  className="bg-devs-yellow text-black px-6 py-3 rounded-md font-semibold text-xs gap-2 items-center inline-flex disabled:opacity-50 h-10"
                   type="submit"
                   disabled={isNotInt}
                 >

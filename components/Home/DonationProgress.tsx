@@ -26,13 +26,13 @@ export const DonationProgress = ({
   percentage,
 }: Props) => (
   <>
-    <div className="mt-[160px]">
+    <div className="mt-[160px] text-center" id="ngos">
       <MotionH2 {...DEFAULT_MOTION({})}>Charity Event</MotionH2>
     </div>
-    <div className="mb-16 text-center">
+    <div className="mb-16 text-center m-auto">
       <MotionSubHeadlineLarge
         {...DEFAULT_MOTION({})}
-        className="mt-4 !text-devs-gray100 max-w-[560px]"
+        className="mt-4 !text-devs-gray100 max-w-[560px] m-auto"
       >
         The <span className="text-white">funds raised</span> during the two days
         of the event will be evenly divided between{" "}
@@ -59,7 +59,7 @@ export const DonationProgress = ({
           raised of {formatter.format(goal)} goal
         </Label>
       </div>
-      <div id="ngos" className="h-4 bg-devs-black w-full rounded-[100px]">
+      <div className="h-4 bg-devs-black w-full rounded-[100px]">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${percentage < 100 ? percentage : 100}%` }}

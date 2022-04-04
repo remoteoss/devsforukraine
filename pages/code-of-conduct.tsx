@@ -1,10 +1,11 @@
 import Layout from "../components/layout"
+import { Body, H2, H3 } from "../components/Typography"
 
 const CodeOfConduct = () => (
   <Layout>
-    <section className="text-sm leading-6 mt-6 text-devs-gray100">
-      <h1 className="text-white font-bold text-4xl mb-8">Code of Conduct</h1>
-      <p className="m-0 p-0 text-xl font-extralight italic">
+    <section className="text-devs-gray100 max-w-xl m-auto mt-[120px] ">
+      <H2>Code of Conduct</H2>
+      <Body className="m-0 p-0 mt-10 !text-devs-gray100">
         All <span className="text-white">attendees</span>,{" "}
         <span className="text-white">speakers</span>,{" "}
         <span className="text-white">sponsors</span> and{" "}
@@ -20,14 +21,13 @@ const CodeOfConduct = () => (
         <br />
         <br />
         <a
-          className="text-devs-yellow block underline"
+          className="text-devs-yellow block"
           href="mailto:coc@devsforukraine.io"
         >
           Report an Issue.
         </a>
-      </p>
-      <br />
-      <h2 className="text-white font-bold text-2xl my-6">The Quick Version</h2>
+      </Body>
+      <H3 className="mt-20 mb-6">The Quick Version</H3>
       Here at DevsForUkraine conference, we are dedicated to providing a
       harassment-free conference experience for everyone, regardless of gender,
       sexual orientation, disability, physical appearance, body size, race, or
@@ -41,9 +41,7 @@ const CodeOfConduct = () => (
       <br />
       Conference attendees violating these rules will be expelled from the
       conference.
-      <h2 className="text-white font-bold text-2xl my-6">
-        The Less Quick Version
-      </h2>
+      <H3 className="mt-20 mb-6">The Less Quick Version</H3>
       Harassment includes, but is not limited to, offensive verbal comments
       related to gender, age, sexual orientation, disability, physical
       appearance, body size, race, religion, sexual images in public spaces,
