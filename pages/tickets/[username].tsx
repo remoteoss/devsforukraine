@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 
-import { RegisterWithGithub } from "../../components/Buttons/RegisterGitHub"
+import { RegisterWithGitHub } from "../../components/Buttons/RegisterGitHub"
 import { SecondaryButton } from "../../components/Buttons/Secondary"
 import { LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
@@ -116,7 +116,7 @@ const UserTicket = ({
             {...DEFAULT_MOTION({ delay: 0.2 })}
             className="flex gap-3 mb-12 items-center"
           >
-            <RegisterWithGithub />
+            <RegisterWithGitHub />
             <Link href="/">
               <a className="text-devs-yellow block hover:underline">
                 {" "}

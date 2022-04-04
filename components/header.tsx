@@ -4,7 +4,7 @@ import { Session } from "../utils/types"
 import { Logo } from "./Logo"
 import { DonateButton } from "./Buttons/Donate"
 import { TicketButton } from "./Buttons/TicketButton"
-import { RegisterWithGithub } from "./Buttons/RegisterGitHub"
+import { RegisterWithGitHub } from "./Buttons/RegisterGitHub"
 import { motion } from "framer-motion"
 import { ByRemoteIcon } from "./Icons"
 
@@ -35,7 +35,7 @@ export default function Header() {
         </Link>
         <div className="flex gap-3">
           <DonateButton />
-          {session?.user?.username ? <TicketButton /> : <RegisterWithGithub />}
+          {session?.user?.username ? <TicketButton /> : <RegisterWithGitHub />}
         </div>
       </div>
     </motion.header>

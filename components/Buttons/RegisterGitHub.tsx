@@ -2,7 +2,7 @@ import classNames from "classnames"
 import { signIn } from "next-auth/react"
 import { GitHub } from "../Icons"
 
-export const RegisterWithGithub = ({
+export const RegisterWithGitHub = ({
   className,
   options = {},
 }: {
@@ -17,6 +17,6 @@ export const RegisterWithGithub = ({
     )}
   >
     <GitHub width="20" />
-    Register with Github
+    Register with GitHub
   </button>
 )
