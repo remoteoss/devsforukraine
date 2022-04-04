@@ -30,23 +30,26 @@ export const Speakers = () => (
       </span>{" "}
       to create a more equitable world, and more.
     </MotionSubHeadlineLarge>
-    <div className="mt-[160px] mb-20 flex  items-end">
+    <motion.div
+      {...DEFAULT_MOTION({})}
+      className="mt-[160px] mb-20 flex  items-end"
+    >
       <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
         <H3 className="text-white block">Day 1</H3> Speakers & Talks
       </SubHeadlineXL>
       <div className="h-[1px] w-full bg-white mb-2" />
-    </div>
+    </motion.div>
     <ul className="mb-28">
       {frontendSpeakers.map((speaker, index) => (
         <Speaker key={speaker.name} i={index} speaker={speaker} />
       ))}
     </ul>
-    <div className="mt-20 mb-11 flex items-end">
+    <motion.div {...DEFAULT_MOTION({})} className="mt-20 mb-11 flex items-end">
       <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
         <H3 className="text-white block">Day 2</H3> Speakers & Talks
       </SubHeadlineXL>
       <div className="h-[1px] w-full bg-white mb-2" />
-    </div>
+    </motion.div>
     <ul className="mb-28">
       {backendSpeakers.map((speaker, index) => (
         <Speaker key={speaker.name} i={index} speaker={speaker} />
@@ -55,7 +58,7 @@ export const Speakers = () => (
   </div>
 )
 const motionStagger = (index: number) => ({
-  ...DEFAULT_MOTION({ delay: index * 0.01 }),
+  ...DEFAULT_MOTION({ delay: index * 0.05 }),
 })
 const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
   const { data: session } = useSession()

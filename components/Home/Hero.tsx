@@ -18,7 +18,7 @@ export const Hero = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 0.8 }}
+        transition={{ duration: 0.8 }}
         style={{
           backgroundImage: `url("/hands.png")`,
         }}
@@ -28,7 +28,7 @@ export const Hero = () => {
       <section className="flex flex-col justify-center h-full">
         <motion.p
           className="text-center text-devs-blue font-bold pb-4"
-          {...DEFAULT_MOTION()}
+          {...DEFAULT_MOTION({ delay: 0.2 })}
         >
           25 - 26
           <span className="block text-center m-auto text-devs-yellow font-semibold">
@@ -37,10 +37,13 @@ export const Hero = () => {
         </motion.p>
         <motion.h1
           className="text-3xl text-center mt-4 font-bossa"
-          {...DEFAULT_MOTION()}
+          {...DEFAULT_MOTION({ delay: 0.4 })}
         >
           Devs For
-          <MotionH1 {...DEFAULT_MOTION()} className="mt-6 relative">
+          <MotionH1
+            {...DEFAULT_MOTION({ delay: 0.6 })}
+            className="mt-6 relative"
+          >
             Ukraine
             <div className="absolute right-8 hidden sm:block -translate-y-8 top-0">
               <HeartLogo />
@@ -48,14 +51,14 @@ export const Hero = () => {
           </MotionH1>
         </motion.h1>
         <MotionSubHeadlineLarge
-          {...DEFAULT_MOTION()}
+          {...DEFAULT_MOTION({ delay: 0.8 })}
           className="my-14 !text-devs-gray100 text-center"
         >
           A free, online charity conference in support of Ukraine.
         </MotionSubHeadlineLarge>
       </section>
       <MotionSubHeadlineXL
-        {...DEFAULT_MOTION()}
+        {...DEFAULT_MOTION({ delay: 1 })}
         className="text-center !text-devs-gray100 max-w-[550px]"
       >
         DevsForUkraine is a <span className="text-white">free</span>,

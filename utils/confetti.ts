@@ -1,7 +1,7 @@
 
 import confetti from "canvas-confetti"
 
-var count = 200
+var count = 400
 var defaults = {
     colors: ["#E7CD54", "#2797FA"],
 
