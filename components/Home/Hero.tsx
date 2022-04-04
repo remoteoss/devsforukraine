@@ -31,6 +31,15 @@ export const Hero = () => {
       </div>
 
       <section className="flex flex-col justify-center h-full">
+        <motion.p
+          className="text-center text-devs-blue font-bold pb-4"
+          {...DEFAULT_MOTION({ delay: 0.2 })}
+        >
+          25 - 26
+          <span className="block text-center m-auto text-devs-yellow">
+            APRIL 2022
+          </span>
+        </motion.p>
         <motion.h1
           className="text-3xl text-center mt-4 font-bossa"
           {...DEFAULT_MOTION({ delay: 0.2 })}
@@ -41,17 +50,16 @@ export const Hero = () => {
             className="mt-6 relative"
           >
             Ukraine
-            <div className="absolute right-0 hidden sm:block translate-x-4 -translate-y-8 top-0">
+            <div className="absolute right-8 hidden sm:block -translate-y-8 top-0">
               <HeartLogo />
             </div>
           </MotionH1>
         </motion.h1>
         <motion.h2
           {...DEFAULT_MOTION({ delay: 0.5 })}
-          className="mt-8 text-devs-gray100 text-center max-w-[450px] mb-8 text-xl leading-8 font-light"
+          className="mt-8 text-devs-gray100 text-center mb-8 text-xl leading-8 font-light"
         >
-          Supporting Ukraine through a free engineering Conference on{" "}
-          <span className="text-devs-yellow">April 25 and 26, 2022</span>
+          A free, online charity conference in support of Ukraine.
         </motion.h2>
       </section>
       <motion.h3
