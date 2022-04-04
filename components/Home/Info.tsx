@@ -5,8 +5,7 @@ import { Label, StatsHeader } from "../Typography"
 import { DonationProgress } from "./DonationProgress"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION } from "../../utils/constants"
-import { StarBG } from "../Icons"
-import { LeftSVG, RightSVG } from "../BGSvg"
+
 type Props = { balance: balance }
 
 const info = [
@@ -25,8 +24,8 @@ const info = [
 ]
 
 export const Info = ({ balance }: Props) => (
-  <div className="flex items-center gap-4 min-h-screen flex-col mt-[160px] relative">
-    <div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20 relative">
+  <div className="flex items-center gap-4 min-h-screen flex-col mt-[160px] relative ">
+    <div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20 relative w-full">
       {info.map((item, index) => (
         <motion.div
           key={index}

@@ -1,9 +1,13 @@
 import confetti from "canvas-confetti"
 import { motion } from "framer-motion"
+import { shuffle } from "lodash-es"
 import { useSession } from "next-auth/react"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { DEFAULT_MOTION } from "../../utils/constants"
-import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
+import {
+  backendSpeakers as backendSpeakersOriginal,
+  frontendSpeakers as frontendSpeakersOriginal,
+} from "../../utils/speakers"
 import { SecondaryButton } from "../Buttons/Secondary"
 import { TwitterSmall } from "../Icons"
 import {
@@ -15,50 +19,69 @@ import {
   TalkName,
 } from "../Typography"
 
-export const Speakers = () => (
-  <div className="flex  gap-4 min-h-screen flex-col pt-[160px]">
-    <div className="text-center">
-      <MotionH2 {...DEFAULT_MOTION()}>Speaker Panel</MotionH2>
-    </div>
-    <MotionSubHeadlineLarge
-      {...DEFAULT_MOTION()}
-      className="mt-5 m-auto block text-center !text-devs-gray100 max-w-[560px]"
-    >
-      Spend <span className="text-white">2 days</span> learning from{" "}
-      <span className="text-white">engineering leaders</span> around the globe.
-      Topics will include{" "}
-      <span className="text-white">
-        career growth, team leadership, tech’s ability
-      </span>{" "}
-      to create a more equitable world, and more.
-    </MotionSubHeadlineLarge>
-    <motion.div
-      {...DEFAULT_MOTION({})}
-      className="mt-[160px] mb-20 flex  items-end"
-    >
-      <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
-        <H3 className="text-white block">Day 1</H3> Speakers & Talks
-      </SubHeadlineXL>
-      <div className="h-[1px] w-full bg-white mb-2" />
-    </motion.div>
-    <ul className="mb-28">
-      {frontendSpeakers.map((speaker, index) => (
-        <Speaker key={speaker.name} i={index} speaker={speaker} />
-      ))}
-    </ul>
-    <motion.div {...DEFAULT_MOTION({})} className="mt-20 mb-11 flex items-end">
-      <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
-        <H3 className="text-white block">Day 2</H3> Speakers & Talks
-      </SubHeadlineXL>
-      <div className="h-[1px] w-full bg-white mb-2" />
-    </motion.div>
-    <ul className="mb-28">
-      {backendSpeakers.map((speaker, index) => (
-        <Speaker key={speaker.name} i={index} speaker={speaker} />
-      ))}
-    </ul>
-  </div>
+const Header = ({ i }: { i: number }) => (
+  <motion.div
+    {...DEFAULT_MOTION({})}
+    className="mt-[160px] mb-20 flex  items-end"
+  >
+    <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
+      <H3 className="text-white block">Day {i}</H3> Speakers & Talks
+    </SubHeadlineXL>
+    <div className="h-[1px] w-full bg-white mb-4" />
+  </motion.div>
 )
+
+export const Speakers = () => {
+  const [frontendSpeakers, setFrontendSpeakers] = useState(
+    frontendSpeakersOriginal
+  )
+  const [backendSpeakers, setBackendSpeakers] = useState(
+    backendSpeakersOriginal
+  )
+
+  useEffect(() => setBackendSpeakers(shuffle(backendSpeakersOriginal)), [])
+  useEffect(() => setFrontendSpeakers(shuffle(frontendSpeakersOriginal)), [])
+
+  return (
+    <div className="flex  gap-4 min-h-screen flex-col pt-[160px]">
+      <div className="text-center">
+        <MotionH2 {...DEFAULT_MOTION()}>Speaker Panel</MotionH2>
+      </div>
+      <MotionSubHeadlineLarge
+        {...DEFAULT_MOTION()}
+        className="mt-5 m-auto block text-center !text-devs-gray100 max-w-[560px]"
+      >
+        Spend <span className="text-white">2 days</span> learning from{" "}
+        <span className="text-white">engineering leaders</span> around the
+        globe. Topics will include{" "}
+        <span className="text-white">
+          career growth, team leadership, tech’s ability
+        </span>{" "}
+        to create a more equitable world, and more.
+      </MotionSubHeadlineLarge>
+      <Header i={1} />
+      <ul className="mb-28">
+        {frontendSpeakers.map((speaker, index) => (
+          <Speaker
+            key={`${speaker.name}-${speaker.pic}`}
+            i={index}
+            speaker={speaker}
+          />
+        ))}
+      </ul>
+      <Header i={2} />
+      <ul className="mb-28">
+        {backendSpeakers.map((speaker, index) => (
+          <Speaker
+            key={`${speaker.name}-${speaker.pic}`}
+            i={index}
+            speaker={speaker}
+          />
+        ))}
+      </ul>
+    </div>
+  )
+}
 const motionStagger = (index: number) => ({
   ...DEFAULT_MOTION({ delay: index * 0.05 }),
 })
@@ -88,6 +111,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
     >
       <div className="flex items-center">
         <button
+          disabled={!speaker.turtle}
           className="relative"
           onClick={speaker.turtle ? showTurtle : () => {}}
         >
