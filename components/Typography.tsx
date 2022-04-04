@@ -73,7 +73,7 @@ export const TalkName = React.forwardRef(
     <span
       /* @ts-ignore */
       ref={ref}
-      className={classNames("text-white font-[500]", className)}
+      className={classNames("font-bossa text-white font-[500]", className)}
     >
       {children}
     </span>
