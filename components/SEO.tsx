@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 export const SEO = () => {
   const router = useRouter()
   const isTicketPage = router.pathname === "/tickets/[username]"
+  const banner = "https://www.devsforukraine.io/banner.png"
   return (
     <Head>
       {/* COMMON TAGS */}
@@ -14,24 +15,14 @@ export const SEO = () => {
         name="description"
         content="Supporting Ukraine through a free engineering Conference on April 25 and 26, 2022"
       />
-      {!isTicketPage && (
-        <meta
-          name="image"
-          content="https://www.devsforukraine.io/banner.jpg"
-        ></meta>
-      )}
+      {!isTicketPage && <meta name="image" content={banner}></meta>}
       {/* Schema.org for Google */}
       <meta itemProp="name" content="Devs for Ukraine" />
       <meta
         itemProp="description"
         content="Supporting Ukraine through a free engineering Conference on April 25 and 26, 2022"
       />
-      {!isTicketPage && (
-        <meta
-          itemProp="image"
-          content="https://www.devsforukraine.io/banner.jpg"
-        ></meta>
-      )}
+      {!isTicketPage && <meta itemProp="image" content={banner}></meta>}
       {/* Twitter */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:card" content="summary_large_image"></meta>
@@ -40,12 +31,7 @@ export const SEO = () => {
         name="twitter:description"
         content="Supporting Ukraine through a free engineering Conference on April 25 and 26, 2022"
       />
-      {!isTicketPage && (
-        <meta
-          name="twitter:image:src"
-          content="https://www.devsforukraine.io/banner.jpg"
-        ></meta>
-      )}
+      {!isTicketPage && <meta name="twitter:image:src" content={banner}></meta>}
       {/* Open Graph general (Facebook, Pinterest & Google+) */}
       <meta name="og:title" content="Devs for Ukraine" />
       <meta
@@ -55,12 +41,7 @@ export const SEO = () => {
       <meta name="og:url" content="https://www.devsforukraine.io/" />
       <meta name="og:site_name" content="Devs for Ukraine" />
       <meta name="og:type" content="website" />
-      {!isTicketPage && (
-        <meta
-          name="og:image"
-          content="https://www.devsforukraine.io/banner.jpg"
-        ></meta>
-      )}
+      {!isTicketPage && <meta name="og:image" content={banner}></meta>}
       {/* Favicon */}
       <link
         rel="apple-touch-icon"

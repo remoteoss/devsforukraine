@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { useSession } from "next-auth/react"
 import { DEFAULT_MOTION } from "../../utils/constants"
 import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
 import { SecondaryButton } from "../Buttons/Secondary"
@@ -49,40 +50,56 @@ export const Speakers = () => (
   </div>
 )
 const motionStagger = (index: number) => ({
-  ...DEFAULT_MOTION({ delay: index * 0.12 }),
+  ...DEFAULT_MOTION({ delay: index * 0.01 }),
 })
-const Speaker = ({ speaker, i }: { speaker: any; i: number }) => (
-  <motion.li
-    {...motionStagger(i)}
-    className="sm:flex flex-col sm:flex-row justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white"
-  >
-    <div className="flex items-center">
-      <img
-        src={`/speakers/${speaker.pic}`}
-        alt={speaker.name}
-        className="w-16 h-16 rounded-full mr-6"
-      />
+const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
+  const { data: session } = useSession()
+  return (
+    <motion.li
+      {...motionStagger(i)}
+      className="sm:flex flex-col sm:flex-row justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white"
+    >
+      <div className="flex items-center">
+        <img
+          src={`/speakers/${speaker.pic}`}
+          alt={speaker.name}
+          className="w-16 h-16 rounded-full mr-6"
+        />
 
-      <div>
-        <div className="flex gap-3">
-          <span className="font-bossa">{speaker.name}</span>
+        <div>
+          <div className="flex gap-3">
+            <span className="font-bossa">{speaker.name}</span>
 
-          <a
-            className="text-devs-blue pt-1"
-            href={`https://twitter.com/${speaker.twitter}`}
-          >
-            <TwitterSmall />
-          </a>
+            <a
+              className="text-devs-blue pt-1"
+              href={`https://twitter.com/${speaker.twitter}`}
+            >
+              <TwitterSmall />
+            </a>
+          </div>
+          <p className="block text-devs-gray100 text-sm mt-1"> {speaker.bio}</p>
         </div>
-        <p className="block text-devs-gray100 text-sm mt-1"> {speaker.bio}</p>
       </div>
-    </div>
-    <p className="font-bossa flex sm:max-w-[40%] mt-4 sm:mt-0 gap-4 items-center">
-      {speaker.qa && (
-        <SecondaryButton href="/ask-question">As a Question</SecondaryButton>
-      )}
-      <span className="pr-1">🎤 </span>
-      {speaker.talk || "TBD"}
-    </p>
-  </motion.li>
-)
+      <p className="font-bossa flex sm:max-w-[40%] mt-4 sm:mt-0 gap-4 items-center">
+        <span className="pr-1">🎤 </span>
+        {speaker.talk || "TBD"}
+        {speaker.qa && (
+          <SecondaryButton
+            href={
+              session?.user
+                ? "/ask-question"
+                : {
+                    shallow: true,
+                    query: {
+                      modal: "signin",
+                    },
+                  }
+            }
+          >
+            Ask a Question
+          </SecondaryButton>
+        )}
+      </p>
+    </motion.li>
+  )
+}

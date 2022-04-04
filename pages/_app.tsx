@@ -5,7 +5,9 @@ import { useEffect } from "react"
 import { QueryClient, QueryClientProvider } from "react-query"
 import { URLModal } from "react-url-modal"
 import DonateModal from "../components/DonateModal"
+import { ModalWrapper } from "../components/ModalWrapper"
 import { SEO } from "../components/SEO"
+import SignInModal from "../components/SignInModal"
 import "./styles.css"
 
 // Use of the <SessionProvider> is mandatory to allow components that call
@@ -27,7 +29,9 @@ export default function App({ Component, pageProps }: AppProps) {
           adapter="nextjs"
           modals={{
             donate: DonateModal,
+            signin: SignInModal,
           }}
+          Wrapper={ModalWrapper}
         />
 
         <Component {...pageProps} />

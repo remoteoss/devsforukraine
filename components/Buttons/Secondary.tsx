@@ -6,7 +6,7 @@ const classes =
 
 type Props = {
   onClick?: () => void
-  href?: string | { pathname: string; query?: any }
+  href?: string | { shallow?: boolean; pathname?: string; query?: any }
   children: React.ReactNode
   className?: string
   hideOnMobile?: boolean
@@ -40,8 +40,11 @@ export const SecondaryButton = ({
         </a>
       )
     }
+
+    const extraProps =
+      typeof href !== "string" && href?.shallow ? { shallow: href.shallow } : {}
     return (
-      <Link href={href} {...props}>
+      <Link href={href} {...extraProps} {...props}>
         <a
           className={classNames(
             classes,

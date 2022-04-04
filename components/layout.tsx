@@ -1,7 +1,5 @@
-import Link from "next/link"
 import { HEADER_HEIGHT } from "../utils/constants"
-import { RightSVG } from "./BGSvg"
-import { LeftSVG } from "./DonateModal"
+import { LeftSVG, RightSVG } from "./BGSvg"
 import { Footer } from "./Footer"
 import Header from "./header"
 
