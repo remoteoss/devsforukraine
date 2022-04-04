@@ -24,7 +24,7 @@ export default function Header() {
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <div className="w-[80rem] max-w-[80%] mx-auto sm:flex flex-row items-center justify-center sm:justify-between ">
+      <div className="w-[80rem] max-w-[80%] mx-auto sm:flex flex-row items-center justify-between ">
         <Link href="/">
           <a className="flex gap-2 items-end justify-center sm:justify-start">
             <Logo />

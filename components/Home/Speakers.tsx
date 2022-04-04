@@ -112,7 +112,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
       <div className="flex items-center">
         <button
           disabled={!speaker.turtle}
-          className="relative"
+          className="relative min-w-[64px] w-16  mr-6"
           onClick={speaker.turtle ? showTurtle : () => {}}
         >
           <img
@@ -120,7 +120,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
             ref={speaker.turtle ? ref : null}
             src={`/speakers/${speaker.pic}`}
             alt={speaker.name}
-            className="w-16 h-16 rounded-full mr-6"
+            className="min-w-[64px] w-16  h-16 rounded-full"
           />
           {clicked && (
             <div className="w-16 h-16 rounded-full absolute inset-0 bg-devs-black opacity-70 flex items-center justify-center text-4xl">

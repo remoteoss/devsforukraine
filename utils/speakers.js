@@ -52,7 +52,7 @@ export const frontendSpeakers = [
     name: "Volodymyr Agafonkin",
     twitter: "mourner",
     pic: "vladimir.jpeg",
-    bio: "Engineer at @Mapbox",
+    bio: "Engineer at @Mapbox, creator of @LeafletJS, algorithms geek, rock musician",
     talk: "Solving everyday problems with data visualization",
   },
   {
