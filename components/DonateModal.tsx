@@ -30,7 +30,7 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
             <span className="text-white">evenly divided</span> between {""}
             <Link href="/#ngos">
               <a className="text-devs-yellow underline">
-                7 Non-Governmental Organizations
+                8 Non-Governmental Organizations
               </a>
             </Link>
             .
