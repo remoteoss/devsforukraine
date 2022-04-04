@@ -1,6 +1,6 @@
 import confetti from "canvas-confetti"
 import { useEffect } from "react"
-import { Body, MotionBody, MotionH1 } from "../Typography"
+import { MotionBody, MotionH1 } from "../Typography"
 import { Logo } from "../Logo"
 import { realisticConfetti } from "../../utils/confetti"
 import { DEFAULT_MOTION } from "../../utils/constants"

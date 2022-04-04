@@ -33,6 +33,8 @@ body,
 @media screen and (min-width: 550px) {
   body .ticket {
     @apply -translate-x-1/2 scale-[0.8];
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
   }
 }
 

@@ -11,9 +11,17 @@ import { SecondaryButton } from "../../components/Buttons/Secondary"
 import { LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
-import { H2, Label, SubHeadlineLarge } from "../../components/Typography"
+import {
+  H2,
+  Label,
+  MotionH2,
+  MotionSubHeadlineLarge,
+  SubHeadlineLarge,
+} from "../../components/Typography"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
 import { Session, UserType } from "../../utils/types"
+import { motion } from "framer-motion"
+import { DEFAULT_MOTION } from "../../utils/constants"
 
 const UserTicket = ({
   user,
@@ -62,22 +70,28 @@ const UserTicket = ({
             isTicketHolder ? "w-[450px]" : "w-[610px]"
           )}
         >
-          <H2 className="text-center">
+          <MotionH2 {...DEFAULT_MOTION()} className="text-center">
             {isTicketHolder
               ? "Congratulations, you are registered!"
               : `${user.username} is attending DevsForUkraine!`}
-          </H2>
+          </MotionH2>
 
-          <SubHeadlineLarge className="pt-4 !text-devs-gray100 text-center">
+          <MotionSubHeadlineLarge
+            {...DEFAULT_MOTION({ delay: 0.2 })}
+            className="pt-4 !text-devs-gray100 text-center"
+          >
             {isTicketHolder
               ? ` We are delighted that you will be joining us for the
               DevsForUkraine event.`
               : `DevsForUkraine is a free, online conference with the goal to raise
               funds and provide support to Ukraine. `}
-          </SubHeadlineLarge>
+          </MotionSubHeadlineLarge>
         </div>
         {isTicketHolder ? (
-          <div className="flex gap-3 mb-12 items-start">
+          <motion.div
+            {...DEFAULT_MOTION({ delay: 0.2 })}
+            className="flex gap-3 mb-12 items-start"
+          >
             <SecondaryButton
               href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
               outsideWebsite
@@ -98,9 +112,12 @@ const UserTicket = ({
                 </Label>
               )}
             </div>
-          </div>
+          </motion.div>
         ) : (
-          <div className="flex gap-3 mb-12 items-center">
+          <motion.div
+            {...DEFAULT_MOTION({ delay: 0.2 })}
+            className="flex gap-3 mb-12 items-center"
+          >
             <RegisterWithGithub />
             <Link href="/">
               <a className="text-devs-yellow block hover:underline">
@@ -108,9 +125,11 @@ const UserTicket = ({
                 Read more
               </a>
             </Link>
-          </div>
+          </motion.div>
         )}
-        <Ticket {...{ ...user, name }} />
+        <motion.div {...DEFAULT_MOTION({ delay: 0.4 })}>
+          <Ticket {...{ ...user, name }} />
+        </motion.div>
       </div>
     </Layout>
   )
