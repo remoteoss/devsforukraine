@@ -85,7 +85,7 @@ export const SubHeadlineLarge = React.forwardRef(
       /* @ts-ignore */
       ref={ref}
       className={classNames(
-        "font-light font-bossa text-xl text-white leading-[1.6]",
+        "font-light text-xl text-white leading-[1.6]",
         className
       )}
     >

@@ -4,7 +4,7 @@ import { getSession } from "next-auth/react"
 import { useQuery, useQueryClient } from "react-query"
 import { CheckMarkIcon, CrossIcon } from "../components/Icons"
 import Layout from "../components/layout"
-import { H1, H2, H4 } from "../components/Typography"
+import { H2, H3 } from "../components/Typography"
 import { getAbsoluteURL } from "../utils/absoluteUrl"
 import { api } from "../utils/fetch"
 import { prisma } from "../utils/prisma"
@@ -51,7 +51,7 @@ const Admin = ({
   return (
     <Layout noFooter>
       <div className="flex items-center justify-center gap-6">
-        <H4 className="text-center my-16">
+        <H3 className="text-center my-16">
           Analytics:{" "}
           <a
             className="underline text-devs-yellow"
@@ -61,17 +61,19 @@ const Admin = ({
           >
             Plausible
           </a>
-        </H4>
-        <H4 className="text-center ">
+        </H3>
+        <H3 className="text-center ">
           Attendees:{" "}
           <span className="text-devs-yellow underline">{attendees}</span>
-        </H4>
+        </H3>
       </div>
       <H2 className="text-center my-12">Q&A</H2>
 
       {data.questions.accepted.length > 0 && (
         <>
-          <H4 className="mb-6 text-center m-auto">Accepted</H4>
+          <H3 className="!text-devs-gray100 mb-6 text-center m-auto">
+            Accepted
+          </H3>
           <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-5 lg:grid-cols-3 mt-6 mb-6">
             {data.questions.accepted.map((question: Question) => (
               <Question
@@ -83,7 +85,7 @@ const Admin = ({
           </div>
         </>
       )}
-      <H4 className="mb-6 text-center m-auto">To Review</H4>
+      <H3 className="!text-devs-gray100 mb-6 text-center m-auto">To Review</H3>
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {data.questions.notViewed.map((question: Question) => (
           <Question

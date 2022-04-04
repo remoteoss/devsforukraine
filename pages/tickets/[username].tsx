@@ -10,7 +10,7 @@ import { SecondaryButton } from "../../components/Buttons/Secondary"
 import { LinkIcon, TwitterIcon } from "../../components/Icons"
 import Layout from "../../components/layout"
 import { Ticket } from "../../components/Tickets"
-import { H2, H4 } from "../../components/Typography"
+import { H2, SubHeadlineLarge } from "../../components/Typography"
 import { getAbsoluteURL } from "../../utils/absoluteUrl"
 import { Session, UserType } from "../../utils/types"
 
@@ -57,13 +57,13 @@ const UserTicket = ({
               : `${user.username} is attending DevsForUkraine!`}
           </H2>
 
-          <H4 className="pt-4">
+          <SubHeadlineLarge className="pt-4 !text-devs-gray100 text-center">
             {isTicketHolder
               ? ` We are delighted that you will be joining us for the
               DevsForUkraine event.`
               : `DevsForUkraine is a free, online conference with the goal to raise
               funds and provide support to Ukraine. `}
-          </H4>
+          </SubHeadlineLarge>
         </div>
         {isTicketHolder ? (
           <div className="flex gap-6 mb-12">
