@@ -37,7 +37,7 @@ const UserTicket = ({
   const firstName = names[0]
   const name =
     names.length > 2 ? `${names[0]} ${names[names.length - 1]}` : user.name
-  const imageUrl = `/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
+  const imageUrl = `https://www.devsforukraine.io/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
 
   const copyToClipboard = async () => {
     // @ts-ignore
