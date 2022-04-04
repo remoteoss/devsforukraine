@@ -89,7 +89,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
         </div>
       </div>
       <div className="flex sm:max-w-[60%] mt-4 sm:mt-0 gap-4 items-center">
-        <TalkName className="text-right">
+        <TalkName className="sm:text-right">
           <span className="pr-1">🎤 </span>
           {speaker.talk || "TBD"}
         </TalkName>

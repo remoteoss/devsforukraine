@@ -7,7 +7,7 @@ const motionStagger = (index: number) => ({
 
 export const NGOS = () => (
   <>
-    <ul className="flex items-center justify-center gap-14 mb-10">
+    <ul className="flex flex-wrap items-center justify-center gap-14 mb-10">
       <motion.li {...motionStagger(0)}>
         <a
           href="https://www.comebackalive.in.ua/"
@@ -62,7 +62,7 @@ export const NGOS = () => (
         </a>
       </motion.li>
     </ul>
-    <ul className="flex items-center justify-center gap-14  mb-10">
+    <ul className="flex items-center justify-center gap-14  mb-10 flex-wrap">
       <motion.li {...motionStagger(4)}>
         <a
           href="https://www.insight-ukraine.org/en/"
