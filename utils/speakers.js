@@ -18,6 +18,7 @@ export const frontendSpeakers = [
     pic: "natalia.jpeg",
     twitter: "N_Tepluhina",
     bio: "@vuejs core team & Staff Frontend Engineer @gitlab",
+    talk: "Local state and server cache: finding a balance",
   },
   {
     name: "Jessica Janiuk",
