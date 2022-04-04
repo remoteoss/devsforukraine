@@ -120,4 +120,11 @@ export const backendSpeakers = [
     bio: " Senior Developer Advocate @HasuraHQ",
     talk: "Opening Doors with Open Source",
   },
+  {
+    name: "Tobi Pfeiffer ",
+    pic: "tobi.jpg",
+    twitter: "PragTob",
+    bio: "Staff Engineer @remote",
+    talk: "MC",
+  },
 ]
