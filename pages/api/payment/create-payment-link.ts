@@ -13,6 +13,9 @@ const createSession = async (req: NextApiRequest, res: NextApiResponse) => {
     const { amount, email }: { amount: string, email: string } = req.body;
 
     const session = await stripe.checkout.sessions.create({
+        payment_intent_data: {
+            metadata: { id: PRICE_ID }
+        },
         success_url: `${URL}/thank-you`,
         cancel_url: `${URL}?step=${PAYMENT_STEPS.CANCEL}`,
         line_items:
