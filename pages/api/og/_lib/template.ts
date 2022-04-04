@@ -1,4 +1,3 @@
-import { readFileSync } from "fs";
 import { Ticket } from '../../../../components/Tickets'
 import ReactDOMServer from 'react-dom/server'
 import React from 'react'

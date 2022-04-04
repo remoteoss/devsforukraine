@@ -8,7 +8,6 @@ import {
   H3,
   Label,
   MotionH2,
-  MotionH4,
   MotionSubHeadlineLarge,
   SubHeadlineXL,
   TalkName,

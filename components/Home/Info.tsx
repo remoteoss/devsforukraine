@@ -1,7 +1,7 @@
 import classNames from "classnames"
-import { Fragment } from "react"
+
 import { balance } from "../../utils/types"
-import { H2, Label, StatsHeader } from "../Typography"
+import { Label, StatsHeader } from "../Typography"
 import { DonationProgress } from "./DonationProgress"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION } from "../../utils/constants"

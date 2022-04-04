@@ -1,4 +1,3 @@
-import { IncomingMessage, ServerResponse } from 'http';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { parse } from 'url';
 import { getScreenshot } from './_lib/chromium';

@@ -1,9 +1,4 @@
-import { useMemo } from "react"
 import { Dialog } from "@headlessui/react"
-import { ArrowRightIcon, ByRemoteIcon, LoadingIcon } from "./Icons"
-import Link from "next/link"
-import { useDonate } from "../utils/hooks/useDonate"
-import { SecondaryButton } from "./Buttons/Secondary"
 import { RegisterWithGithub } from "./Buttons/RegisterGitHub"
 
 export default function SignInModal() {

@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { useAskQuestion } from "../../utils/hooks/useAskQuestion"
 import { Session } from "../../utils/types"
 import { SecondaryButton } from "../Buttons/Secondary"
