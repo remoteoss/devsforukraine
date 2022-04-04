@@ -9,7 +9,7 @@ const Register = () => (
       className="button"
       onClick={() => signIn("github", { callbackUrl: "/tickets/redirect" })}
     >
-      Sign in with Github
+      Sign in with GitHub
     </button>
   </Layout>
 )

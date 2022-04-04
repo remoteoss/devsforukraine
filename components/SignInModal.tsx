@@ -1,5 +1,5 @@
 import { Dialog } from "@headlessui/react"
-import { RegisterWithGithub } from "./Buttons/RegisterGitHub"
+import { RegisterWithGitHub } from "./Buttons/RegisterGitHub"
 
 export default function SignInModal() {
   return (
@@ -13,7 +13,7 @@ export default function SignInModal() {
         </Dialog.Title>
         <div className="flex justify-center">
           {" "}
-          <RegisterWithGithub options={{ callbackUrl: "/ask-question" }} />
+          <RegisterWithGitHub options={{ callbackUrl: "/ask-question" }} />
         </div>
       </div>
     </div>
