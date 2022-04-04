@@ -1,10 +1,7 @@
-import { Ticket } from '../../../../components/Tickets'
-import ReactDOMServer from 'react-dom/server'
-import React from 'react'
-import { bossaFont } from "./bossa";
-
-
-
+import { Ticket } from "../../../../components/Tickets"
+import ReactDOMServer from "react-dom/server"
+import React from "react"
+import { bossaFont } from "./bossa"
 
 function getCss() {
   return `
@@ -23,7 +20,6 @@ function getCss() {
 export function getHtml(parsedReq: any) {
   var ticketElement = React.createElement(Ticket, parsedReq)
   const htmlString = ReactDOMServer.renderToStaticMarkup(ticketElement)
-
 
   /*html*/
   return `
@@ -63,7 +59,7 @@ export function getHtml(parsedReq: any) {
   <body>
     <div class="relative" style="transform: scale(2.5)">
     <h1 className="text-[40px] font-bold mb-6 text-center" style="font-family: Bossa">
-    ${parsedReq.username} is attending DevsForUkraine!
+    ${parsedReq.username} is attending Devs For Ukraine!
   </h1>
       ${htmlString}
     </div>

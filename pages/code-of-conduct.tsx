@@ -9,7 +9,7 @@ const CodeOfConduct = () => (
         All <span className="text-white">attendees</span>,{" "}
         <span className="text-white">speakers</span>,{" "}
         <span className="text-white">sponsors</span> and{" "}
-        <span className="text-white">volunteers</span> at DevsForUkraine
+        <span className="text-white">volunteers</span> at Devs For Ukraine
         conference{" "}
         <span className="text-white underline">
           are required to agree with the following code of conduct.
@@ -28,7 +28,7 @@ const CodeOfConduct = () => (
         </a>
       </Body>
       <H3 className="mt-20 mb-6">The Quick Version</H3>
-      Here at DevsForUkraine conference, we are dedicated to providing a
+      Here at Devs For Ukraine conference, we are dedicated to providing a
       harassment-free conference experience for everyone, regardless of gender,
       sexual orientation, disability, physical appearance, body size, race, or
       religion (or lack thereof).
@@ -63,7 +63,7 @@ const CodeOfConduct = () => (
       <br />
       <br />
       If you are subject to or witness unacceptable behavior, or have any other
-      concerns, please notify a DevsForUkraine organizer as soon as possible
+      concerns, please notify a Devs For Ukraine organizer as soon as possible
       using{" "}
       <a
         className="text-devs-yellow underline"

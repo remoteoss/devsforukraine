@@ -48,7 +48,7 @@ const UserTicket = ({
     }, 2000)
   }
 
-  const tweetCopy = 'I%27m%20going%20to%20DevsForUkraine,%20a%20free%20conference%20to%20benefit%20Ukraine%20with%2016%20awesome%20speakers!%20Will%20I%20see%20you%20there?`
+  const tweetCopy = 'I%27m%20going%20to%20Devs%20For%20Ukraine,%20a%20free%20conference%20to%20benefit%20Ukraine%20with%2016%20awesome%20speakers!%20Will%20I%20see%20you%20there?`
 
   return (
     <Layout noFooter withBG>
@@ -73,7 +73,7 @@ const UserTicket = ({
           <MotionH2 {...DEFAULT_MOTION()} className="text-center">
             {isTicketHolder
               ? "Congratulations, you are registered!"
-              : `${user.username} is attending DevsForUkraine!`}
+              : `${user.username} is attending Devs For Ukraine!`}
           </MotionH2>
 
           <MotionSubHeadlineLarge
@@ -82,8 +82,8 @@ const UserTicket = ({
           >
             {isTicketHolder
               ? ` We are delighted that you will be joining us for the
-              DevsForUkraine event.`
-              : `DevsForUkraine is a free, online conference with the goal to raise
+              Devs For Ukraine event.`
+              : `Devs For Ukraine is a free, online conference with the goal to raise
               funds and provide support to Ukraine. `}
           </MotionSubHeadlineLarge>
         </div>
