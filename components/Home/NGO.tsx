@@ -2,7 +2,7 @@ import { DEFAULT_MOTION } from "../../utils/constants"
 import { motion } from "framer-motion"
 
 const motionStagger = (index: number) => ({
-  ...DEFAULT_MOTION({ delay: index * 0.1 }),
+  ...DEFAULT_MOTION({ delay: index * 0.01 }),
 })
 
 export const NGOS = () => (

@@ -16,10 +16,10 @@ import {
 export const Speakers = () => (
   <div className="flex  gap-4 min-h-screen flex-col pt-16">
     <div className="mt-28 text-center">
-      <MotionH2 {...DEFAULT_MOTION({ delay: 0.1 })}>Speaker Panel</MotionH2>
+      <MotionH2 {...DEFAULT_MOTION()}>Speaker Panel</MotionH2>
     </div>
     <MotionSubHeadlineLarge
-      {...DEFAULT_MOTION({ delay: 0.25 })}
+      {...DEFAULT_MOTION()}
       className="mt-5 m-auto block text-center !text-devs-gray100 max-w-[560px]"
     >
       Spend <span className="text-white">2 days</span> learning from{" "}

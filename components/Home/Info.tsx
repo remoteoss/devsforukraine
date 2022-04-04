@@ -24,11 +24,11 @@ const info = [
 
 export const Info = ({ balance }: Props) => (
   <div className="flex items-center gap-4 min-h-screen flex-col mt-[160px]  ">
-    <motion.div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20">
+    <div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20">
       {info.map((item, index) => (
         <motion.div
           key={index}
-          {...DEFAULT_MOTION({ delay: index * 0.1 })}
+          {...DEFAULT_MOTION({ delay: index * 0.01 })}
           className={classNames(
             index !== info.length - 1 && "border-r-[1px]",
             "border-r-white border-solid border-opacity-20"
@@ -52,7 +52,7 @@ export const Info = ({ balance }: Props) => (
           </div>
         </motion.div>
       ))}
-    </motion.div>
+    </div>
     <DonationProgress {...balance} />
   </div>
 )
