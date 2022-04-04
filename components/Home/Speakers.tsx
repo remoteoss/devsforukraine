@@ -1,5 +1,7 @@
+import confetti from "canvas-confetti"
 import { motion } from "framer-motion"
 import { useSession } from "next-auth/react"
+import { useRef, useState } from "react"
 import { DEFAULT_MOTION } from "../../utils/constants"
 import { backendSpeakers, frontendSpeakers } from "../../utils/speakers"
 import { SecondaryButton } from "../Buttons/Secondary"
@@ -62,17 +64,46 @@ const motionStagger = (index: number) => ({
 })
 const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
   const { data: session } = useSession()
+  const [clicked, setClicked] = useState(false)
+  const ref = useRef<HTMLButtonElement>()
+
+  const showTurtle = () => {
+    setClicked((c) => !c)
+    if (ref?.current) {
+      confetti({
+        colors: ["#E7CD54", "#2797FA"],
+        particleCount: 50,
+        shapes: ["square"],
+        origin: {
+          y: ref?.current?.getBoundingClientRect().top / window.innerHeight,
+          x: ref?.current?.getBoundingClientRect().left / window.innerWidth,
+        },
+      })
+    }
+  }
   return (
     <motion.li
       {...motionStagger(i)}
       className="sm:flex flex-col sm:flex-row justify-between items-center mb-6 pb-6 border-b-[1px] border-opacity-20 border-dashed border-white"
     >
       <div className="flex items-center">
-        <img
-          src={`/speakers/${speaker.pic}`}
-          alt={speaker.name}
-          className="w-16 h-16 rounded-full mr-6"
-        />
+        <button
+          className="relative"
+          onClick={speaker.turtle ? showTurtle : () => {}}
+        >
+          <img
+            // @ts-ignore
+            ref={speaker.turtle ? ref : null}
+            src={`/speakers/${speaker.pic}`}
+            alt={speaker.name}
+            className="w-16 h-16 rounded-full mr-6"
+          />
+          {clicked && (
+            <div className="w-16 h-16 rounded-full absolute inset-0 bg-devs-black opacity-70 flex items-center justify-center text-4xl">
+              🐢
+            </div>
+          )}
+        </button>
 
         <div>
           <div className="flex gap-3 items-center">

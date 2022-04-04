@@ -46,6 +46,7 @@ export const frontendSpeakers = [
     pic: "tomasz.jpeg",
     twitter: "tlakomy",
     bio: "Frontend Engineer at @Stedi",
+    turtle: true,
   },
   {
     name: "Vladimir Agafonkin",
