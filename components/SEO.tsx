@@ -30,7 +30,7 @@ export const SEO = () => {
         name="twitter:description"
         content="Supporting Ukraine through a free engineering conference on April 25 and 26, 2022"
       />
-      {!isTicketPage && <meta name="twitter:image:src" content={banner}></meta>}
+      {!isTicketPage && <meta name="twitter:image" content={banner}></meta>}
       {/* Open Graph general (Facebook, Pinterest & Google+) */}
       <meta name="og:title" content="Devs For Ukraine" />
       <meta

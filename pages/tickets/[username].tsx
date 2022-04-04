@@ -59,7 +59,7 @@ const UserTicket = ({
           {"'"}s ticket
         </title>
         <meta property="og:image" content={imageUrl} />
-        <meta name="twitter:image:src" content={imageUrl}></meta>
+        <meta name="twitter:image" content={imageUrl}></meta>
         <meta name="image" content={imageUrl}></meta>
         <meta itemProp="image" content={imageUrl}></meta>
       </Head>
