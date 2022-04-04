@@ -24,7 +24,7 @@ export const QuestionForm = (session: Session) => {
           <div className="flex">
             {session?.user?.image && (
               <img
-                className="rounded-full w-6 h-6 m-auto mr-3"
+                className="rounded-full w-8 h-8 m-auto mr-3"
                 src={session?.user?.image}
                 alt={session?.user?.name || "user"}
               />

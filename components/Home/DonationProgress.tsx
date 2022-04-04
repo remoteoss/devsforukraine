@@ -26,7 +26,7 @@ export const DonationProgress = ({
   percentage,
 }: Props) => (
   <>
-    <div className="mt-28">
+    <div className="mt-[160px]">
       <MotionH2 {...DEFAULT_MOTION({})}>Charity Event</MotionH2>
     </div>
     <div className="mb-16 text-center">

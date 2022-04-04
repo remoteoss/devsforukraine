@@ -77,7 +77,7 @@ const UserTicket = ({
           </SubHeadlineLarge>
         </div>
         {isTicketHolder ? (
-          <div className="flex gap-6 mb-12 items-start">
+          <div className="flex gap-3 mb-12 items-start">
             <SecondaryButton
               href={`https://twitter.com/intent/tweet?url=https://devsforukraine.io/ticket/${user.username} I am going to devsforukraine!`}
               outsideWebsite
@@ -100,7 +100,7 @@ const UserTicket = ({
             </div>
           </div>
         ) : (
-          <div className="flex gap-6 mb-12 items-center">
+          <div className="flex gap-3 mb-12 items-center">
             <RegisterWithGithub />
             <Link href="/">
               <a className="text-devs-yellow block hover:underline">

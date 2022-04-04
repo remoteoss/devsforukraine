@@ -7,7 +7,7 @@ import { Session } from "../utils/types"
 
 const AskAQuestionPage = ({ session }: { session: Session }) => (
   <Layout noFooter withBG>
-    <div className="h-screen flex-col justify-center relative z-1 mt-[150px] text-center  w-[500px] max-w-[80%] m-auto">
+    <div className="h-full flex-col justify-center relative z-1 mt-[150px] text-center  w-[500px] max-w-[80%] m-auto">
       <H2 className="max-w-[400px] text-center m-auto">
         What is your question?
       </H2>

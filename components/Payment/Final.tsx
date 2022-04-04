@@ -48,11 +48,15 @@ export const Final = () => {
 
   return (
     <div className="h-screen w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-pointer">
-      <Logo width="166" height="auto" />
+      <Logo width="166" height="40" />
       <H1>Thank you</H1>
       <Body className="!text-devs-gray100 max-w-[420px]">
         We are grateful to have your support, your donation will allow use to
         accomplish more. Together we are making a difference!
+      </Body>
+
+      <Body className="!text-devs-gray100 italic fixed bottom-6 !font-extralight">
+        Click to pop confettis!
       </Body>
     </div>
   )

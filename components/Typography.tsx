@@ -100,7 +100,7 @@ export const SubHeadlineXL = React.forwardRef(
       /* @ts-ignore */
       ref={ref}
       className={classNames(
-        "font-light text-2xl text-white leading-[1.7]",
+        "font-extralight text-2xl text-white leading-[1.7]",
         className
       )}
     >

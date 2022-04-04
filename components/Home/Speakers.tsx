@@ -14,8 +14,8 @@ import {
 } from "../Typography"
 
 export const Speakers = () => (
-  <div className="flex  gap-4 min-h-screen flex-col pt-16">
-    <div className="mt-28 text-center">
+  <div className="flex  gap-4 min-h-screen flex-col pt-[160px]">
+    <div className="text-center">
       <MotionH2 {...DEFAULT_MOTION()}>Speaker Panel</MotionH2>
     </div>
     <MotionSubHeadlineLarge
@@ -30,7 +30,7 @@ export const Speakers = () => (
       </span>{" "}
       to create a more equitable world, and more.
     </MotionSubHeadlineLarge>
-    <div className="mt-20 mb-11 flex  items-end">
+    <div className="mt-[160px] mb-20 flex  items-end">
       <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
         <H3 className="text-white block">Day 1</H3> Speakers & Talks
       </SubHeadlineXL>
@@ -72,7 +72,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
         />
 
         <div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 items-center">
             <span className="font-bossa">{speaker.name}</span>
 
             <a
@@ -85,7 +85,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
           <Label className="!text-devs-gray100 pt-1">{speaker.bio}</Label>
         </div>
       </div>
-      <div className="flex sm:max-w-[40%] mt-4 sm:mt-0 gap-4 items-center">
+      <div className="flex sm:max-w-[60%] mt-4 sm:mt-0 gap-4 items-center">
         <TalkName className="text-right">
           <span className="pr-1">🎤 </span>
           {speaker.talk || "TBD"}

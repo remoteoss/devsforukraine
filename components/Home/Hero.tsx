@@ -24,18 +24,6 @@ export const Hero = () => {
         }}
         className="absolute w-screen h-screen inset-0 bg-cover bg-center bg-no-repeat -z-[1]"
       ></motion.div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="font-bossa text-devs-gray100 absolute bottom-0 -left-2 hidden  rotate-[270deg] sm:flex items-center -translate-y-[130px] -translate-x-1/3 text-[12px]"
-        style={{
-          letterSpacing: "0.1em",
-        }}
-      >
-        <div className="w-[100px] h-[1px] bg-devs-gray100 mr-6" />
-        <span className="block">APRIL 25 - 26, 2022</span>
-      </motion.div>
 
       <section className="flex flex-col justify-center h-full">
         <motion.p
@@ -43,7 +31,7 @@ export const Hero = () => {
           {...DEFAULT_MOTION()}
         >
           25 - 26
-          <span className="block text-center m-auto text-devs-yellow">
+          <span className="block text-center m-auto text-devs-yellow font-semibold">
             APRIL 2022
           </span>
         </motion.p>
@@ -61,7 +49,7 @@ export const Hero = () => {
         </motion.h1>
         <MotionSubHeadlineLarge
           {...DEFAULT_MOTION()}
-          className="my-10 !text-devs-gray100"
+          className="my-14 !text-devs-gray100 text-center"
         >
           A free, online charity conference in support of Ukraine.
         </MotionSubHeadlineLarge>
@@ -70,10 +58,9 @@ export const Hero = () => {
         {...DEFAULT_MOTION()}
         className="text-center !text-devs-gray100 max-w-[550px]"
       >
-        DevsForUkraine is a <span className="text-white underline">free</span>,
-        <span className="text-white underline">online</span> engineering
-        conference with the goal to{" "}
-        <span className="text-white underline">raise funds</span> and provide
+        DevsForUkraine is a <span className="text-white">free</span>,
+        <span className="text-white">online</span> engineering conference with
+        the goal to <span className="text-white">raise funds</span> and provide
         support to Ukraine. 🇺🇦
       </MotionSubHeadlineXL>
     </div>

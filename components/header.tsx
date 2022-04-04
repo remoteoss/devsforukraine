@@ -6,6 +6,7 @@ import { DonateButton } from "./Buttons/Donate"
 import { TicketButton } from "./Buttons/TicketButton"
 import { RegisterWithGithub } from "./Buttons/RegisterGitHub"
 import { motion } from "framer-motion"
+import { ByRemoteIcon } from "./Icons"
 
 const MOTION = {
   initial: { opacity: 0 },
@@ -25,14 +26,13 @@ export default function Header() {
       </noscript>
       <div className="w-[80rem] max-w-[80%] mx-auto flex flex-row items-center justify-between">
         <Link href="/">
-          <a>
+          <a className="flex gap-2 items-end">
             <Logo />
+            <div className="relative top-1">
+              <ByRemoteIcon />
+            </div>
           </a>
         </Link>
-        {/* <h2 className="font-bold text-center hidden sm:block">
-          25 - 26 <br />
-          <span className="font-semibold"> APRIL 2022</span>
-        </h2> */}
         <div className="flex gap-3">
           <DonateButton />
           {session?.user?.username ? <TicketButton /> : <RegisterWithGithub />}
