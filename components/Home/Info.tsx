@@ -12,7 +12,7 @@ type Props = { balance: balance }
 const info = [
   {
     top: 8,
-    bottom: "Front End Speakers",
+    bottom: "Front-End Speakers",
   },
   {
     top: "15K",
@@ -20,7 +20,7 @@ const info = [
   },
   {
     top: 8,
-    bottom: "Back End Speakers",
+    bottom: "Back-End Speakers",
   },
 ]
 
