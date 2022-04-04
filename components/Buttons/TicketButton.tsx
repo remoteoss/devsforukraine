@@ -8,7 +8,7 @@ export const TicketButton = () => {
   const { data: session } = useSession() as { data: Session }
 
   return (
-    <SecondaryButton href={`/tickets/${session?.user?.username}`} hideOnMobile>
+    <SecondaryButton href={`/tickets/${session?.user?.username}`}>
       <TicketIcon />
       My ticket
     </SecondaryButton>

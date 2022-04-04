@@ -12,7 +12,7 @@ export const RegisterWithGitHub = ({
   <button
     onClick={() => signIn("github", options)}
     className={classNames(
-      "bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center hidden sm:flex hover:bg-devs-gray50 transition-colors h-10",
+      "bg-devs-gray200 px-4 py-2 rounded-md font-normal text-xs gap-2 items-center flex hover:bg-devs-gray50 transition-colors h-10",
       className
     )}
   >
