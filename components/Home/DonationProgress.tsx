@@ -36,7 +36,7 @@ export const DonationProgress = ({
       >
         The <span className="text-white">funds raised</span> during the two days
         of the event will be evenly divided between{" "}
-        <span className="text-white">7 Non-Governmental Organizations</span>{" "}
+        <span className="text-white">8 Non-Governmental Organizations</span>{" "}
         Remote is collaborating with:
       </MotionSubHeadlineLarge>
     </div>

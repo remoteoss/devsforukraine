@@ -97,6 +97,18 @@ export const NGOS = () => (
           />
         </a>
       </motion.li>
+      <motion.li {...motionStagger(7)}>
+        <a
+          href="https://www.gofundme.com/f/support-vulnerable-black-people-in-ukraine"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <p className="opacity-40 transition hover:opacity-100 font-bossa text-center text-sm italic">
+            CoalitionToSupport <br />
+            BlackPeopleInUkraine
+          </p>
+        </a>
+      </motion.li>
     </ul>
   </>
 )
