@@ -92,13 +92,14 @@ export const TicketIcon = () => {
   )
 }
 
-export const ByRemoteIcon = () => (
+export const ByRemoteIcon = (props: any) => (
   <svg
     width="87"
     height="24"
     viewBox="0 0 87 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    {...props}
   >
     <g opacity="0.2">
       <path
