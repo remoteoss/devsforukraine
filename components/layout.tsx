@@ -23,15 +23,7 @@ export default function Layout({ children, noFooter, withBG }: Props) {
         </>
       )}
       <Header />
-      <main
-        className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20"
-        style={{
-          // header height
-          marginTop: -HEADER_HEIGHT,
-          paddingTop: HEADER_HEIGHT,
-          minHeight: "calc(100vh - " + HEADER_HEIGHT + "px)",
-        }}
-      >
+      <main className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20 main h-full-no-header !h-screen">
         {children}
       </main>
       {!noFooter && <Footer />}

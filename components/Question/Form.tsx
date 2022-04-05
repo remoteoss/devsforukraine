@@ -9,7 +9,7 @@ export const QuestionForm = (session: Session) => {
 
   return (
     <form className="block" onSubmit={sendQuestion}>
-      <div className=" bg-[#1C1C1C] w-full  p-5 mt-20 h-[200px]  rounded-lg flex flex-col justify-between items-start">
+      <div className=" bg-[#1C1C1C] w-full  p-5 mt-10 h-[200px]  rounded-lg flex flex-col justify-between items-start">
         <input
           value={question}
           placeholder="Ask anything"

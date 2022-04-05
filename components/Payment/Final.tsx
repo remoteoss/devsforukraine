@@ -49,7 +49,7 @@ export const Final = () => {
   }, [])
 
   return (
-    <div className="h-screen w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-pointer">
+    <div className="h-full-minus-header w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-pointer">
       <motion.div {...DEFAULT_MOTION()}>
         <Logo width="166" height="40" />
       </motion.div>
@@ -66,7 +66,7 @@ export const Final = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="!text-devs-gray100 italic fixed bottom-6 !font-extralight"
+        className="!text-devs-gray100 italic fixed bottom-6 !font-extralight hidden sm:block"
       >
         Click to pop confettis!
       </MotionBody>

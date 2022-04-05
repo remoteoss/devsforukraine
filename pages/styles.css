@@ -67,3 +67,29 @@ input[type="number"] {
     opacity: 0.3;
   }
 }
+
+@media screen and (max-width: 640px) {
+  .h-full-no-header {
+    margin-top: -135px;
+    padding-top: 135px;
+    min-height: calc(100vh - 135px);
+  }
+}
+@media screen and (min-width: 640px) {
+  .h-full-no-header {
+    margin-top: -112px;
+    padding-top: 112px;
+    min-height: calc(100vh - 112px);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .h-full-minus-header {
+    min-height: calc(100vh - 135px);
+  }
+}
+@media screen and (min-width: 640px) {
+  .h-full-minus-header {
+    min-height: calc(100vh - 112px);
+  }
+}

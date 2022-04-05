@@ -21,6 +21,7 @@ module.exports = {
           gray50: "#454343",
         },
       },
+
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],
         bossa: "Bossa",
