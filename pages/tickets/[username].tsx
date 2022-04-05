@@ -94,7 +94,7 @@ const UserTicket = ({
             className="flex gap-3 mb-12 items-start"
           >
             <SecondaryButton
-              href={`https://twitter.com/intent/tweet?text=${tweetCopy}&url=https://devsforukraine.io/ticket/${user.username}`}
+              href={`https://twitter.com/intent/tweet?text=${tweetCopy}&url=https://devsforukraine.io/tickets/${user.username}`}
               outsideWebsite
               target="_blank"
               rel="noreferrer"
