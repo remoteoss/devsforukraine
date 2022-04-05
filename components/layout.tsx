@@ -23,7 +23,7 @@ export default function Layout({ children, noFooter, withBG }: Props) {
         </>
       )}
       <Header />
-      <main className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20 main h-full-no-header !h-screen">
+      <main className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20 main h-full-no-header !min-h-screen">
         {children}
       </main>
       {!noFooter && <Footer />}
