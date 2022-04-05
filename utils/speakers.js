@@ -69,6 +69,7 @@ export const backendSpeakers = [
     pic: "lilly.jpeg",
     twitter: "lillydoingecon",
     bio: "Founder at @ContendaCo",
+    talk: "Engineering for Startups",
   },
   {
     name: "Sandi Metz",

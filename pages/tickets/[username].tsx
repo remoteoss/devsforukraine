@@ -49,7 +49,7 @@ const UserTicket = ({
   }
 
   const tweetCopy =
-    "I%27m%20going%20to%20Devs%20For%20Ukraine,%20a%20free%20conference%20to%20benefit%20Ukraine%20with%2016%20awesome%20speakers!%20Will%20I%20see%20you%20there?"
+    "I%27m%20going%20to%20Devs%20For%20Ukraine,%20a%20free%20conference%20to%20benefit%20Ukraine%20with%2017%20awesome%20speakers!%20Will%20I%20see%20you%20there?"
 
   return (
     <Layout noFooter withBG>
@@ -94,7 +94,7 @@ const UserTicket = ({
             className="flex gap-3 mb-12 items-start"
           >
             <SecondaryButton
-              href={`https://twitter.com/intent/tweet?text=${tweetCopy}&url=https://devsforukraine.io/ticket/${user.username}`}
+              href={`https://twitter.com/intent/tweet?text=${tweetCopy}&url=https://devsforukraine.io/tickets/${user.username}`}
               outsideWebsite
               target="_blank"
               rel="noreferrer"
