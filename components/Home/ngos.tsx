@@ -18,17 +18,11 @@ export const allNgos = [
     width: 109,
   },
   {
-    name: "Polish Red Cross",
-    link: "https://pck.pl/na-pomoc-ukrainie/",
-    image: "/orgs/PCK.png",
-    width: 60,
+    name: "Fundraising Account for Humanitarian Assistance to Ukrainians",
+    link: "https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-rahunok-dlya-gumanitarnoyi-dopomogi-ukrayintsyam-postrajdalim-vid-rosiyskoyi-agresiyi",
+    image: "/orgs/FAH.png",
+    width: 160,
   },
-  //   {
-  //     name: "Fundraising Account for Humanitarian Assistance to Ukrainians",
-  //     link: "https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-rahunok-dlya-gumanitarnoyi-dopomogi-ukrayintsyam-postrajdalim-vid-rosiyskoyi-agresiyi",
-  //     image: "/orgs/FAH.png",
-  //     width: 160,
-  //   },
   {
     name: "Insight",
     link: "https://www.insight-ukraine.org/en/",
