@@ -58,7 +58,7 @@ export const Final = () => {
         {...DEFAULT_MOTION({ delay: 0.4 })}
         className="!text-devs-gray100 max-w-[420px]"
       >
-        We are grateful to have your support, your donation will allow use to
+        We are grateful to have your support, your donation will allow us to
         accomplish more. Together we are making a difference!
       </MotionBody>
 
