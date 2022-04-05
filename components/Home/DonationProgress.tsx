@@ -62,8 +62,10 @@ export const DonationProgress = ({
       <div className="h-4 bg-devs-black w-full rounded-[100px]">
         <motion.div
           initial={{ width: 0 }}
-          whileInView={{ width: `${percentage < 100 ? percentage : 100}%` }}
-          className={`h-2 relative top-1 rounded-[100px]`}
+          whileInView={{
+            width: `calc(${percentage < 100 ? percentage : 100}% - 8px)`,
+          }}
+          className={`h-2 ml-1 relative top-1 rounded-[100px]`}
           style={{
             background: "linear-gradient(270deg, #2696FA 0%, #E7CD54 100%)",
           }}
