@@ -11,7 +11,7 @@ export const User = ({ user }: { user: any }) => (
       />
       <AvatarBorder />
     </div>
-    <h2 className="font-bossa text-lg pt-4 block w-full text-center">
+    <h2 className="font-bossa text-lg pt-4 block w-full text-center leading-5">
       {user.name}
     </h2>
     <div className="flex items-center gap-2 text-xs justify-center">
