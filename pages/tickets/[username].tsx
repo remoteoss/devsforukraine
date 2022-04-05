@@ -34,7 +34,7 @@ const UserTicket = ({
     session && session.user?.username === router.query.username
   if (!user || !user.createdAt) return null
   const [firstName] = user.name.split(" ")
-  const imageUrl = `https://www.devsforukraine.io/api/og?name=${name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
+  const imageUrl = `https://www.devsforukraine.io/api/og?name=${user.name}&username=${user.username}&registrationNumber=${user.registrationNumber}&image=${user.image}`
 
   const copyToClipboard = async () => {
     // @ts-ignore
