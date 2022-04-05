@@ -6,8 +6,8 @@ import { H2 } from "../components/Typography"
 import { Session } from "../utils/types"
 
 const AskAQuestionPage = ({ session }: { session: Session }) => (
-  <Layout noFooter withBG>
-    <div className="h-full-minus-header flex-col justify-center relative z-1 text-center  w-[500px] max-w-[80%] m-auto">
+  <Layout noFooter withBG center>
+    <div className="flex-col justify-center relative z-1 text-center  w-[500px] max-w-[80%] m-auto">
       <H2 className="max-w-[400px] text-center mx-auto">
         What is your question?
       </H2>

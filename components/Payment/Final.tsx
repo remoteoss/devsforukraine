@@ -49,7 +49,7 @@ export const Final = () => {
   }, [])
 
   return (
-    <div className="h-full-minus-header w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-pointer">
+    <div className="w-full flex items-center justify-center text-center flex-col gap-6 select-none cursor-pointer">
       <motion.div {...DEFAULT_MOTION()}>
         <Logo width="166" height="40" />
       </motion.div>

@@ -1,3 +1,4 @@
+import classNames from "classnames"
 import { HEADER_HEIGHT } from "../utils/constants"
 import { LeftSVG, RightSVG } from "./BGSvg"
 import { Footer } from "./Footer"
@@ -7,9 +8,10 @@ interface Props {
   children: React.ReactNode
   noFooter?: boolean
   withBG?: boolean
+  center?: boolean
 }
 
-export default function Layout({ children, noFooter, withBG }: Props) {
+export default function Layout({ children, noFooter, withBG, center }: Props) {
   return (
     <>
       {withBG && (
@@ -23,7 +25,12 @@ export default function Layout({ children, noFooter, withBG }: Props) {
         </>
       )}
       <Header />
-      <main className="w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20 main h-full-no-header !min-h-screen">
+      <main
+        className={classNames(
+          "w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20 main h-full-no-header !min-h-screen",
+          center && "flex flex-col justify-center"
+        )}
+      >
         {children}
       </main>
       {!noFooter && <Footer />}
