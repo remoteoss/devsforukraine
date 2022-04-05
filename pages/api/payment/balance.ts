@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next"
+import { GOAL } from "../../../utils/constants"
 import { prisma } from "../../../utils/prisma"
 
 
-const GOAL = 20000 // 15k EUR
+
 
 const balance = async (req: NextApiRequest, res: NextApiResponse) => {
     const balance = await prisma.donation.findMany({

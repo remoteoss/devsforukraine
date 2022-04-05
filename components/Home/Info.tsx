@@ -4,7 +4,7 @@ import { balance } from "../../utils/types"
 import { Label, StatsHeader } from "../Typography"
 import { DonationProgress } from "./DonationProgress"
 import { motion } from "framer-motion"
-import { DEFAULT_MOTION } from "../../utils/constants"
+import { DEFAULT_MOTION, GOAL } from "../../utils/constants"
 
 type Props = { balance: balance }
 
@@ -14,7 +14,7 @@ const info = [
     bottom: "Front-End Speakers",
   },
   {
-    top: "15K",
+    top: Intl.NumberFormat("en", { notation: "compact" }).format(GOAL),
     bottom: "Donation goal",
   },
   {
