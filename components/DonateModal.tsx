@@ -44,6 +44,12 @@ export default function DonateModal({ onClose }: { onClose: () => void }) {
                 className="text-white transition text-5xl bg-transparent border-none w-full h-full outline-none text-center font-bossa p-0 focus:outline-none focus:border-none placeholder:text-white placeholder:text-opacity-20"
                 value={amount}
                 onChange={(event) => setAmount(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter") {
+                    if (!amount || isNotInt) return
+                    getPaymentLink(event)
+                  }
+                }}
               ></input>
               <span className="font-bossa text-devs-gray100"> $ USD</span>
               <span className="text-red-600 text-xs block mt-2 absolute bottom-4">
