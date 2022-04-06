@@ -25,6 +25,7 @@ const organizers = [
     name: "Adrien Thomas",
     title: "Staff Product Designer",
     image: "adrien.jpeg",
+    twitter: "adrienths",
   },
   {
     name: "Tobi Pfeiffer",
