@@ -25,7 +25,7 @@ export const H1 = React.forwardRef(
 
 export const StatsHeader = React.forwardRef(
   ({ children, className }: Props["props"], ref: Props["ref"]) => (
-    <h6
+    <span
       /* @ts-ignore */
       ref={ref}
       className={classNames(
@@ -34,7 +34,7 @@ export const StatsHeader = React.forwardRef(
       )}
     >
       {children}
-    </h6>
+    </span>
   )
 )
 
