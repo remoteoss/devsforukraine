@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { useAskQuestion } from "../../utils/hooks/useAskQuestion"
 import { Session } from "../../utils/types"
 import { SecondaryButton } from "../Buttons/Secondary"
@@ -23,13 +24,15 @@ export const QuestionForm = (session: Session) => {
         <div className="flex justify-between items-center w-full">
           <div className="flex">
             {session?.user?.image && (
-              <img
-                className="rounded-full w-8 h-8 m-auto mr-3"
+              <Image
+                width={32}
+                height={32}
+                className="rounded-full"
                 src={session?.user?.image}
                 alt={session?.user?.name || "user"}
               />
             )}
-            <div>
+            <div className="ml-3">
               <p className="text-xs text-left">{session?.user?.name}</p>
               <p className="text-[11px] text-left text-devs-gray100">
                 @{session?.user?.username}
