@@ -24,19 +24,19 @@ export default function Header() {
       <noscript>
         <style>{`.nojs-show { opacity: 1; top: 0; }`}</style>
       </noscript>
-      <div className="w-[80rem] max-w-[80%] mx-auto sm:flex flex-row items-center justify-between ">
+      <div className="w-[80rem] max-w-[80%] mx-auto flex flex-row items-center justify-between  ">
         <Link href="/">
           <a
-            className="flex gap-2 items-end justify-center sm:justify-start"
+            className="flex gap-2 items-end justify-center sm:justify-start sm:w-auto w-[120px]"
             aria-label="Go back home"
           >
             <Logo />
-            <div className="relative top-1">
+            <div className="relative top-1 hidden sm:block">
               <ByRemoteIcon />
             </div>
           </a>
         </Link>
-        <div className="flex gap-3 flex-wrap mt-8 justify-center sm:mt-0 sm:justify-start">
+        <div className="flex gap-3 flex-wrap mt-0 justify-start">
           <DonateButton />
           {session?.user?.username ? <TicketButton /> : <RegisterWithGitHub />}
         </div>

@@ -10,7 +10,7 @@ export const TicketButton = () => {
   return (
     <SecondaryButton href={`/tickets/${session?.user?.username}`}>
       <TicketIcon />
-      My ticket
+      <span className="hidden sm:inline">My ticket</span>{" "}
     </SecondaryButton>
   )
 }
