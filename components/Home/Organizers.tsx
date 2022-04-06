@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import { DEFAULT_MOTION } from "../../utils/constants"
 import { ByRemoteIcon, TwitterSmall } from "../Icons"
 import { Label, MotionH2, MotionSubHeadlineLarge } from "../Typography"
@@ -42,6 +43,10 @@ const organizers = [
   },
 ]
 
+const motionStagger = (index: number) => ({
+  ...DEFAULT_MOTION({ delay: index * 0.05 }),
+})
+
 export const Organizers = () => (
   <div className="flex gap-4 min-h-screen flex-col pt-[160px]">
     <div className="text-center">
@@ -60,8 +65,9 @@ export const Organizers = () => (
       made this possible.
     </MotionSubHeadlineLarge>
     <ul className="flex gap-8 flex-wrap items-center justify-center mt-[120px] mb-[160px]">
-      {organizers.map((organizer) => (
-        <li
+      {organizers.map((organizer, i) => (
+        <motion.li
+          {...motionStagger(i)}
           key={organizer.name}
           className="bg-white bg-opacity-5 rounded-md h-[180px] flex items-center justify-center flex-col relative w-[290px]"
         >
@@ -87,7 +93,7 @@ export const Organizers = () => (
           <Label className="font-light !text-[#8a8787] text-center max-w-[80%]">
             {organizer.title}
           </Label>
-        </li>
+        </motion.li>
       ))}
     </ul>
   </div>
