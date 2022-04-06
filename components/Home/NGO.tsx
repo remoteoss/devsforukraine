@@ -1,7 +1,7 @@
 import { DEFAULT_MOTION } from "../../utils/constants"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import comebackAlive from "../../public/orgs/ComebackAlive.png"
+import comebackAlive from "../../public/orgs/ComeBackAlive.png"
 import redCross from "../../public/orgs/ua-red.png"
 import FAH from "../../public/orgs/FAH.png"
 import PAH from "../../public/orgs/PAH.png"
