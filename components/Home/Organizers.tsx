@@ -62,6 +62,7 @@ export const Organizers = () => (
             target="_blank"
             rel="noreferrer"
             className="absolute top-6 right-6"
+            aria-label={`${organizer.name} on Twitter`}
           >
             <TwitterSmall />
           </a>

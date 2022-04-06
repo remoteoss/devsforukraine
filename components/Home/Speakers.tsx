@@ -136,6 +136,7 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
             <a
               className="text-devs-blue pt-1"
               href={`https://twitter.com/${speaker.twitter}`}
+              aria-label={`${speaker.name} on Twitter`}
             >
               <TwitterSmall />
             </a>

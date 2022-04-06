@@ -26,7 +26,10 @@ export default function Header() {
       </noscript>
       <div className="w-[80rem] max-w-[80%] mx-auto sm:flex flex-row items-center justify-between ">
         <Link href="/">
-          <a className="flex gap-2 items-end justify-center sm:justify-start">
+          <a
+            className="flex gap-2 items-end justify-center sm:justify-start"
+            aria-label="Go back home"
+          >
             <Logo />
             <div className="relative top-1">
               <ByRemoteIcon />
