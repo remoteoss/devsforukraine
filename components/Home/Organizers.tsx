@@ -19,7 +19,7 @@ const organizers = [
     name: "Cassidy Williams",
     title: "Head of Developer Experience",
     twitter: "cassidoo",
-    image: "cassidy.png",
+    image: "cassidy.jpg",
   },
   {
     name: "Adrien Thomas",
