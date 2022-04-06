@@ -19,6 +19,7 @@ body,
   font-style: normal;
   font-weight: normal;
   text-rendering: optimizeLegibility;
+  font-display: swap;
 }
 
 @font-face {
@@ -28,6 +29,7 @@ body,
   font-style: normal;
   font-weight: 300;
   text-rendering: optimizeLegibility;
+  font-display: swap;
 }
 
 @media screen and (min-width: 550px) {

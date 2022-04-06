@@ -71,7 +71,7 @@ export const Organizers = () => (
             className="rounded-full w-[56px] h-[56px] mb-3"
           />
           <Label className="font-size-[14px] mb-2">{organizer.name}</Label>
-          <Label className="font-light !text-devs-gray100 text-center max-w-[80%]">
+          <Label className="font-light !text-[#8a8787] text-center max-w-[80%]">
             {organizer.title}
           </Label>
         </li>
