@@ -2,36 +2,43 @@ import { DEFAULT_MOTION } from "../../utils/constants"
 import { ByRemoteIcon, TwitterSmall } from "../Icons"
 import { Label, MotionH2, MotionSubHeadlineLarge } from "../Typography"
 
+import sara from "../../public/organizers/sara.jpeg"
+
+import adrien from "../../public/organizers/adrien.jpeg"
+import marcelo from "../../public/organizers/marcelo.jpeg"
+import cassidy from "../../public/speakers/cassidy.jpeg"
+import tobi from "../../public/speakers/tobi.jpg"
+import Image from "next/image"
 const organizers = [
   {
     name: "Sara Vieira",
     title: "Frontend Developer",
     twitter: "NikkitaFTW",
-    image: "sara.jpeg",
+    image: sara,
   },
   {
     name: "Marcelo Lebre",
     title: "COO at Remote",
     twitter: "marcelo_lebre",
-    image: "marcelo.jpeg",
+    image: marcelo,
   },
   {
     name: "Cassidy Williams",
     title: "Head of Developer Experience",
     twitter: "cassidoo",
-    image: "cassidy.jpg",
+    image: cassidy,
   },
   {
     name: "Adrien Thomas",
     title: "Staff Product Designer",
-    image: "adrien.jpeg",
+    image: adrien,
     twitter: "adrienths",
   },
   {
     name: "Tobi Pfeiffer",
     title: "Staff Engineer & Bunny Lover",
     twitter: "PragTob",
-    image: "tobi.jpg",
+    image: tobi,
   },
 ]
 
@@ -67,12 +74,16 @@ export const Organizers = () => (
           >
             <TwitterSmall />
           </a>
-          <img
-            src={`organizers/${organizer.image}`}
+          <Image
+            src={organizer.image}
+            width={56}
+            height={56}
             alt={organizer.name}
-            className="rounded-full w-[56px] h-[56px] mb-3"
+            className="rounded-full"
           />
-          <Label className="font-size-[14px] mb-2">{organizer.name}</Label>
+          <Label className=" mt-3 font-size-[14px] mb-2">
+            {organizer.name}
+          </Label>
           <Label className="font-light !text-[#8a8787] text-center max-w-[80%]">
             {organizer.title}
           </Label>
