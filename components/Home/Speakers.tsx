@@ -29,7 +29,6 @@ const Header = ({ i }: { i: number }) => (
       <H3 className="text-white block">Day {i}</H3> Speakers & Talks
     </SubHeadlineXL>
     <div className="h-[1px] w-full bg-white mb-4" />
-    <SecondaryButton href="us">sup</SecondaryButton>
   </motion.div>
 )
 
