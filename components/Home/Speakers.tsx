@@ -23,12 +23,13 @@ import {
 const Header = ({ i }: { i: number }) => (
   <motion.div
     {...DEFAULT_MOTION({})}
-    className="mt-[160px] mb-20 flex  items-end"
+    className="mt-[160px] mb-20 flex items-end"
   >
-    <SubHeadlineXL className="block !text-devs-gray100  min-w-[250px]">
+    <SubHeadlineXL className="block !text-devs-gray100 min-w-[250px]">
       <H3 className="text-white block">Day {i}</H3> Speakers & Talks
     </SubHeadlineXL>
     <div className="h-[1px] w-full bg-white mb-4" />
+    <SecondaryButton href="us">sup</SecondaryButton>
   </motion.div>
 )
 

@@ -1,13 +1,10 @@
 import { DEFAULT_MOTION, HEADER_HEIGHT } from "../../utils/constants"
 import { HeartLogo } from "../Logo"
-import {
-  MotionH1,
-  MotionLabel,
-  MotionSubHeadlineLarge,
-  MotionSubHeadlineXL,
-} from "../Typography"
+import { MotionH1, MotionLabel, MotionSubHeadlineXL } from "../Typography"
 import { motion } from "framer-motion"
 
+const time = new Date("5/15/2022 4:00:00 PM UTC")
+const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 export const Hero = () => {
   return (
     <div
@@ -27,15 +24,6 @@ export const Hero = () => {
       ></motion.div>
 
       <section className="flex flex-col justify-center h-full">
-        <motion.p
-          className="text-center text-devs-blue font-bold pb-4"
-          {...DEFAULT_MOTION({ delay: 0.2 })}
-        >
-          25 - 26
-          <span className="block text-center m-auto text-devs-yellow font-semibold">
-            APRIL 2022
-          </span>
-        </motion.p>
         <motion.h1
           className="text-3xl text-center mt-4 font-bossa"
           {...DEFAULT_MOTION({ delay: 0.4 })}
@@ -57,7 +45,13 @@ export const Hero = () => {
         >
           <span className="text-devs-yellow">April 25</span> &{" "}
           <span className="text-devs-yellow">26</span>, 2022{" "}
-          <span className="px-2">-</span> 4 PM UTC{" "}
+          <span className="px-2">-</span>{" "}
+          <button className="has-tooltip relative">
+            4 PM UTC
+            <span className="tooltip -mt-12 -left-4 bg-devs-gray400 !text-white text-[11px] p-2 rounded-md min-w-[100px]">
+              {time.toLocaleTimeString()} in {timezone}
+            </span>
+          </button>{" "}
           <span className="px-2">-</span> Livestream
         </MotionLabel>
       </section>
