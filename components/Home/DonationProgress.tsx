@@ -29,7 +29,7 @@ export const DonationProgress = ({
     <div className="mt-[160px] text-center" id="ngos">
       <MotionH2 {...DEFAULT_MOTION({})}>Charity Event</MotionH2>
     </div>
-    <div className="mb-16 text-center m-auto">
+    <div className="mb-16 text-center mx-auto pt-4">
       <MotionSubHeadlineLarge
         {...DEFAULT_MOTION({})}
         className="mt-4 !text-devs-gray100 max-w-[560px] m-auto"

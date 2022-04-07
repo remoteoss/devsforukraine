@@ -77,7 +77,7 @@ const motionStagger = (index: number) => ({
 
 export const NGOS = () => (
   <>
-    <ul className="flex md:grid grid-cols-4 flex-wrap items-center justify-center gap-14 mb-10">
+    <ul className="flex md:grid grid-cols-4 flex-wrap items-center justify-center gap-14 mb-10 pt-10">
       {allNgos.map(({ Text, ...ngo }, i) => (
         <motion.li
           key={ngo.link}

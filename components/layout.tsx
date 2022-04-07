@@ -27,7 +27,7 @@ export default function Layout({ children, noFooter, withBG, center }: Props) {
       <Header />
       <main
         className={classNames(
-          "w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 pb-20 main h-full-no-header !min-h-screen",
+          "w-[80rem] max-w-[90%] mx-auto sm:px-6 lg:px-8 main h-full-no-header !min-h-screen",
           center && "flex flex-col justify-center"
         )}
       >

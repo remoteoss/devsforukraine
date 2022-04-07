@@ -2,6 +2,7 @@ import { DEFAULT_MOTION, HEADER_HEIGHT } from "../../utils/constants"
 import { HeartLogo } from "../Logo"
 import {
   MotionH1,
+  MotionLabel,
   MotionSubHeadlineLarge,
   MotionSubHeadlineXL,
 } from "../Typography"
@@ -45,17 +46,20 @@ export const Hero = () => {
             className="mt-6 relative"
           >
             Ukraine
-            <div className="absolute right-8 hidden sm:block -translate-y-8 top-0">
+            <div className="absolute -right-12 hidden sm:block -translate-y-8 top-0">
               <HeartLogo />
             </div>
           </MotionH1>
         </motion.h1>
-        <MotionSubHeadlineLarge
+        <MotionLabel
           {...DEFAULT_MOTION({ delay: 0.8 })}
-          className="my-14 !text-devs-gray100 text-center"
+          className="my-14 !text-devs-gray100 text-center uppercase font-medium !text-[14px]"
         >
-          A free, online charity conference in support of Ukraine.
-        </MotionSubHeadlineLarge>
+          <span className="text-devs-yellow">April 25</span> &{" "}
+          <span className="text-devs-yellow">26</span>, 2022{" "}
+          <span className="px-2">-</span> 4 PM UTC{" "}
+          <span className="px-2">-</span> Livestream
+        </MotionLabel>
       </section>
       <MotionSubHeadlineXL
         {...DEFAULT_MOTION({ delay: 1 })}

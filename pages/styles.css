@@ -95,3 +95,7 @@ input[type="number"] {
     min-height: calc(100vh - 112px);
   }
 }
+p::selection {
+  color: #FFE87A;
+  background: #2374BF;
+}
