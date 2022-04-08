@@ -64,13 +64,6 @@ export const frontendSpeakers = [
     qa: true,
   },
   {
-    name: "Tomasz Łakomy",
-    pic: tomasz,
-    twitter: "tlakomy",
-    bio: "Frontend Engineer at @Stedi",
-    turtle: true,
-  },
-  {
     name: "Volodymyr Agafonkin",
     twitter: "mourner",
     pic: vladimir,
