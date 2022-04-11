@@ -47,6 +47,7 @@ export const frontendSpeakers = [
     pic: jessica,
     twitter: "ThePunderWoman",
     bio: "Angular Team @Google",
+    talk: 'A RESTful API for Your Wellbeing'
   },
   {
     name: "Cassidy Williams",
