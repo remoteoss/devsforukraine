@@ -51,6 +51,7 @@ export const SecondaryButton = ({
             className,
             hideOnMobile ? "hidden sm:flex " : "flex"
           )}
+          target={props.target}
         >
           {children}
         </a>

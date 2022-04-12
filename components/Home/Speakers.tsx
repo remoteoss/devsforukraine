@@ -20,15 +20,29 @@ import {
   TalkName,
 } from "../Typography"
 
+// generated with https://gcal.dotenv.dev/
+const gCalLinks = [
+  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Devs for Ukraine - Day 1&dates=20220425T160000Z/20220425T210000Z&details=",
+  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Devs for Ukraine - Day 2&dates=20220426T160000Z/20220426T210000Z&details=",
+]
+
 const Header = ({ i }: { i: number }) => (
   <motion.div
     {...DEFAULT_MOTION({})}
-    className="mt-[160px] mb-20 flex items-end"
+    className="mt-[160px] mb-20 flex items-end justify-between"
   >
-    <SubHeadlineXL className="block !text-devs-gray100 min-w-[250px]">
+    <SubHeadlineXL className="block !text-devs-gray100 min-w-[188px] mr-[48px]">
       <H3 className="text-white block">Day {i}</H3> Speakers & Talks
     </SubHeadlineXL>
     <div className="h-[1px] w-full bg-white mb-4" />
+    <SecondaryButton
+      href={gCalLinks[i - 1]}
+      target="_blank"
+      rel="noreferrer"
+      className="min-w-[168px] self-center ml-[48px]"
+    >
+      Add to your calendar
+    </SecondaryButton>
   </motion.div>
 )
 
