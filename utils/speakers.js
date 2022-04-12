@@ -4,7 +4,7 @@ import natalia from "../public/speakers/natalia.jpeg"
 import jessica from "../public/speakers/jessica.jpeg"
 import dan from "../public/speakers/dan.jpeg"
 import cassidy from "../public/speakers/cassidy.jpeg"
-import tomasz from "../public/speakers/tomasz.jpeg"
+import lesh from "../public/speakers/lesh.jpeg"
 import vladimir from "../public/speakers/vladimir.jpeg"
 import addy from "../public/speakers/addy.jpeg"
 
@@ -47,7 +47,7 @@ export const frontendSpeakers = [
     pic: jessica,
     twitter: "ThePunderWoman",
     bio: "Angular Team @Google",
-    talk: 'A RESTful API for Your Wellbeing'
+    talk: "A RESTful API for Your Wellbeing",
   },
   {
     name: "Cassidy Williams",
@@ -76,6 +76,12 @@ export const frontendSpeakers = [
     twitter: "addyosmani",
     pic: addy,
     bio: "Engineering manager working on @GoogleChrome",
+  },
+  {
+    name: "Ben Lesh",
+    twitter: "BenLesh",
+    pic: lesh,
+    bio: "#RxJS core team lead",
   },
 ]
 
