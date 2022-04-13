@@ -5,6 +5,7 @@ import { Hero } from "../components/Home/Hero"
 import { Info } from "../components/Home/Info"
 import { Organizers } from "../components/Home/Organizers"
 import { Speakers } from "../components/Home/Speakers"
+import { Sponsors } from "../components/Home/Sponsors"
 import Layout from "../components/layout"
 import { getAbsoluteURL } from "../utils/absoluteUrl"
 import { balance } from "../utils/types"
@@ -19,6 +20,7 @@ export default function IndexPage({ balance, reactions }: Props) {
       <DonationProgress {...balance} reactions={reactions} />
       <Speakers />
       <Organizers />
+      <Sponsors />
     </Layout>
   )
 }
