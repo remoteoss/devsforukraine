@@ -4,15 +4,23 @@ import { MotionH2, MotionSubHeadlineLarge } from "../Typography"
 
 import Image from "next/image"
 
-import fm from "../../public/sponsors/frontendmasters.svg"
+import frontendmasters from "../../public/sponsors/frontendmasters.svg"
+import osscapital from "../../public/sponsors/osscapital.png"
 
 const sponsors = [
   {
     name: "Frontend Masters",
     link: "https://frontendmasters.com/",
-    image: fm,
+    image: frontendmasters,
     width: 200,
     height: 48,
+  },
+  {
+    name: "OSS Capital",
+    link: "https://oss.capital/",
+    image: osscapital,
+    width: 200,
+    height: 200,
   },
 ]
 
