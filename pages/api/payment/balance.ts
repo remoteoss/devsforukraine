@@ -20,6 +20,7 @@ const balance = async (req: NextApiRequest, res: NextApiResponse) => {
         percentage: parseFloat((all / GOAL * 100).toFixed(2)),
         donations: balance.length
     })
+
 }
 
 export default balance

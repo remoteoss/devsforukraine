@@ -2,7 +2,6 @@ import classNames from "classnames"
 
 import { balance } from "../../utils/types"
 import { Label, StatsHeader } from "../Typography"
-import { DonationProgress } from "./DonationProgress"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION, GOAL } from "../../utils/constants"
 
@@ -52,9 +51,6 @@ export const Info = ({ balance }: Props) => (
           </div>
         </motion.div>
       ))}
-    </div>
-    <div className=" border-b-[1px] border-b-white border-solid border-opacity-20">
-      <DonationProgress {...balance} />
     </div>
   </div>
 )

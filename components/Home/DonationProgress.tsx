@@ -1,3 +1,4 @@
+import "emoji-mart/css/emoji-mart.css"
 import { balance } from "../../utils/types"
 import { DonateButton } from "../Buttons/Donate"
 
@@ -5,6 +6,8 @@ import { H3, Label, MotionH2, MotionSubHeadlineLarge } from "../Typography"
 import { NGOS } from "./NGO"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION } from "../../utils/constants"
+import { EmojiPicker } from "./EmojiPicker"
+import { Reactions } from "@prisma/client"
 
 var formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -17,6 +20,7 @@ type Props = {
   donations: balance["donations"]
   goal: balance["goal"]
   percentage: balance["percentage"]
+  reactions: Reactions[]
 }
 
 export const DonationProgress = ({
@@ -24,8 +28,9 @@ export const DonationProgress = ({
   balance,
   goal,
   percentage,
+  reactions,
 }: Props) => (
-  <>
+  <div className=" border-b-[1px] border-b-white border-solid border-opacity-20">
     <div className="mt-[160px] text-center" id="ngos">
       <MotionH2 {...DEFAULT_MOTION({})}>Charity Event</MotionH2>
     </div>
@@ -45,7 +50,7 @@ export const DonationProgress = ({
     <NGOS />
     <motion.section
       {...DEFAULT_MOTION({})}
-      className="sm:w-[650px] w-full my-[140px] bg-white bg-opacity-[0.05] p-12 rounded-xl relative mx-auto"
+      className="sm:w-[650px] w-full my-[140px] bg-white bg-opacity-[0.05] p-12 pb-8 rounded-xl relative mx-auto"
     >
       <div className="absolute left-1/2 -translate-x-1/2 top-0 -translate-y-1/2">
         <DonateButton />
@@ -71,8 +76,9 @@ export const DonationProgress = ({
           style={{
             background: "linear-gradient(270deg, #2696FA 0%, #E7CD54 100%)",
           }}
-        />
-      </div>
+        />{" "}
+      </div>{" "}
+      <EmojiPicker reactions={reactions} />
     </motion.section>
-  </>
+  </div>
 )

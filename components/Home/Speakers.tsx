@@ -29,17 +29,17 @@ const gCalLinks = [
 const Header = ({ i }: { i: number }) => (
   <motion.div
     {...DEFAULT_MOTION({})}
-    className="mt-[160px] mb-20 flex items-end justify-between"
+    className="mt-[160px] mb-20 sm:flex items-end justify-between"
   >
     <SubHeadlineXL className="block !text-devs-gray100 min-w-[188px] mr-[48px]">
       <H3 className="text-white block">Day {i}</H3> Speakers & Talks
     </SubHeadlineXL>
-    <div className="h-[1px] w-full bg-white mb-4" />
+    <div className="h-[1px] w-full bg-white mb-4 sm:block hidden" />
     <SecondaryButton
       href={gCalLinks[i - 1]}
       target="_blank"
       rel="noreferrer"
-      className="min-w-[168px] self-center ml-[48px]"
+      className="sm:min-w-[168px] self-center sm:ml-[48px] mt-4 sm:mt-0 w-1/2 sm:w-auto"
     >
       Add to your calendar
     </SecondaryButton>

@@ -107,3 +107,6 @@ p::selection {
 .has-tooltip:hover .tooltip {
   @apply visible z-50
 }
+.emoji-mart-title-label {
+  @apply hidden;
+}

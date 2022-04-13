@@ -85,3 +85,15 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Reactions {
+    id          String
+    name        String
+    short_names String[]
+    colons      String   @id @unique
+    emoticons   String[]
+    unified     String
+    skin        Int?
+    native      String
+    uses        Int
+}
