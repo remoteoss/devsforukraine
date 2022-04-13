@@ -1,6 +1,6 @@
 import { Popover } from "@headlessui/react"
 import { Reactions } from "@prisma/client"
-import { Emoji, Picker } from "emoji-mart"
+import { Emoji, EmojiData, Picker } from "emoji-mart"
 import { useState } from "react"
 import { EmojiAdd } from "../Icons"
 
@@ -80,6 +80,23 @@ export const EmojiPicker = ({
             emoji=""
             onSelect={addReaction}
             style={{ marginTop: 30 }}
+            recent={["flag-ua", "blue_heart", "yellow_heart", "sunflower"]}
+            emojisToShowFilter={(emoji: EmojiData) => {
+              const toRemove = [
+                "Pile of Poo",
+                "Peach",
+                "Pistol",
+                "Aubergine",
+
+                // flags
+                "Belarus Flag",
+                "Russia Flag",
+              ]
+
+              if (toRemove.includes(emoji.name)) return false
+
+              return true
+            }}
           />
         </Popover.Panel>
       </Popover>
