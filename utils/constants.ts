@@ -11,4 +11,4 @@ export const DEFAULT_MOTION = (transition: any = { delay: .1 }) => ({
     viewport: { once: true },
     transition: { duration: .8, ease: "easeInOut", ...transition },
 })
-export const GOAL = 50000 // 40k EUR
+export const GOAL = 60000 // 40k EUR
