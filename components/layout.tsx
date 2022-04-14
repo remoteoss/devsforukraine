@@ -1,5 +1,4 @@
 import classNames from "classnames"
-import { HEADER_HEIGHT } from "../utils/constants"
 import { LeftSVG, RightSVG } from "./BGSvg"
 import { Footer } from "./Footer"
 import Header from "./header"

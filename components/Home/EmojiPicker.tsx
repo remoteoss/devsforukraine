@@ -1,7 +1,7 @@
 import { Popover } from "@headlessui/react"
 import { Reactions } from "@prisma/client"
 import { Emoji, EmojiData, Picker } from "emoji-mart"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import { EmojiAdd } from "../Icons"
 import classNames from "classnames"
 import { DEFAULT_CONFETTI } from "../../utils/constants"

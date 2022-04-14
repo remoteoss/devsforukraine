@@ -1,11 +1,8 @@
 import classNames from "classnames"
 
-import { balance } from "../../utils/types"
 import { Label, StatsHeader } from "../Typography"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION, GOAL } from "../../utils/constants"
-
-type Props = { balance: balance }
 
 const info = [
   {
@@ -22,7 +19,7 @@ const info = [
   },
 ]
 
-export const Info = ({ balance }: Props) => (
+export const Info = () => (
   <div className="flex items-center gap-4 min-h-screen flex-col mt-[160px] relative ">
     <div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20 relative w-full justify-center">
       {info.map((item, index) => (
