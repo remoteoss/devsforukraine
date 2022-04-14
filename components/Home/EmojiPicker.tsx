@@ -131,10 +131,17 @@ export const EmojiPicker = ({
                 "Aubergine",
                 "Yawning Face",
                 "Unamused Face",
+                "Serious Face with Symbols Covering Mouth",
               ]
               if (name === "Ukraine Flag") return true
 
-              if (toRemove.includes(name) || name.includes("Flag")) return false
+              if (
+                toRemove.includes(name) ||
+                name.includes("Flag") ||
+                name.includes("Crying") ||
+                name.includes("Frowning")
+              )
+                return false
 
               return true
             }}
