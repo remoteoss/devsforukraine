@@ -13,6 +13,7 @@ const EmojiButton = ({
   children: React.ReactNode
   onClick?: () => Promise<void>
   id?: string
+  neverDisable?: boolean
 }) => {
   const [clicked, setClicked] = useState(false)
   return (
@@ -20,7 +21,7 @@ const EmojiButton = ({
       className={classNames(
         "flex h-6 items-center min-w-[32px] justify-center px-2 py-1 bg-white bg-opacity-5 text-devs-gray100 hover:text-white transition rounded-[100px] hover:bg-opacity-10 gap-1 text-[11px] relative disabled:cursor-not-allowed disabled:hover:text-devs-gray100 disabled:bg-opacity-5"
       )}
-      disabled={clicked}
+      disabled={!props.neverDisable && clicked}
       {...props}
       onClick={async () => {
         setClicked(true)
@@ -89,23 +90,30 @@ export const EmojiPicker = ({
           id={reaction.colons}
           onClick={() => addReaction(reaction)}
         >
-          <Emoji size={14} emoji={reaction.colons} />
+          <Emoji
+            size={14}
+            sheetSize={16}
+            set="twitter"
+            emoji={reaction.colons}
+          />
           {reaction.uses}
         </EmojiButton>
       ))}
       <Popover className="relative flex">
         <Popover.Button>
-          <EmojiButton>
+          <EmojiButton neverDisable>
             <EmojiAdd />
           </EmojiButton>
         </Popover.Button>
 
         <Popover.Panel className="absolute z-10">
           <Picker
-            set="twitter"
             theme="dark"
+            sheetSize={32}
+            set="twitter"
             emoji=""
             onSelect={addReaction}
+            showPreview={false}
             style={{ marginTop: 30 }}
             recent={[
               "flag-ua",
