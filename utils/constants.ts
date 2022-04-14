@@ -1,3 +1,5 @@
+import confetti from "canvas-confetti"
+
 export const PAYMENT_STEPS = {
     CANCEL: "CANCEL",
     FINAL: "FINAL",
@@ -12,3 +14,13 @@ export const DEFAULT_MOTION = (transition: any = { delay: .1 }) => ({
     transition: { duration: .8, ease: "easeInOut", ...transition },
 })
 export const GOAL = 60000 // 40k EUR
+
+export const DEFAULT_CONFETTI = (el: HTMLElement) => confetti({
+    colors: ["#E7CD54", "#2797FA"],
+    particleCount: 50,
+    shapes: ["square"],
+    origin: {
+        y: el?.getBoundingClientRect().top / window.innerHeight,
+        x: el?.getBoundingClientRect().left / window.innerWidth,
+    },
+})

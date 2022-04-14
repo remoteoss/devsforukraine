@@ -38,11 +38,6 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@charkour/react-reactions@^0.6.4":
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/@charkour/react-reactions/-/react-reactions-0.6.4.tgz#9f82505abedd3750ebfa02e30267a6638c376438"
-  integrity sha512-FggP4ofD+OLJl8P/tVDJy6+6BcKWr1eLTNjY6UE32s5dwy2fjnhAwmZOIy44jlrXx05n9p2I9KYf5Gyfq1alqA==
-
 "@emotion/is-prop-valid@^0.8.2":
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"

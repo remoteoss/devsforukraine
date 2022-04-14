@@ -1,8 +1,10 @@
 import { Popover } from "@headlessui/react"
 import { Reactions } from "@prisma/client"
 import { Emoji, EmojiData, Picker } from "emoji-mart"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { EmojiAdd } from "../Icons"
+import classNames from "classnames"
+import { DEFAULT_CONFETTI } from "../../utils/constants"
 
 const EmojiButton = ({
   children,
@@ -10,14 +12,27 @@ const EmojiButton = ({
 }: {
   children: React.ReactNode
   onClick?: () => Promise<void>
-}) => (
-  <button
-    className="flex h-6 items-center min-w-[32px] justify-center px-2 py-1 bg-white bg-opacity-5 text-devs-gray100 hover:text-white transition rounded-[100px] hover:bg-opacity-10 gap-1 text-[11px]"
-    {...props}
-  >
-    {children}
-  </button>
-)
+  id?: string
+}) => {
+  const [clicked, setClicked] = useState(false)
+  return (
+    <button
+      className={classNames(
+        "flex h-6 items-center min-w-[32px] justify-center px-2 py-1 bg-white bg-opacity-5 text-devs-gray100 hover:text-white transition rounded-[100px] hover:bg-opacity-10 gap-1 text-[11px] relative disabled:cursor-not-allowed disabled:hover:text-devs-gray100 disabled:bg-opacity-5"
+      )}
+      disabled={clicked}
+      {...props}
+      onClick={async () => {
+        setClicked(true)
+        if (props.onClick) {
+          await props.onClick()
+        }
+      }}
+    >
+      {children}
+    </button>
+  )
+}
 
 export const EmojiPicker = ({
   reactions: initialReactions,
@@ -43,6 +58,18 @@ export const EmojiPicker = ({
     } else {
       setReactions([...reactions, { ...reaction, uses: 1 }])
     }
+    window.setTimeout(() => {
+      const newEl = document.getElementById(reaction.colons)
+
+      if (newEl) {
+        DEFAULT_CONFETTI(newEl)
+        newEl.classList.add("emoji-clicked")
+
+        window.setTimeout(() => {
+          newEl.classList.remove("emoji-clicked")
+        }, 1000)
+      }
+    })
     await fetch("/api/reactions", {
       method: "POST",
       headers: {
@@ -55,10 +82,11 @@ export const EmojiPicker = ({
   }
 
   return (
-    <div className="flex gap-1 items-center mt-5">
+    <div className="flex gap-1 items-center mt-5 flex-wrap gap-y-2">
       {reactions.map((reaction) => (
         <EmojiButton
           key={reaction.colons}
+          id={reaction.colons}
           onClick={() => addReaction(reaction)}
         >
           {/* @ts-ignore  */}
@@ -80,7 +108,14 @@ export const EmojiPicker = ({
             emoji=""
             onSelect={addReaction}
             style={{ marginTop: 30 }}
-            recent={["flag-ua", "blue_heart", "yellow_heart", "sunflower"]}
+            recent={[
+              "flag-ua",
+              "blue_heart",
+              "yellow_heart",
+              "sunflower",
+              "heart",
+              "heart_eyes",
+            ]}
             emojisToShowFilter={({ name }: EmojiData) => {
               const toRemove = [
                 "Pile of Poo",

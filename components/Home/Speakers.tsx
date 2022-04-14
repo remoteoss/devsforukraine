@@ -1,9 +1,8 @@
-import confetti from "canvas-confetti"
 import { motion } from "framer-motion"
 import { shuffle } from "lodash-es"
 import { useSession } from "next-auth/react"
 import Image from "next/image"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { DEFAULT_MOTION } from "../../utils/constants"
 import {
   backendSpeakers as backendSpeakersOriginal,
@@ -102,23 +101,7 @@ const motionStagger = (index: number) => ({
 })
 const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
   const { data: session } = useSession()
-  const [clicked, setClicked] = useState(false)
-  const ref = useRef<HTMLButtonElement>()
 
-  const showTurtle = () => {
-    setClicked((c) => !c)
-    if (ref?.current) {
-      confetti({
-        colors: ["#E7CD54", "#2797FA"],
-        particleCount: 50,
-        shapes: ["square"],
-        origin: {
-          y: ref?.current?.getBoundingClientRect().top / window.innerHeight,
-          x: ref?.current?.getBoundingClientRect().left / window.innerWidth,
-        },
-      })
-    }
-  }
   return (
     <motion.li
       {...motionStagger(i)}
@@ -128,7 +111,6 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
         <button
           disabled={!speaker.turtle}
           className="relative min-w-[64px] w-16  mr-6"
-          onClick={speaker.turtle ? showTurtle : () => {}}
         >
           <Image
             // @ts-ignore
@@ -139,11 +121,6 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
             height={64}
             className="rounded-full"
           />
-          {clicked && (
-            <div className="w-16 h-16 rounded-full absolute inset-0 bg-devs-black opacity-70 flex items-center justify-center text-4xl">
-              🐢
-            </div>
-          )}
         </button>
 
         <div>
