@@ -89,8 +89,7 @@ export const EmojiPicker = ({
           id={reaction.colons}
           onClick={() => addReaction(reaction)}
         >
-          {/* @ts-ignore  */}
-          <Emoji size={14} emoji={reaction} />
+          <Emoji size={14} emoji={reaction.colons} />
           {reaction.uses}
         </EmojiButton>
       ))}
