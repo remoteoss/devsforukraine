@@ -81,19 +81,18 @@ export const EmojiPicker = ({
             onSelect={addReaction}
             style={{ marginTop: 30 }}
             recent={["flag-ua", "blue_heart", "yellow_heart", "sunflower"]}
-            emojisToShowFilter={(emoji: EmojiData) => {
+            emojisToShowFilter={({ name }: EmojiData) => {
               const toRemove = [
                 "Pile of Poo",
                 "Peach",
                 "Pistol",
                 "Aubergine",
-
-                // flags
-                "Belarus Flag",
-                "Russia Flag",
+                "Yawning Face",
+                "Unamused Face",
               ]
+              if (name === "Ukraine Flag") return true
 
-              if (toRemove.includes(emoji.name)) return false
+              if (toRemove.includes(name) || name.includes("Flag")) return false
 
               return true
             }}
