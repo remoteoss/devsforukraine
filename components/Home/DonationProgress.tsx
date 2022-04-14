@@ -31,7 +31,7 @@ export const DonationProgress = ({
   reactions,
 }: Props) => (
   <div className=" border-b-[1px] border-b-white border-solid border-opacity-20">
-    <div className="mt-[160px] text-center" id="ngos">
+    <div className="text-center" id="ngos">
       <MotionH2 {...DEFAULT_MOTION({})}>Charity Event</MotionH2>
     </div>
     <div className="mb-16 text-center mx-auto pt-4">
