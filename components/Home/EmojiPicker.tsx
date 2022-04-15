@@ -132,6 +132,18 @@ export const EmojiPicker = ({
                 "Yawning Face",
                 "Unamused Face",
                 "Serious Face with Symbols Covering Mouth",
+                "Face with Look of Triumph",
+                "Angry Face",
+                "Tired Face",
+                "Face with Cold Sweat",
+                "Tired Face",
+                "Lying Face",
+                "Imp",
+                "Anger Symbol",
+                "Fisted Hand Sign",
+                "Weary Face",
+                "Smiling Face with Horns",
+                "Thumbs Down Sign",
               ]
               if (name === "Ukraine Flag") return true
 
@@ -139,7 +151,8 @@ export const EmojiPicker = ({
                 toRemove.includes(name) ||
                 name.includes("Flag") ||
                 name.includes("Crying") ||
-                name.includes("Frowning")
+                name.includes("Frowning") ||
+                name.includes("Pouting")
               )
                 return false
 
