@@ -76,6 +76,7 @@ export const frontendSpeakers = [
     twitter: "addyosmani",
     pic: addy,
     bio: "Engineering manager working on @GoogleChrome",
+    talk: "The Future Of Performance Tooling",
   },
   {
     name: "Ben Lesh",
