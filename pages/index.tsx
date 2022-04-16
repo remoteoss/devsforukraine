@@ -16,7 +16,7 @@ export default function IndexPage({ balance, reactions }: Props) {
   return (
     <Layout>
       <Hero />
-      <Info balance={balance} />
+      <Info />
       <DonationProgress {...balance} reactions={reactions} />
       <Speakers />
       <Organizers />
