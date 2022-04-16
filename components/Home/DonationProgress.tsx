@@ -6,7 +6,6 @@ import { H3, Label, MotionH2, MotionSubHeadlineLarge } from "../Typography"
 import { NGOS } from "./NGO"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION } from "../../utils/constants"
-import { EmojiPicker } from "./EmojiPicker"
 import { Reactions } from "@prisma/client"
 
 var formatter = new Intl.NumberFormat("en-US", {
@@ -78,7 +77,6 @@ export const DonationProgress = ({
           }}
         />{" "}
       </div>{" "}
-      <EmojiPicker reactions={reactions} />
     </motion.section>
   </div>
 )
