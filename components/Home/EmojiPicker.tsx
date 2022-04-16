@@ -133,6 +133,7 @@ export const EmojiPicker = ({
                 "Unamused Face",
                 "Serious Face with Symbols Covering Mouth",
                 "Face with Look of Triumph",
+                "Face with Open Mouth Vomiting",
                 "Angry Face",
                 "Tired Face",
                 "Face with Cold Sweat",
@@ -144,6 +145,7 @@ export const EmojiPicker = ({
                 "Weary Face",
                 "Smiling Face with Horns",
                 "Thumbs Down Sign",
+                "Nauseated Face",
               ]
               if (name === "Ukraine Flag") return true
 
