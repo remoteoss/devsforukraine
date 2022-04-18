@@ -6,6 +6,9 @@ import Image from "next/image"
 
 import frontendmasters from "../../public/sponsors/frontendmasters.svg"
 import osscapital from "../../public/sponsors/osscapital.png"
+import incredible from "../../public/sponsors/incrediblelogo.png"
+import linode from "../../public/sponsors/linodelogo.svg"
+import akamai from "../../public/sponsors/akamailogo.svg"
 
 const sponsors = [
   {
@@ -19,6 +22,27 @@ const sponsors = [
     name: "OSS Capital",
     link: "https://oss.capital/",
     image: osscapital,
+    width: 200,
+    height: 200,
+  },
+  {
+    name: "Incredible.dev",
+    link: "https://incredible.dev/",
+    image: incredible,
+    width: 200,
+    height: 200,
+  },
+  {
+    name: "Linode",
+    link: "https://www.linode.com/",
+    image: linode,
+    width: 200,
+    height: 200,
+  },
+  {
+    name: "Akamai",
+    link: "https://www.akamai.com/",
+    image: akamai,
     width: 200,
     height: 200,
   },
