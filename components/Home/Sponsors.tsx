@@ -7,6 +7,8 @@ import Image from "next/image"
 import frontendmasters from "../../public/sponsors/frontendmasters.svg"
 import osscapital from "../../public/sponsors/osscapital.png"
 
+import incredible from "../../public/sponsors/incredible.png"
+
 const sponsors = [
   {
     name: "Frontend Masters",
@@ -21,6 +23,13 @@ const sponsors = [
     image: osscapital,
     width: 200,
     height: 200,
+  },
+  {
+    name: "Incredible.dev",
+    link: "https://incredible.dev/",
+    image: incredible,
+    width: 200,
+    height: 51,
   },
 ]
 
