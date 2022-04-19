@@ -143,7 +143,6 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
           <span className="pr-1">🎤 </span>
           {speaker.talk || "TBD"}
         </TalkName>
-
         {speaker.qa && (
           <SecondaryButton
             href={
