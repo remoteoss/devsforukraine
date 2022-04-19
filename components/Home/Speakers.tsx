@@ -143,23 +143,6 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
           <span className="pr-1">🎤 </span>
           {speaker.talk || "TBD"}
         </TalkName>
-
-        {speaker.qa && (
-          <SecondaryButton
-            href={
-              session?.user
-                ? "/ask-question"
-                : {
-                    shallow: true,
-                    query: {
-                      modal: "signin",
-                    },
-                  }
-            }
-          >
-            Ask a Question
-          </SecondaryButton>
-        )}
       </div>
     </motion.li>
   )
