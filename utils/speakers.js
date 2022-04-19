@@ -140,6 +140,7 @@ export const backendSpeakers = [
     pic: vittoria,
     twitter: "vittoria_bitton",
     bio: "Senior Backend Engineer at @remote",
+    talk: "Patterns for sanity",
   },
   {
     name: "Anjana Vakil",
