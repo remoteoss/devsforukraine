@@ -5,6 +5,7 @@ import { useState } from "react"
 import { EmojiAdd } from "../Icons"
 import classNames from "classnames"
 import { DEFAULT_CONFETTI } from "../../utils/constants"
+import { allowedEmojis } from "../../utils/allowedEmojis"
 
 const EmojiButton = ({
   children,
@@ -124,41 +125,9 @@ export const EmojiPicker = ({
               "heart_eyes",
             ]}
             emojisToShowFilter={({ name }: EmojiData) => {
-              const toRemove = [
-                "Pile of Poo",
-                "Peach",
-                "Pistol",
-                "Aubergine",
-                "Yawning Face",
-                "Unamused Face",
-                "Serious Face with Symbols Covering Mouth",
-                "Face with Look of Triumph",
-                "Face with Open Mouth Vomiting",
-                "Angry Face",
-                "Tired Face",
-                "Face with Cold Sweat",
-                "Tired Face",
-                "Lying Face",
-                "Imp",
-                "Anger Symbol",
-                "Fisted Hand Sign",
-                "Weary Face",
-                "Smiling Face with Horns",
-                "Thumbs Down Sign",
-                "Nauseated Face",
-              ]
-              if (name === "Ukraine Flag") return true
+              if (allowedEmojis.map((e) => e.name).includes(name)) return true
 
-              if (
-                toRemove.includes(name) ||
-                name.includes("Flag") ||
-                name.includes("Crying") ||
-                name.includes("Frowning") ||
-                name.includes("Pouting")
-              )
-                return false
-
-              return true
+              return false
             }}
           />
         </Popover.Panel>
