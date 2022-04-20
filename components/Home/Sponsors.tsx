@@ -6,7 +6,7 @@ import Image from "next/image"
 
 import frontendmasters from "../../public/sponsors/frontendmasters.svg"
 import osscapital from "../../public/sponsors/osscapital.png"
-import incredible from "../../public/sponsors/incrediblelogo.png"
+import incredible from "../../public/sponsors/incredible.png"
 import linode from "../../public/sponsors/linodelogo.svg"
 import akamai from "../../public/sponsors/akamailogo.svg"
 
@@ -30,7 +30,7 @@ const sponsors = [
     link: "https://incredible.dev/",
     image: incredible,
     width: 200,
-    height: 200,
+    height: 51
   },
   {
     name: "Linode",

@@ -7,6 +7,7 @@ import { NGOS } from "./NGO"
 import { motion } from "framer-motion"
 import { DEFAULT_MOTION } from "../../utils/constants"
 import { Reactions } from "@prisma/client"
+import { EmojiPicker } from "./EmojiPicker"
 
 var formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -77,6 +78,7 @@ export const DonationProgress = ({
           }}
         />{" "}
       </div>{" "}
+      <EmojiPicker reactions={reactions} />
     </motion.section>
   </div>
 )

@@ -62,7 +62,6 @@ export const frontendSpeakers = [
     twitter: "dan_abramov",
     bio: "React team at @Meta",
     talk: "Q&A",
-    qa: true,
   },
   {
     name: "Volodymyr Agafonkin",
@@ -98,6 +97,7 @@ export const backendSpeakers = [
     name: "Sandi Metz",
     pic: sandi,
     twitter: "sandimetz",
+    talk: "If you build it, they will come",
     bio: "Cyclist, Rubyist, author",
   },
   {
@@ -105,6 +105,7 @@ export const backendSpeakers = [
     pic: aaron,
     twitter: "tenderlove",
     bio: "Human at @Shopify",
+    talk: "Almost on time",
   },
   {
     name: "Saša Jurić",
@@ -118,6 +119,8 @@ export const backendSpeakers = [
     pic: jose,
     twitter: "josevalim",
     bio: "Chief Adoption Officer at @dashbit. Creator of @elixirlang.",
+    talk: "Q&A",
+    qa: true,
   },
   {
     name: "Andreas Klinger",
@@ -137,6 +140,7 @@ export const backendSpeakers = [
     pic: vittoria,
     twitter: "vittoria_bitton",
     bio: "Senior Backend Engineer at @remote",
+    talk: "Patterns for sanity",
   },
   {
     name: "Anjana Vakil",
