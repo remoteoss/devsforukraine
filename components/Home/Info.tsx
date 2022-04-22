@@ -20,7 +20,7 @@ const info = [
 ]
 
 export const Info = () => (
-  <div className="flex items-center gap-4 min-h-screen flex-col mt-[160px] relative ">
+  <div className="flex items-center gap-4  flex-col mt-[160px] relative ">
     <div className="sm:flex items-center pb-[160px] border-b-[1px] border-b-white border-solid border-opacity-20 relative w-full justify-center">
       {info.map((item, index) => (
         <motion.div
