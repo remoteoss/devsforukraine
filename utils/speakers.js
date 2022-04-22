@@ -82,6 +82,7 @@ export const frontendSpeakers = [
     twitter: "BenLesh",
     pic: lesh,
     bio: "#RxJS core team lead",
+    talk: "Introduction to reactive programming",
   },
 ]
 
