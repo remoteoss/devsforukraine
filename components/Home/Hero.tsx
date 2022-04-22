@@ -52,7 +52,14 @@ export const Hero = () => {
               {time.toLocaleTimeString()} in {timezone}
             </span>
           </button>{" "}
-          <span className="px-2">-</span> Livestream
+          <span className="px-2">-</span>{" "}
+          <a
+            href="https://www.twitch.tv/devsforukraine"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Livestream
+          </a>
         </MotionLabel>
       </section>
       <MotionSubHeadlineXL
