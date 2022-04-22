@@ -9,6 +9,7 @@ import osscapital from "../../public/sponsors/osscapital.png"
 import incredible from "../../public/sponsors/incredible.png"
 import linode from "../../public/sponsors/linodelogo.svg"
 import akamai from "../../public/sponsors/akamailogo.svg"
+import stripe from "../../public/sponsors/stripelogo.svg"
 
 const sponsors = [
   {
@@ -41,11 +42,18 @@ const sponsors = [
   },
   {
     name: "Akamai",
-    link: "https://www.akamai.com/",
+    link: "https://developer.akamai.com/",
     image: akamai,
     width: 200,
     height: 200,
   },
+  {
+    name: "Stripe",
+    link: "https://stripe.com/",
+    image: stripe,
+    width: 200,
+    height: 200
+  }
 ]
 
 const motionStagger = (index: number) => ({
