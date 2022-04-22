@@ -56,6 +56,7 @@ export const Hero = () => {
           <a
             href="https://www.twitch.tv/devsforukraine"
             target="_blank"
+            className="underline"
             rel="noreferrer"
           >
             Livestream
