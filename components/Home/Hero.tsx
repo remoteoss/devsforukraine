@@ -9,6 +9,7 @@ const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 export const Hero = () => {
   useEffect(() => {
+    // @ts-ignore
     if (typeof window !== undefined && window.Twitch) {
       // @ts-ignore
       new window.Twitch.Embed("twitch-embed", {
