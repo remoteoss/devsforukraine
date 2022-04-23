@@ -13,8 +13,6 @@ export default function Document() {
         <NextScript />
       </body>
 
-      <script defer src="https://embed.twitch.tv/embed/v1.js"></script>
-
       <script
         defer
         data-domain="devsforukraine.io"

@@ -3,26 +3,28 @@ import { HeartLogo } from "../Logo"
 import { MotionH1, MotionLabel, MotionSubHeadlineXL } from "../Typography"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
+import Script from "next/script"
 
 const time = new Date("5/15/2022 4:00:00 PM UTC")
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 export const Hero = () => {
-  useEffect(() => {
+  const loadTwitch = () => {
     // @ts-ignore
-    if (typeof window !== undefined && window.Twitch) {
-      // @ts-ignore
-      new window.Twitch.Embed("twitch-embed", {
-        width: "100%",
-        height: 480,
-        layout: "video",
-        channel: "devsforukraine",
-        parent: ["embed.example.com", "othersite.example.com"],
-      })
-    }
-  }, [])
+    new window.Twitch.Embed("twitch-embed", {
+      width: "100%",
+      height: 480,
+      layout: "video",
+      channel: "devsforukraine",
+      parent: ["embed.example.com", "othersite.example.com"],
+    })
+  }
   return (
     <div className="flex items-center gap-4 justify-between flex-col">
+      <Script
+        src="https://embed.twitch.tv/embed/v1.js"
+        onLoad={loadTwitch}
+      ></Script>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
