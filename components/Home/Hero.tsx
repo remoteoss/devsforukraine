@@ -33,7 +33,7 @@ export const Hero = () => {
         className="absolute w-screen h-screen inset-0 bg-cover bg-center bg-no-repeat -z-[1]"
       ></motion.div>
 
-      <section className="flex flex-col justify-center h-full mt-[250px]">
+      <section className="flex flex-col justify-center h-full mt-[160px] sm:mt-[250px]">
         <motion.h1
           className="text-3xl text-center mt-4 font-bossa"
           {...DEFAULT_MOTION({ delay: 0.4 })}
@@ -64,7 +64,7 @@ export const Hero = () => {
           </button>
         </MotionLabel>
       </section>
-      <div className="rounded-[12px] mt-[160px] overflow-hidden max-w-[854px] w-full">
+      <div className="rounded-[12px] sm:mt-[160px] mt-20 overflow-hidden max-w-[854px] w-full">
         <div id="twitch-embed" />
       </div>
       <MotionSubHeadlineXL
