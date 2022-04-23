@@ -10,6 +10,7 @@ const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 export const Hero = () => {
   useEffect(() => {
     if (typeof window !== undefined) {
+      // @ts-ignore
       new window.Twitch.Embed("twitch-embed", {
         width: "100%",
         height: 480,
