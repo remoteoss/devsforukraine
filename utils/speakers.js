@@ -121,7 +121,6 @@ export const backendSpeakers = [
     twitter: "josevalim",
     bio: "Chief Adoption Officer at @dashbit. Creator of @elixirlang.",
     talk: "Q&A",
-    qa: true,
   },
   {
     name: "Andreas Klinger",
@@ -135,6 +134,7 @@ export const backendSpeakers = [
     pic: tetiana,
     twitter: "Tetiana12345678",
     bio: "Programmer, in love with Elixir-lang, proud mum, creator of @elixircards and @gitcards",
+    talk: "Confident Elixir",
   },
   {
     name: "Vittoria Bitton",
