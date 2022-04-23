@@ -130,7 +130,7 @@ export const backendSpeakers = [
     talk: "Fireside chat 🔥",
   },
   {
-    name: "Tetiana",
+    name: "Tetiana Dushenkivska",
     pic: tetiana,
     twitter: "Tetiana12345678",
     bio: "Programmer, in love with Elixir-lang, proud mum, creator of @elixircards and @gitcards",
