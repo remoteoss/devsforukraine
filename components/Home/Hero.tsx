@@ -2,17 +2,26 @@ import { DEFAULT_MOTION, HEADER_HEIGHT } from "../../utils/constants"
 import { HeartLogo } from "../Logo"
 import { MotionH1, MotionLabel, MotionSubHeadlineXL } from "../Typography"
 import { motion } from "framer-motion"
+import { useEffect } from "react"
 
 const time = new Date("5/15/2022 4:00:00 PM UTC")
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+
 export const Hero = () => {
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      new window.Twitch.Embed("twitch-embed", {
+        width: "100%",
+        height: 480,
+        layout: "video",
+        channel: "devsforukraine",
+        // Only needed if this page is going to be embedded on other websites
+        parent: ["embed.example.com", "othersite.example.com"],
+      })
+    }
+  }, [])
   return (
-    <div
-      className="flex items-center gap-4 justify-between flex-col"
-      style={{
-        height: `calc(100vh - ${HEADER_HEIGHT}px)`,
-      }}
-    >
+    <div className="flex items-center gap-4 justify-between flex-col">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -23,7 +32,7 @@ export const Hero = () => {
         className="absolute w-screen h-screen inset-0 bg-cover bg-center bg-no-repeat -z-[1]"
       ></motion.div>
 
-      <section className="flex flex-col justify-center h-full">
+      <section className="flex flex-col justify-center h-full mt-[250px]">
         <motion.h1
           className="text-3xl text-center mt-4 font-bossa"
           {...DEFAULT_MOTION({ delay: 0.4 })}
@@ -51,21 +60,15 @@ export const Hero = () => {
             <span className="tooltip -mt-12 -left-4 bg-devs-gray400 !text-white text-[11px] p-2 rounded-md min-w-[100px]">
               {time.toLocaleTimeString()} in {timezone}
             </span>
-          </button>{" "}
-          <span className="px-2">-</span>{" "}
-          <a
-            href="https://www.twitch.tv/devsforukraine"
-            target="_blank"
-            className="underline"
-            rel="noreferrer"
-          >
-            Livestream
-          </a>
+          </button>
         </MotionLabel>
       </section>
+      <div className="rounded-[12px] mt-[160px] overflow-hidden max-w-[854px] w-full">
+        <div id="twitch-embed" />
+      </div>
       <MotionSubHeadlineXL
         {...DEFAULT_MOTION({ delay: 1 })}
-        className="text-center !text-devs-gray100 max-w-[550px]"
+        className="text-center !text-devs-gray100 max-w-[550px] mt-[120px]"
       >
         Devs For Ukraine is a <span className="text-white">free</span>,
         <span className="text-white"> online</span> engineering conference with
