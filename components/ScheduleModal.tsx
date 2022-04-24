@@ -56,6 +56,10 @@ const BESchedule = [
     speaker: "Anjana Vakil",
     talk: "Opening Doors with Open Source",
   },
+  {
+    time: time("9:40:00"),
+    speaker: "End",
+  },
 ]
 
 export default function ScheduleModal({ params: { day } }: any) {
