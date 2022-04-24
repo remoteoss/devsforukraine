@@ -1,3 +1,4 @@
+import { openModal } from "react-url-modal"
 import { motion } from "framer-motion"
 import { shuffle } from "lodash-es"
 import { useSession } from "next-auth/react"
@@ -20,10 +21,6 @@ import {
 } from "../Typography"
 
 // generated with https://gcal.dotenv.dev/
-const gCalLinks = [
-  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Devs for Ukraine - Day 1&dates=20220425T160000Z/20220425T210000Z&details=",
-  "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Devs for Ukraine - Day 2&dates=20220426T160000Z/20220426T210000Z&details=",
-]
 
 const Header = ({ i }: { i: number }) => (
   <motion.div
@@ -35,12 +32,19 @@ const Header = ({ i }: { i: number }) => (
     </SubHeadlineXL>
     <div className="h-[1px] w-full bg-white mb-4 sm:block hidden" />
     <SecondaryButton
-      href={gCalLinks[i - 1]}
+      onClick={() =>
+        openModal({
+          name: "schedule",
+          params: {
+            day: i,
+          },
+        })
+      }
       target="_blank"
       rel="noreferrer"
-      className="sm:min-w-[168px] self-center sm:ml-[48px] mt-4 sm:mt-0 w-1/2 sm:w-auto"
+      className="sm:min-w-[168px] self-center sm:ml-[48px] mt-4 sm:mt-0 w-1/2 sm:w-auto justify-center"
     >
-      Add to your calendar
+      Schedule
     </SecondaryButton>
   </motion.div>
 )
