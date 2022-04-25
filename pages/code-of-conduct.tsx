@@ -22,7 +22,7 @@ const CodeOfConduct = () => (
         <br />
         <a
           className="text-devs-yellow block"
-          href="mailto:coc@devsforukraine.io"
+          href="mailto:sara.vieira@remote.com"
         >
           Report an Issue.
         </a>
@@ -67,7 +67,7 @@ const CodeOfConduct = () => (
       using{" "}
       <a
         className="text-devs-yellow underline"
-        href="mailto:coc@devsforukraine.io"
+        href="mailto:sara.vieira@remote.com"
       >
         this email
       </a>
