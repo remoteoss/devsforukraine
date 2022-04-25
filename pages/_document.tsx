@@ -12,6 +12,7 @@ export default function Document() {
         <Main />
         <NextScript />
       </body>
+
       <script
         defer
         data-domain="devsforukraine.io"
