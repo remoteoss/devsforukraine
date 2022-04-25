@@ -9,6 +9,7 @@ import { ModalWrapper } from "../components/ModalWrapper"
 import { SEO } from "../components/SEO"
 import SignInModal from "../components/SignInModal"
 import "./styles.css"
+import ScheduleModal from "../components/ScheduleModal"
 
 // Use of the <SessionProvider> is mandatory to allow components that call
 // `useSession()` anywhere in your application to access the `session` object.
@@ -31,6 +32,7 @@ export default function App({ Component, pageProps }: AppProps) {
             modals={{
               donate: DonateModal,
               signin: SignInModal,
+              schedule: ScheduleModal,
             }}
             Wrapper={ModalWrapper}
           />
