@@ -7,6 +7,12 @@ export const PAYMENT_STEPS = {
 
 export const HEADER_HEIGHT = 112
 
+export const USDFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 0,
+})
+
 export const DEFAULT_MOTION = (transition: any = { delay: .1 }) => ({
     initial: { y: 32, opacity: 0 },
     whileInView: { opacity: 1, y: 0 },

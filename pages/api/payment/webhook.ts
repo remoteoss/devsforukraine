@@ -1,12 +1,13 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from "../../../utils/prisma"
 import tmi from 'tmi.js'
+import { USDFormatter } from '../../../utils/constants';
 
 
 const CHANNEL = "devsforukraine";
 const BOT_USER_NAME = "devsforukrainebot";
 
-const sendTwitchMessage = function (amount: number) {
+const sendTwitchMessage = async function (amount: number) {
     const client = new tmi.Client({
         options: { debug: true },
         connection: {
@@ -19,9 +20,16 @@ const sendTwitchMessage = function (amount: number) {
         },
         channels: []
     });
+    const balance = await prisma.donation.findMany({
+        include: {
+            User: true,
+        }
+    })
+
+    const all = balance.reduce((acc, cur) => acc + cur.amount, 0)
 
     client.connect().then(() => {
-        client.say(CHANNEL, `Got a new donation of ${amount}$! KA-CHING! 💰`);
+        client.say(CHANNEL, `Got a new donation of ${amount}$! KA-CHING! We now have a total of ${USDFormatter.format(all)}💰`);
         client.disconnect();
     });
 };
@@ -60,7 +68,7 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
                         })
                     }
                     try {
-                        sendTwitchMessage(charge / 100)
+                        await sendTwitchMessage(charge / 100)
                     }
                     // eslint-disable-next-line no-console
                     catch (e) { console.log(e) }

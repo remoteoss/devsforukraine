@@ -5,15 +5,9 @@ import { DonateButton } from "../Buttons/Donate"
 import { H3, Label, MotionH2, MotionSubHeadlineLarge } from "../Typography"
 import { NGOS } from "./NGO"
 import { motion } from "framer-motion"
-import { DEFAULT_MOTION } from "../../utils/constants"
+import { DEFAULT_MOTION, USDFormatter } from "../../utils/constants"
 import { Reactions } from "@prisma/client"
 import { EmojiPicker } from "./EmojiPicker"
-
-var formatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 0,
-})
 
 type Props = {
   balance: balance["balance"]
@@ -61,9 +55,9 @@ export const DonationProgress = ({
         </Label>
         <Label className=" !text-devs-gray100">
           <H3 className="block text-white sm:text-right pb-1">
-            {formatter.format(balance)}
+            {USDFormatter.format(balance)}
           </H3>{" "}
-          raised of {formatter.format(goal)} goal
+          raised of {USDFormatter.format(goal)} goal
         </Label>
       </div>
       <div className="h-4 bg-devs-black w-full rounded-[100px]">
