@@ -6,11 +6,7 @@ import { prisma } from "../../../utils/prisma"
 
 
 const balance = async (req: NextApiRequest, res: NextApiResponse) => {
-    const balance = await prisma.donation.findMany({
-        include: {
-            User: true,
-        }
-    })
+    const balance = await prisma.donation.findMany()
 
     const all = balance.reduce((acc, cur) => acc + cur.amount, 0)
 
