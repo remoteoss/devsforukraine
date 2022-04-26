@@ -6,15 +6,18 @@ import { prisma } from "../../../utils/prisma"
 
 
 const balance = async (req: NextApiRequest, res: NextApiResponse) => {
-    const balance = await prisma.donation.findMany()
-
-    const all = balance.reduce((acc, cur) => acc + cur.amount, 0)
+    const { _sum: { amount }, _count } = await prisma.donation.aggregate({
+        _sum: {
+            amount: true,
+        },
+        _count: true,
+    })
 
     res.send({
-        balance: all,
+        balance: amount,
         goal: GOAL,
-        percentage: parseFloat((all / GOAL * 100).toFixed(2)),
-        donations: balance.length
+        percentage: parseFloat(((amount || 0) / GOAL * 100).toFixed(2)),
+        donations: _count
     })
 
 }

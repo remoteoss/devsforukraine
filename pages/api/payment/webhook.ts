@@ -20,12 +20,15 @@ const sendTwitchMessage = async function (amount: number) {
         },
         channels: []
     });
-    const balance = await prisma.donation.findMany()
-
-    const all = balance.reduce((acc, cur) => acc + cur.amount, 0)
+    const { _sum } = await prisma.donation.aggregate({
+        _sum: {
+            amount: true,
+        },
+        _count: true,
+    })
 
     client.connect().then(() => {
-        client.say(CHANNEL, `Got a new donation of ${amount}$! KA-CHING! We now have a total of ${USDFormatter.format(all)}💰`);
+        client.say(CHANNEL, `Got a new donation of ${amount}$! KA-CHING! We now have a total of ${USDFormatter.format(_sum?.amount || 0)}💰`);
         client.disconnect();
     });
 };
