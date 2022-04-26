@@ -24,7 +24,6 @@ const sendTwitchMessage = async function (amount: number) {
         _sum: {
             amount: true,
         },
-        _count: true,
     })
 
     client.connect().then(() => {
