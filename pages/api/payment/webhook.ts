@@ -1,6 +1,30 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from "../../../utils/prisma"
+import tmi from 'tmi.js'
 
+
+const CHANNEL = "devsforukraine";
+const BOT_USER_NAME = "devsforukrainebot";
+
+const sendTwitchMessage = function (amount: number) {
+    const client = new tmi.Client({
+        options: { debug: true },
+        connection: {
+            secure: true,
+            reconnect: true
+        },
+        identity: {
+            username: BOT_USER_NAME,
+            password: process.env.TWITCH_BOT_OAUTH_TOKEN
+        },
+        channels: []
+    });
+
+    client.connect().then(() => {
+        client.say(CHANNEL, `Got a new donation of ${amount}$! KA-CHING! 💰`);
+        client.disconnect();
+    });
+};
 
 const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
@@ -35,12 +59,19 @@ const webhook = async (req: NextApiRequest, res: NextApiResponse) => {
                             }
                         })
                     }
+                    try {
+                        sendTwitchMessage(charge / 100)
+                    }
+                    // eslint-disable-next-line no-console
+                    catch (e) { console.log(e) }
                 }
 
                 break;
             default:
                 break;
         }
+
+
 
         // Return a 200 res to acknowledge receipt of the body
         res.send({ received: true });
