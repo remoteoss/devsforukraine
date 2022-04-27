@@ -6,6 +6,7 @@ import { TicketButton } from "./Buttons/TicketButton"
 import { RegisterWithGitHub } from "./Buttons/RegisterGitHub"
 import { motion } from "framer-motion"
 import { ByRemoteIcon } from "./Icons"
+import { DonateButton } from "./Buttons/Donate"
 
 const MOTION = {
   initial: { opacity: 0 },
@@ -36,7 +37,7 @@ export default function Header() {
           </a>
         </Link>
         <div className="flex gap-3 flex-wrap mt-0 justify-start">
-          {/* <DonateButton /> */}
+          <DonateButton />
           {session?.user?.username ? <TicketButton /> : <RegisterWithGitHub />}
         </div>
       </div>
