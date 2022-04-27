@@ -43,6 +43,7 @@ export const Hero = () => {
             href="https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE"
             target={"_blank"}
             rel="noreferrer"
+            className="text-devs-yellow"
           >
             View talks on youtube
           </a>
@@ -57,6 +58,16 @@ export const Hero = () => {
         <span className="text-white"> online</span> engineering conference with
         the goal to <span className="text-white">raise funds</span> and provide
         support to Ukraine. 🇺🇦
+        <br />
+        You can
+        <a
+          href="https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE"
+          target={"_blank"}
+          rel="noreferrer"
+          className="text-white"
+        >
+          watch the talks on YouTube, here.
+        </a>
       </MotionSubHeadlineXL>
     </div>
   )
