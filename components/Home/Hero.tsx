@@ -10,23 +10,8 @@ const time = new Date("5/15/2022 4:00:00 PM UTC")
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 export const Hero = () => {
-  const loadTwitch = () => {
-    // @ts-ignore
-    new window.Twitch.Embed("twitch-embed", {
-      width: "100%",
-      height: 480,
-      layout: "video",
-      channel: "devsforukraine",
-      parent: ["embed.example.com", "othersite.example.com"],
-    })
-  }
-  const today = new Date().getDate()
   return (
     <div className="flex items-center gap-4 justify-between flex-col">
-      <Script
-        src="https://embed.twitch.tv/embed/v1.js"
-        onLoad={loadTwitch}
-      ></Script>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -66,29 +51,9 @@ export const Hero = () => {
               {time.toLocaleTimeString()} in {timezone}
             </span>
           </button>
-          {today < 27 && (
-            <>
-              <span className="px-2">-</span>{" "}
-              <button
-                className="relative underline-offset-2 underline uppercase"
-                onClick={() =>
-                  openModal({
-                    name: "schedule",
-                    params: {
-                      day: today > 25 ? 2 : 1,
-                    },
-                  })
-                }
-              >
-                Schedule
-              </button>
-            </>
-          )}
         </MotionLabel>
       </section>
-      <div className="rounded-[12px] sm:mt-[160px] mt-20 overflow-hidden max-w-[854px] w-full">
-        <div id="twitch-embed" />
-      </div>
+
       <MotionSubHeadlineXL
         {...DEFAULT_MOTION({ delay: 1 })}
         className="text-center !text-devs-gray100 max-w-[550px] mt-[120px]"

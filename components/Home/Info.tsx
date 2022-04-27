@@ -10,8 +10,8 @@ const info = [
     bottom: "Front-End Speakers",
   },
   {
-    top: Intl.NumberFormat("en", { notation: "compact" }).format(GOAL),
-    bottom: "Donation goal",
+    top: "102K",
+    bottom: "Donated",
   },
   {
     top: 8,
