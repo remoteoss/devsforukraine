@@ -37,7 +37,7 @@ export default function Header() {
           </a>
         </Link>
         <div className="flex gap-3 flex-wrap mt-0 justify-start">
-          <DonateButton />
+          {/* <DonateButton /> */}
           {session?.user?.username ? <TicketButton /> : <RegisterWithGitHub />}
         </div>
       </div>

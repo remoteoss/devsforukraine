@@ -45,12 +45,13 @@ export const Hero = () => {
           <span className="text-devs-yellow">April 25</span> &{" "}
           <span className="text-devs-yellow">26</span>, 2022{" "}
           <span className="px-2">-</span>{" "}
-          <button className="has-tooltip relative">
-            4 PM UTC
-            <span className="tooltip -mt-12 -left-4 bg-devs-gray400 !text-white text-[11px] p-2 rounded-md min-w-[100px]">
-              {time.toLocaleTimeString()} in {timezone}
-            </span>
-          </button>
+          <a
+            href="https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE"
+            target={"_blank"}
+            rel="noreferrer"
+          >
+            View talks on youtube
+          </a>
         </MotionLabel>
       </section>
 
@@ -58,7 +59,7 @@ export const Hero = () => {
         {...DEFAULT_MOTION({ delay: 1 })}
         className="text-center !text-devs-gray100 max-w-[550px] mt-[120px]"
       >
-        Devs For Ukraine is a <span className="text-white">free</span>,
+        Devs For Ukraine was a <span className="text-white">free</span>,
         <span className="text-white"> online</span> engineering conference with
         the goal to <span className="text-white">raise funds</span> and provide
         support to Ukraine. 🇺🇦
