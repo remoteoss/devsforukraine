@@ -31,21 +31,6 @@ const Header = ({ i }: { i: number }) => (
       <H3 className="text-white block">Day {i}</H3> Speakers & Talks
     </SubHeadlineXL>
     <div className="h-[1px] w-full bg-white mb-4 sm:block hidden" />
-    <SecondaryButton
-      onClick={() =>
-        openModal({
-          name: "schedule",
-          params: {
-            day: i,
-          },
-        })
-      }
-      target="_blank"
-      rel="noreferrer"
-      className="sm:min-w-[168px] self-center sm:ml-[48px] mt-4 sm:mt-0 w-1/2 sm:w-auto justify-center"
-    >
-      Schedule
-    </SecondaryButton>
   </motion.div>
 )
 
@@ -139,30 +124,16 @@ const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
               <TwitterSmall />
             </a>
           </div>
-          <Label className="!text-devs-gray100 pt-1">{speaker.bio}</Label>
+          <TalkName className="!text-devs-gray100 pt-1">
+            {" "}
+            {speaker.talk || "TBD"}
+          </TalkName>
         </div>
       </div>
-      <div className="flex sm:max-w-[60%] mt-4 sm:mt-0 gap-4 items-center">
-        <TalkName className="sm:text-right">
-          <span className="pr-1">🎤 </span>
-          {speaker.talk || "TBD"}
-        </TalkName>
-        {speaker.qa && (
-          <SecondaryButton
-            href={
-              session?.user
-                ? "/ask-question"
-                : {
-                    shallow: true,
-                    query: {
-                      modal: "signin",
-                    },
-                  }
-            }
-          >
-            Ask a Question
-          </SecondaryButton>
-        )}
+      <div className="flex sm:max-w-[70%] mt-4 sm:mt-0 gap-4 items-center">
+        <SecondaryButton href={speaker.yt} target="_blank" rel="noreferrer">
+          View talk
+        </SecondaryButton>
       </div>
     </motion.li>
   )

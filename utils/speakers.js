@@ -27,6 +27,7 @@ export const frontendSpeakers = [
     twitter: "bencodezen",
     bio: "@vuejs core team & senior staff dx engineer @netlify",
     talk: "Third Time's the Charm: Taking Another Look at Vue 3",
+    yt: "https://www.youtube.com/watch?v=4SzLisCvb4M&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=6",
   },
   {
     name: "Charlie Gerard",
@@ -34,6 +35,7 @@ export const frontendSpeakers = [
     twitter: "devdevcharlie",
     bio: "Senior developer advocate  @Stripe",
     talk: "Simple JStures can go a long way",
+    yt: "https://www.youtube.com/watch?v=KUB3mbA-5Ac&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=3",
   },
   {
     name: "Natalia Tepluhina",
@@ -41,6 +43,7 @@ export const frontendSpeakers = [
     twitter: "N_Tepluhina",
     bio: "@vuejs core team & Staff Frontend Engineer @gitlab",
     talk: "Local state and server cache: finding a balance",
+    yt: "https://www.youtube.com/watch?v=C2AuGBGLMa8&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=7",
   },
   {
     name: "Jessica Janiuk",
@@ -48,6 +51,7 @@ export const frontendSpeakers = [
     twitter: "ThePunderWoman",
     bio: "Angular Team @Google",
     talk: "A RESTful API for Your Wellbeing",
+    yt: "https://www.youtube.com/watch?v=wUksfAEZmYE&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=10",
   },
   {
     name: "Cassidy Williams",
@@ -62,6 +66,7 @@ export const frontendSpeakers = [
     twitter: "dan_abramov",
     bio: "React team at @Meta",
     talk: "Q&A",
+    yt: "https://www.youtube.com/watch?v=jWafEXS7EE0&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=8",
   },
   {
     name: "Volodymyr Agafonkin",
@@ -69,6 +74,7 @@ export const frontendSpeakers = [
     pic: vladimir,
     bio: "Engineer at @Mapbox, creator of @LeafletJS, algorithms geek, rock musician",
     talk: "Solving everyday problems with data visualization",
+    yt: "https://www.youtube.com/watch?v=lK11UP1qOLw&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=9",
   },
   {
     name: "Addy Osmani",
@@ -76,6 +82,7 @@ export const frontendSpeakers = [
     pic: addy,
     bio: "Engineering manager working on @GoogleChrome",
     talk: "The Future Of Performance Tooling",
+    yt: "https://www.youtube.com/watch?v=vjUKum12G9c&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=4",
   },
   {
     name: "Ben Lesh",
@@ -83,6 +90,7 @@ export const frontendSpeakers = [
     pic: lesh,
     bio: "#RxJS core team lead",
     talk: "Introduction to reactive programming",
+    yt: "https://www.youtube.com/watch?v=jR_W5hd-o4o&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=5",
   },
 ]
 
@@ -93,6 +101,7 @@ export const backendSpeakers = [
     twitter: "lillydoingecon",
     bio: "Founder at @ContendaCo",
     talk: "Engineering for Startups",
+    yt: "https://www.youtube.com/watch?v=qIbd8cl-Hhc&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=13",
   },
   {
     name: "Sandi Metz",
@@ -100,6 +109,7 @@ export const backendSpeakers = [
     twitter: "sandimetz",
     talk: "If you build it, they will come",
     bio: "Cyclist, Rubyist, author",
+    yt: "https://www.youtube.com/watch?v=i31HdYOwdmM&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=12",
   },
   {
     name: "Aaron Patterson",
@@ -107,6 +117,7 @@ export const backendSpeakers = [
     twitter: "tenderlove",
     bio: "Human at @Shopify",
     talk: "Almost on time",
+    yt: "https://www.youtube.com/watch?v=OLFgZA0ulrg&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=11",
   },
   {
     name: "Saša Jurić",
@@ -114,6 +125,7 @@ export const backendSpeakers = [
     twitter: "sasajuric",
     bio: "Elixir mentor, author of Elixir in Action",
     talk: "Fireside chat 🔥",
+    yt: "https://www.youtube.com/watch?v=eD9j_QsXWyA&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=14",
   },
   {
     name: "José Valim",
@@ -121,6 +133,7 @@ export const backendSpeakers = [
     twitter: "josevalim",
     bio: "Chief Adoption Officer at @dashbit. Creator of @elixirlang.",
     talk: "Q&A",
+    yt: "https://www.youtube.com/watch?v=2Vhd5fw59UY&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=17",
   },
   {
     name: "Andreas Klinger",
@@ -128,6 +141,7 @@ export const backendSpeakers = [
     twitter: "andreasklinger",
     bio: "CTO @beondeck",
     talk: "Fireside chat 🔥",
+    yt: "https://www.youtube.com/watch?v=eD9j_QsXWyA&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=14",
   },
   {
     name: "Tetiana Dushenkivska",
@@ -135,6 +149,7 @@ export const backendSpeakers = [
     twitter: "Tetiana12345678",
     bio: "Programmer, in love with Elixir-lang, proud mum, creator of @elixircards and @gitcards",
     talk: "Confident Elixir",
+    yt: "https://www.youtube.com/watch?v=Aw9Xd4XAhdE&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=15",
   },
   {
     name: "Vittoria Bitton",
@@ -142,6 +157,7 @@ export const backendSpeakers = [
     twitter: "vittoria_bitton",
     bio: "Senior Backend Engineer at @remote",
     talk: "Patterns for sanity",
+    yt: "https://www.youtube.com/watch?v=nG5-pKNgiUM&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=16",
   },
   {
     name: "Anjana Vakil",
@@ -149,6 +165,7 @@ export const backendSpeakers = [
     twitter: "AnjanaVakil",
     bio: " Senior Developer Advocate @HasuraHQ",
     talk: "Opening Doors with Open Source",
+    yt: "https://www.youtube.com/watch?v=pI50CzjdOAE&list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE&index=18",
   },
   {
     name: "Tobi Pfeiffer ",
