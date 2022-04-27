@@ -45,7 +45,7 @@ export const Hero = () => {
             rel="noreferrer"
             className="text-devs-yellow"
           >
-            View talks on youtube
+            View talks on YouTube
           </a>
         </MotionLabel>
       </section>
@@ -59,7 +59,7 @@ export const Hero = () => {
         the goal to <span className="text-white">raise funds</span> and provide
         support to Ukraine. 🇺🇦
         <br />
-        You can
+        You can{" "}
         <a
           href="https://www.youtube.com/playlist?list=PLxhAYc-E3agF5KgXBnxNstUq9FZoXNETE"
           target={"_blank"}
