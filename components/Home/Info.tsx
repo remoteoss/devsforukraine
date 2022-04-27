@@ -2,7 +2,7 @@ import classNames from "classnames"
 
 import { Label, StatsHeader } from "../Typography"
 import { motion } from "framer-motion"
-import { DEFAULT_MOTION, GOAL } from "../../utils/constants"
+import { DEFAULT_MOTION } from "../../utils/constants"
 
 const info = [
   {

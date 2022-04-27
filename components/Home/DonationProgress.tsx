@@ -1,6 +1,5 @@
 import "emoji-mart/css/emoji-mart.css"
 import { balance } from "../../utils/types"
-import { DonateButton } from "../Buttons/Donate"
 
 import { H3, Label, MotionH2, MotionSubHeadlineLarge } from "../Typography"
 import { NGOS } from "./NGO"

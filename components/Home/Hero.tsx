@@ -1,13 +1,7 @@
-import { DEFAULT_MOTION, HEADER_HEIGHT } from "../../utils/constants"
+import { DEFAULT_MOTION } from "../../utils/constants"
 import { HeartLogo } from "../Logo"
 import { MotionH1, MotionLabel, MotionSubHeadlineXL } from "../Typography"
 import { motion } from "framer-motion"
-import { useEffect } from "react"
-import Script from "next/script"
-import { openModal } from "react-url-modal"
-
-const time = new Date("5/15/2022 4:00:00 PM UTC")
-const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 export const Hero = () => {
   return (

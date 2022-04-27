@@ -1,7 +1,5 @@
-import { openModal } from "react-url-modal"
 import { motion } from "framer-motion"
 import { shuffle } from "lodash-es"
-import { useSession } from "next-auth/react"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { DEFAULT_MOTION } from "../../utils/constants"
@@ -13,7 +11,6 @@ import { SecondaryButton } from "../Buttons/Secondary"
 import { TwitterSmall } from "../Icons"
 import {
   H3,
-  Label,
   MotionH2,
   MotionSubHeadlineLarge,
   SubHeadlineXL,
@@ -89,8 +86,6 @@ const motionStagger = (index: number) => ({
   ...DEFAULT_MOTION({ delay: index * 0.05 }),
 })
 const Speaker = ({ speaker, i }: { speaker: any; i: number }) => {
-  const { data: session } = useSession()
-
   return (
     <motion.li
       {...motionStagger(i)}
