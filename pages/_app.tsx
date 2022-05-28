@@ -30,7 +30,6 @@ export default function App({ Component, pageProps }: AppProps) {
           <URLModal
             adapter="nextjs"
             modals={{
-              donate: DonateModal,
               signin: SignInModal,
               schedule: ScheduleModal,
             }}
